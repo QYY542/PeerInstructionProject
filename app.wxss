@@ -1,10 +1,73 @@
-/**app.wxss**/
+/**显示文字**/
 .container {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+
+/**输入框**/
+input {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.input-field {
+  width: 80%; 
+  margin-bottom: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**按钮**/
+.greenBtn {
+  width: 80%; 
+  padding: 25rpx 0;
+  background-color: #1aad19;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grayBtn{
+  width: 80%; 
+  padding: 25rpx 0;
+  background-color: #808080; 
+  color: #000; 
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**额外文本**/
+.extra {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  gap: 20rpx;
+}
+
+.extra text {
+  color: #007BFF; /* 设置文字为蓝色 */
+  text-decoration: underline; /* 添加下划线 */
+}

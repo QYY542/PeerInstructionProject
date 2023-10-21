@@ -1,13 +1,15 @@
 {
-  "pages":[
+  "pages": [
+    "pages/Login/Login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/Register/Register",
+    "pages/RetrievePassword/RetrievePassword"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "Peer",
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
