@@ -2,12 +2,12 @@
   <view class="title">请注册</view>
 
   <view>
-      <input class="input-field" placeholder="用户名" value="{{username}}" bindinput="bindInput" data-field="username"/>
-      <input class="input-field" placeholder="学号" value="{{studentID}}" bindinput="bindInput" data-field="studentID"/>
-      <input class="input-field" type="password" placeholder="密码" value="{{password}}" bindinput="bindInput" data-field="password"/>
-      <input class="input-field" type="password" placeholder="确认密码" value="{{confirmPassword}}" bindinput="bindInput" data-field="confirmPassword"/>
-      <input class="input-field" placeholder="邮箱地址" value="{{email}}" bindinput="bindInput" data-field="email"/>
-      <input class="input-field" placeholder="手机号" value="{{phone}}" bindinput="bindInput" data-field="phone"/>
+    <input class="input-field" placeholder="用户名" bindinput="inputUsername" />
+    <input class="input-field" placeholder="学号" bindinput="inputStudentID" />
+    <input class="input-field" type="password" placeholder="密码" bindinput="inputPassword" />
+    <input class="input-field" type="password" placeholder="确认密码" bindinput="inputConfirmPassword" />
+    <input class="input-field" placeholder="邮箱地址" bindinput="inputEmail" />
+    <input class="input-field" placeholder="手机号" bindinput="inputPhone" />
   </view>
   <button class="greenBtn" bindtap="handleRegister">注册</button>
 </view>

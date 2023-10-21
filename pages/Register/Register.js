@@ -8,10 +8,40 @@ Page({
       phone: ''
   },
 
-  bindInput: function(e) {
-    let field = e.currentTarget.dataset.field;
+  //处理输入
+  inputUsername(e) {
     this.setData({
-      [field]: e.detail.value
+      username: e.detail.value
+    });
+  },
+
+  inputStudentID(e) {
+    this.setData({
+      studentID: e.detail.value
+    });
+  },
+
+  inputPassword(e) {
+    this.setData({
+      password: e.detail.value
+    });
+  },
+
+  inputConfirmPassword(e) {
+    this.setData({
+      confirmPassword: e.detail.value
+    });
+  },
+
+  inputEmail(e) {
+    this.setData({
+      email: e.detail.value
+    });
+  },
+
+  inputPhone(e) {
+    this.setData({
+      phone: e.detail.value
     });
   },
 

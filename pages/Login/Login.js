@@ -4,17 +4,22 @@ Page({
     password: ''
   },
   
-  bindInput: function(e) {
-    let field = e.currentTarget.dataset.field;
+  inputEmail(e) {
     this.setData({
-      [field]: e.detail.value
+      email: e.detail.value
+    });
+  },
+
+  inputPassword(e) {
+    this.setData({
+      password: e.detail.value
     });
   },
   
   handleLogin() {
       // 这里可以添加登录逻辑，如请求后端API进行登录验证
       console.log('===登录===');
-      console.log('用户名:', this.data.email);
+      console.log('邮箱:', this.data.email);
       console.log('密码:', this.data.password);
   },
 

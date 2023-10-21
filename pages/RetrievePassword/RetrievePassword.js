@@ -5,13 +5,29 @@ Page({
     newPassword: '',  // 用户输入的新密码
     confirmPassword: '', // 用户再次输入的密码
   },
-  
-  bindInput: function(e) {
-    let field = e.currentTarget.dataset.field;
+  //处理输入
+  inputEmail(e) {
     this.setData({
-      [field]: e.detail.value
+      email: e.detail.value
     });
   },
+  inputVerificationCode(e) {
+    this.setData({
+      verificationCode: e.detail.value
+    });
+  },
+  inputNewPassword(e) {
+    this.setData({
+      newPassword: e.detail.value
+    });
+  },
+  inputConfirmPassword(e) {
+    this.setData({
+      confirmPassword: e.detail.value
+    });
+  },
+
+  //其他处理逻辑
   getVerificationCode: function() {
     // 获取验证码的逻辑
     // 您可以使用 this.data.email 来访问用户输入的邮箱地址

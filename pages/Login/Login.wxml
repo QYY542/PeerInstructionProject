@@ -2,9 +2,8 @@
   <view class="title">请登录</view>
   
   <view>
-    <!-- 给输入框添加data-field属性，指定要绑定到的data字段 -->
-    <input class="input-field" type="text" placeholder="邮箱" value="{{email}}" bindinput="bindInput" data-field="email" />
-    <input class="input-field" type="password" placeholder="密码" value="{{password}}" bindinput="bindInput" data-field="password" />
+    <input class="input-field" type="text" placeholder="邮箱"  bindinput="inputEmail" />
+    <input class="input-field" type="password" placeholder="密码"  bindinput="inputPassword"  />
   </view>
   
   <button class="greenBtn" bindtap="handleLogin">登录</button>
