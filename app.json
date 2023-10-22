@@ -9,14 +9,8 @@
     "pages/Teacher/TeacherMain/TeacherMain",
     "pages/Teacher/TeacherChapter/TeacherChapter",
     "pages/Student/StudentQuestion/StudentQuestion",
-    "pages/Teacher/TeacherQuestion/TeacherQuestion",
-    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose",
-    "pages/Teacher/TeacherFile/TeacherFile",
-    "pages/Teacher/TeacherFile/TeacherFileUpload",
-    "pages/Teacher/TeacherDiscussion/TeacherDiscussion",
-    "pages/Teacher/TeacherDiscussion/TeacherNewTopic",
-    "pages/Student/StudentDiscussion/StudentDiscussion",
-    "pages/Student/StudentFile/StudentFile"
+    "pages/Student/StudentFile/StudentFile",
+    "pages/Student/StudentForum/StudentForum"
   ],
   "window": {
     "backgroundTextStyle": "light",

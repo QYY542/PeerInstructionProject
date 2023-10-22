@@ -1,4 +1,4 @@
-// pages/Teacher/TeacherFile/TeacherFileUpload.js
+// pages/Student/StudentForum/StudentForum.js
 Page({
 
   /**
