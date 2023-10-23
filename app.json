@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/Login/Login",
+    "pages/Teacher/TeacherMain/TeacherMain",
+    
     "pages/index/index",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
     "pages/Student/StudentChapter/StudentChapter",
     "pages/Student/StudentMain/StudentMain",
-    "pages/Teacher/TeacherMain/TeacherMain",
+
     "pages/Teacher/TeacherChapter/TeacherChapter",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentFile/StudentFile",

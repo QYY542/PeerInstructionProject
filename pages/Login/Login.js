@@ -21,6 +21,17 @@ Page({
       console.log('===登录===');
       console.log('邮箱:', this.data.email);
       console.log('密码:', this.data.password);
+      if(this.data.email == '1' && this.data.password == '1'){
+        wx.redirectTo({
+          url: '/pages/Teacher/TeacherMain/TeacherMain'
+        });
+        /**
+        wx.redirectTo({
+          url: '/pages/Teacher/TeacherMain/TeacherMain'
+        });
+         */
+        
+      }
   },
 
   handleWeChatLogin(){
