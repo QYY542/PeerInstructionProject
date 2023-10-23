@@ -3,7 +3,7 @@
   
   <view>
     <input class="input-field" type="text" placeholder="邮箱"  bindinput="inputEmail" />
-    <input class="input-field" type="password" placeholder="密码"  bindinput="inputPassword"  />
+    <input class="input-field" type="text" placeholder="密码"  bindinput="inputPassword"  />
   </view>
   
   <button class="greenBtn" bindtap="handleLogin">登录</button>

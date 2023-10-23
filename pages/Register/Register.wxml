@@ -4,8 +4,8 @@
   <view>
     <input class="input-field" placeholder="用户名" bindinput="inputUsername" />
     <input class="input-field" placeholder="学号" bindinput="inputStudentID" />
-    <input class="input-field" type="password" placeholder="密码" bindinput="inputPassword" />
-    <input class="input-field" type="password" placeholder="确认密码" bindinput="inputConfirmPassword" />
+    <input class="input-field" placeholder="密码" bindinput="inputPassword" />
+    <input class="input-field" placeholder="确认密码" bindinput="inputConfirmPassword" />
     <input class="input-field" placeholder="邮箱地址" bindinput="inputEmail" />
     <input class="input-field" placeholder="手机号" bindinput="inputPhone" />
   </view>

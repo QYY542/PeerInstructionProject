@@ -8,7 +8,7 @@
 <view class="greeting">
     XXXXX老师，欢迎!
 </view>
-<view class="list-title">我的课程</view>
+<view class="list-title">我的课程 ({{courseCount}})</view>
 <!-- 列表容器 -->
 <view class="list-container">
     
