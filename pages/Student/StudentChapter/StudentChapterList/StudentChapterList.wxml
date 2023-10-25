@@ -17,7 +17,6 @@
     <view class="list" wx:for="{{items}}" wx:key="index">
         <view class="list-item">
             <text class="item-name">{{item.name}}</text>
-            <button class="delete-btn" bindtap="deleteItem" data-index="{{index}}">X</button>
         </view>
     </view>
 

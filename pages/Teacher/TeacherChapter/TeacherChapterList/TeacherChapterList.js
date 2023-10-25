@@ -9,11 +9,23 @@ Page({
 
   deleteItem: function(e) {
     let index = e.currentTarget.dataset.index;
-    let items = this.data.items;
-    items.splice(index, 1);
-    this.setData({
-      items: items,
-      courseCount: items.length  // 更新课程数量
+    let that = this;  // 保存当前的上下文
+
+    wx.showModal({
+      title: '确认删除',
+      content: '你确定要删除这个章节吗？',
+      success (res) {
+        if (res.confirm) {
+          let items = that.data.items;
+          items.splice(index, 1);
+          that.setData({
+            items: items,
+            courseCount: items.length  // 更新课程数量
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     });
   },
 
