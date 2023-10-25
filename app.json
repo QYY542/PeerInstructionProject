@@ -1,23 +1,24 @@
 {
   "pages": [
-
     "pages/Login/Login",
     "pages/index/index",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
 
-    
-    "pages/Teacher/TeacherChapter/TeacherChapter",
+    "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
+    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
     "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
-    
-    
-    "pages/Student/StudentChapter/StudentChapter",
+
+    "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
+    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentFile/StudentFile",
     "pages/Student/StudentForum/StudentForum",
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
     "pages/Student/StudentQuestion/StudentQuestion"
+
+
   ],
   "window": {
     "backgroundTextStyle": "light",

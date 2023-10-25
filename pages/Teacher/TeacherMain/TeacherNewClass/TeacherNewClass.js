@@ -24,7 +24,7 @@ Page({
       // 在这里添加你的代码来处理“下一步”操作
       // 例如，你可能想要导航到另一个页面或者做一些其他的事情
       wx.redirectTo({
-        url: '/pages/Teacher/TeacherChapter/TeacherChapter'  // 假设你有一个名为'nextPage'的页面
+        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  // 假设你有一个名为'nextPage'的页面
       });
     } else {
       wx.showToast({
