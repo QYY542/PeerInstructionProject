@@ -23,12 +23,12 @@ Page({
       console.log('密码:', this.data.password);
       // 进入教师版界面 or 学生版界面
       if(this.data.email == '1' && this.data.password == '1'){
-        wx.reLaunch({
-          url: '/pages/Teacher/TeacherMain/TeacherMain'
+        wx.redirectTo({
+          url: '/pages/Teacher/TeacherMain/TeacherClass/TeacherClass'
         });     
       }else if(this.data.email == '2' && this.data.password == '2'){
-        wx.reLaunch({
-          url: '/pages/Student/StudentMain/StudentMain'
+        wx.redirectTo({
+          url: '/pages/Student/StudentMain/StudentClass/StudentClass'
         });  
       }
   },

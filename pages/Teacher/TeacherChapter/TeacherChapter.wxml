@@ -1,2 +1,29 @@
-<!--pages/Teacher/TeacherChapter/TeacherChapter.wxml-->
-<text>pages/Teacher/TeacherChapter/TeacherChapter.wxml</text>
+<view class="container">
+
+<!-- 标题部分 -->
+<view class="header">
+   课程主页（教师版）
+</view>
+
+<view class="greeting">
+    XXXXX老师，欢迎！
+</view>
+<view class="list-title">课程章节 ({{courseCount}})</view>
+<!-- 列表容器 -->
+<view class="list-container">
+    
+
+    <!-- 列表部分 -->
+    <view class="list" wx:for="{{items}}" wx:key="index">
+        <view class="list-item">
+            <text class="item-name">{{item.name}}</text>
+            <button class="delete-btn" bindtap="deleteItem" data-index="{{index}}">X</button>
+        </view>
+    </view>
+
+</view>
+
+<!-- 创建课程按钮 -->
+<button class="darkBtn" bindtap="addItem">创建章节</button>
+
+</view>
