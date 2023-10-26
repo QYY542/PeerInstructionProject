@@ -36,5 +36,11 @@ Page({
       items: items,
       courseCount: items.length  // 更新课程数量
     });
+  },
+
+  goToChapterMain: function(e) {
+    wx.navigateTo({
+      url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain'
+    });
   }
 });

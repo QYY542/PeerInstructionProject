@@ -113,13 +113,25 @@ input {
 }
 
 
-.list-item {
+.list-item-class {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20rpx;
   border-bottom: 1rpx solid #ddd;
-  background-color: #dfb8b8;
+  background-color: #e2a6a6;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
+  height: 120rpx;
+}
+
+.list-item-chapter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #85e4f5;
   border-radius: 20rpx;
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
   height: 120rpx;

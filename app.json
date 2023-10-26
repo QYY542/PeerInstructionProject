@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/Login/Login",
-    "pages/index/index",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
 

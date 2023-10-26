@@ -7,6 +7,10 @@ Page({
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
   },
 
-
+  goToChapterMain: function(e) {
+    wx.navigateTo({
+      url: '/pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain'
+    });
+  }
 
 });

@@ -15,7 +15,7 @@
 
     <!-- 列表部分 -->
     <view class="list" wx:for="{{items}}" wx:key="index">
-        <view class="list-item">
+        <view class="list-item-chapter" bindtap="goToChapterMain" >
             <text class="item-name">{{item.name}}</text>
         </view>
     </view>

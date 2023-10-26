@@ -1,2 +1,16 @@
-<!--pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxml-->
-<text>pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxml</text>
+<view class="container">
+
+<!-- 标题部分 -->
+<view class="header">
+    章节主页（教师版）
+</view>
+
+<view class="greeting">
+    章节名称：XXX
+</view>
+
+<button class="darkBtn" bindtap="addItem">前往文件发布区</button>
+<button class="darkBtn" bindtap="addItem">前往章节讨论区</button>
+<button class="darkBtn" bindtap="addItem">为章节添加题目</button>
+
+</view>

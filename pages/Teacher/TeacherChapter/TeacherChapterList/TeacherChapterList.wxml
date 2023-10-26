@@ -15,9 +15,10 @@
 
     <!-- 列表部分 -->
     <view class="list" wx:for="{{items}}" wx:key="index">
-        <view class="list-item">
+        <view class="list-item-chapter" bindtap="goToChapterMain" >
             <text class="item-name">{{item.name}}</text>
-            <button class="delete-btn" bindtap="deleteItem" data-index="{{index}}">X</button>
+            <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素-->
+            <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
         </view>
     </view>
 
