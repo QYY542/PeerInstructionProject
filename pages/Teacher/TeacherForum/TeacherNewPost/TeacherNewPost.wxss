@@ -1,0 +1,13 @@
+
+
+.content-input {
+  width: 80%;  /* 从 input 样式中继承宽度 */
+  padding: 20rpx;  /* 从 input 样式中继承填充 */
+  border: 1rpx solid #ddd;  /* 从 input 样式中继承边框 */
+  border-radius: 10rpx;  /* 从 input 样式中继承边框半径 */
+  font-size: 28rpx;  /* 从 input 样式中继承字体大小 */
+  height: 600rpx;  /* 设置一个较大的高度以容纳更多文本 */
+  margin-bottom: 30rpx;  /* 从 .input-field 样式中继承底部外边距 */
+  margin-left: auto;  /* 从 .input-field 样式中继承左外边距 */
+  margin-right: auto;  /* 从 .input-field 样式中继承右外边距 */
+}

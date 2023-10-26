@@ -1,0 +1,24 @@
+/* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
+
+.list-container-forum {
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 35rpx;
+  background-color: #fff;
+  height: 65vh;
+  overflow-y: auto;
+  border: 8rpx solid black; /* 添加外部的黑框 */
+}
+
+.list-item-forum {
+  display: flex;
+  flex-direction: column; /* 设置为column使内容竖直排列 */
+  justify-content: flex-start; /* 根据需要调整 */
+  align-items: flex-start;     /* 根据需要调整 */
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #85e4f5;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
+  height: 150rpx; /* 设置为auto以适应内容的高度 */
+}

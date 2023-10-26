@@ -1,1 +1,76 @@
 /* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
+
+.list-container-question {
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 35rpx;
+  background-color: #fff;
+  height: 50vh;
+  overflow-y: auto;
+  border: 8rpx solid black; /* 添加外部的黑框 */
+}
+
+.list-item-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #85e4f5;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
+  height: 120rpx;
+}
+
+/* 四个按钮 */
+.question-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #626262;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 80rpx;
+  min-width: 180rpx;
+  max-width: 180rpx;
+}
+
+.firstOpen-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #f2ff81;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 150rpx;
+  min-width: 100rpx;
+  max-width: 100rpx;
+}
+
+.sencondOpen-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #ff8581;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 150rpx;
+  min-width: 100rpx;
+  max-width: 100rpx;
+}
+
+.openAnswer-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #f583ff;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 150rpx;
+  min-width: 100rpx;
+  max-width: 100rpx;
+}

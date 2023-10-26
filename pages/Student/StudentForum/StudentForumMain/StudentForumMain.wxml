@@ -1,0 +1,24 @@
+<view class="container">
+
+<!-- 标题部分 -->
+<view class="header">
+    讨论区主页（学生版）
+</view>
+
+<view class="greeting">
+    章节名称：XXX
+</view>
+
+<!-- 列表容器 -->
+<view class="list-container-forum">
+<!-- 列表部分 -->
+<view class="list" wx:for="{{items}}" wx:key="index">
+    <view class="list-item-forum" bindtap="goToPostDetil">
+      <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
+      <text class="item-name">标题</text>
+      <text class="item-text">帖子内容</text>
+      <text class="item-text">发帖时间</text>
+    </view>
+</view>
+</view>
+</view>

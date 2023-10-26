@@ -1,0 +1,20 @@
+<view class="container">
+<!-- 标题部分 -->
+<view class="header">
+    发布帖子（教师版）
+</view>
+
+<view class="greeting">
+    帖子ID：XXX
+</view>
+
+<!-- 标题输入框 -->
+<input class="input-field" type="text" placeholder="输入帖子标题" bindinput="inputTitle" />
+
+<!-- 内容输入框 -->
+<textarea class="content-input" placeholder="输入帖子内容" bindinput="inputContent"></textarea>
+
+<!-- 发布按钮 -->
+<button class="darkBtn" bindtap="post">发布帖子</button>
+
+</view>

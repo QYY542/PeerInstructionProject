@@ -3,21 +3,21 @@
     "pages/Login/Login",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
-
+    "pages/Forum/PostDetil/PostDetil",
+    "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
     "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
-
+    "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
+    "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentFile/StudentFile",
-    "pages/Student/StudentForum/StudentForum",
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
-    "pages/Student/StudentQuestion/StudentQuestion"
-
-
+    "pages/Student/StudentQuestion/StudentQuestion",
+    "pages/Student/StudentForum/StudentForumMain/StudentForumMain"
   ],
   "window": {
     "backgroundTextStyle": "light",

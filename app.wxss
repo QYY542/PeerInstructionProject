@@ -91,7 +91,7 @@ input {
   flex: 0;
   background-color: #ff4c4c;
   color: #fff;
-  border-radius: 18rpx;
+  border-radius: 25rpx;
   height: 115rpx;
 }
 
@@ -99,11 +99,11 @@ input {
 .list-container {
   padding: 20rpx;
   margin-top: 20rpx;
-  border-radius: 20rpx;
+  border-radius: 35rpx;
   background-color: #fff;
-  height: 60vh;
+  height: 65vh;
   overflow-y: auto;
-  border: 2rpx solid black; /* 添加外部的黑框 */
+  border: 8rpx solid black; /* 添加外部的黑框 */
 }
 
 .list-title {
@@ -120,9 +120,9 @@ input {
   padding: 20rpx;
   border-bottom: 1rpx solid #ddd;
   background-color: #e2a6a6;
-  border-radius: 20rpx;
+  border-radius: 30rpx;
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
-  height: 120rpx;
+  height: 150rpx;
 }
 
 .list-item-chapter {
@@ -132,13 +132,28 @@ input {
   padding: 20rpx;
   border-bottom: 1rpx solid #ddd;
   background-color: #85e4f5;
-  border-radius: 20rpx;
+  border-radius: 30rpx;
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
-  height: 120rpx;
+  height: 150rpx;
 }
 
 
+
+
 .item-name {
+  flex: 1;
+  font-size: 35rpx;
+  width: 65%;
+  font-weight: bold; 
+  white-space: normal;  /* 允许文本自动换行 */
+  word-wrap: break-word;  /* 如果需要的话，允许单词内的断行 */
+  display: -webkit-box;  /* 使用box模型 */
+  -webkit-line-clamp: 1;  /* 限制在两行 */
+  -webkit-box-orient: vertical;  /* 设置为垂直方向 */
+  overflow: hidden;  /* 隐藏多余的文本 */
+}
+
+.item-text {
   flex: 1;
   font-size: 28rpx;
   width: 65%;
@@ -149,6 +164,8 @@ input {
   -webkit-box-orient: vertical;  /* 设置为垂直方向 */
   overflow: hidden;  /* 隐藏多余的文本 */
 }
+
+
 
 /**额外文本**/
 .extra {

@@ -1,4 +1,4 @@
-// pages/Student/StudentForum/StudentForum.js
+// pages/Forum/PostDetil/PostDetil.js
 Page({
 
   /**
