@@ -6,7 +6,7 @@
 </view>
 
 <view class="greeting">
-    XXXXX同学，欢迎！
+    课程ID：XXXXX
 </view>
 <view class="list-title">课程章节 ({{courseCount}})</view>
 <!-- 列表容器 -->

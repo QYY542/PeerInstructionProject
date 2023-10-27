@@ -65,7 +65,7 @@
 }
 
 .list-item {
-  background-color: rgba(109, 109, 109, 0.7); /* 使颜色半透明 */
+  background-color: rgba(39, 39, 39, 0.7); /* 使颜色半透明 */
   backdrop-filter: blur(100px); /* 添加模糊效果 */
   margin-bottom: 20rpx;
   padding: 5rpx;
@@ -101,5 +101,43 @@
 }
 
 .comment-content {
+  font-size: 28rpx;
   color: #666;
+}
+
+/*底部输入框*/
+.comment-input-section {
+  position: fixed;  /* 固定定位 */
+  justify-content: space-between;
+  bottom: 0;  /* 定位到底部 */
+  width: 100%;  /* 宽度为100% */
+  background-color: #fff;  /* 背景颜色 */
+  display: flex;  /* 使用flex布局 */
+  flex: auto;
+  align-items: center;  /* 垂直居中 */
+  padding: 20rpx;  /* 添加一些内间距 */
+  border-top: 1rpx solid #ddd;  /* 添加顶部边框 */
+  padding-bottom: 35rpx;
+}
+
+.comment-input {
+  padding: 10rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 30rpx;
+  flex: 1;  /* 允许输入框占用更多空间 */
+  max-width: 470rpx;
+}
+
+.submit-comment-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #000000;  /* 按钮颜色 */
+  color: #fff;  /* 文字颜色 */
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+  min-width: 180rpx;
+  max-width: 180rpx;
+  height: 70rpx;
 }

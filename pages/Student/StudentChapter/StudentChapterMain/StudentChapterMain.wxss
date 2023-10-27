@@ -1,1 +1,55 @@
-/* pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain.wxss */
+/* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
+
+.list-container-question {
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 35rpx;
+  background-color: #fff;
+  height: 59vh;
+  overflow-y: auto;
+  border: 8rpx solid black; /* 添加外部的黑框 */
+}
+
+.list-item-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #85e4f5;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
+  height: 120rpx;
+}
+
+/* 四个按钮 */
+.question-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #626262;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 80rpx;
+  min-width: 180rpx;
+  max-width: 180rpx;
+}
+
+/* 题目信息容器样式 */
+.question-info {
+  background-color: #94ffac;  /* 设置背景颜色 */
+  border: 1rpx solid #ddd;  /* 设置边框 */
+  border-radius: 10rpx;  /* 设置边框圆角 */
+  padding: 20rpx;  /* 设置内间距 */
+  margin: 10rpx 0;  /* 设置外间距 */
+  width: 340rpx;
+}
+
+/* 题目信息文本样式 */
+.question-info-text {
+  font-weight: bold;
+  font-size: 28rpx;  /* 设置字体大小 */
+  color: #333;  /* 设置字体颜色 */
+  line-height: 1.5;  /* 设置行高 */
+}

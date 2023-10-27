@@ -11,4 +11,18 @@
 
 <button class="darkBtn" bindtap="goToFileMain">前往文件发布区</button>
 <button class="darkBtn" bindtap="goToForumMain">前往章节讨论区</button>
+
+<!-- 列表容器 -->
+<view class="list-container-question">
+<!-- 列表部分 -->
+<view class="list" wx:for="{{items}}" wx:key="index">
+    <view class="list-item-question">
+      <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
+      <button class="question-btn" catchtap="goToQuestionMain" data-index="{{index}}">题目</button>
+      <view class="question-info">
+        <text class="question-info-text">题目信息</text>
+      </view>
+    </view>
+</view>
+</view>
 </view>
