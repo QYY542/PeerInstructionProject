@@ -1,2 +1,34 @@
-<!--pages/Forum/PostDetil/PostDetil.wxml-->
-<text>pages/Forum/PostDetil/PostDetil.wxml</text>
+<view class="container">
+
+<!-- 帖子详情区域 -->
+<view class="post-detail">
+    <view class="post-title-section">
+        <text class="post-title">{{post.title}}</text>
+        <text class="post-time">{{post.time}}</text>
+    </view>
+    <view class="separator"></view> <!-- 标题和内容之间的分隔线 -->
+    <view class="post-content-section">
+        <text class="post-content">{{post.content}}</text>
+    </view>
+    
+</view>
+<!-- 评论列表区域 -->
+<view class="comment-list-section">
+    <view class="comment-count">
+        <text>评论  {{comments.length}}</text>
+    </view>
+    <view class="separator"></view> <!-- 评论数量和评论列表之间的分隔线 -->
+    <scroll-view class="comment-list" scroll-y="true">
+        <view class="list" wx:for="{{comments}}" wx:key="index">
+        <view class="list-item">
+            <view class="list-item-2">
+                <text class="comment-author">{{item.author}}</text>
+                <text class="comment-time">{{item.time}}</text>
+                <text class="comment-content">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+    </scroll-view>
+</view>
+
+</view>

@@ -92,7 +92,7 @@ input {
   background-color: #ff4c4c;
   color: #fff;
   border-radius: 25rpx;
-  height: 115rpx;
+  height: 130rpx;
 }
 
 /**课程和章节列表**/
