@@ -1,0 +1,23 @@
+/* pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain.wxss */
+
+.list-item-file {
+  display: flex;
+  flex-direction: column; /* 设置为column使内容竖直排列 */
+  justify-content: flex-start; /* 根据需要调整 */
+  align-items: flex-start;     /* 根据需要调整 */
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #f5f385;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
+  height: 150rpx; /* 设置为auto以适应内容的高度 */
+}
+.item-size{
+  font-size: 28rpx;
+  width: 65%;
+}
+
+.item-time{
+  font-size: 28rpx;
+  width: 65%;
+}

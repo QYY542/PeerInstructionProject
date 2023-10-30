@@ -13,7 +13,7 @@ Page({
 
   goToFileMain: function(e) {
     wx.navigateTo({
-      url: '/'
+      url: '/pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain'
     });
   },
 

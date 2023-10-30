@@ -1,0 +1,7 @@
+<!--utils/Test/Test.wxml-->
+<text>utils/Test/Test.wxml</text>
+<button bindtap="chooseImage">相册相机选择图片</button>
+<button bindtap="chooseRecordImage">聊天记录选择图片</button>
+<view style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <image bindtap="previewImage" src="{{img}}" mode="aspectFit"/>
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+
+<!-- 标题部分 -->
+<view class="header">
+    文件区主页（教师版）
+</view>
+
+<view class="greeting">
+    章节名称：XXX
+</view>
+
+<button class="darkBtn" bindtap="addNewFile">添加文件</button>
+
+<!-- 列表容器 -->
+<view class="list-container">
+<!-- 列表部分 -->
+<view class="list" wx:for="{{items}}" wx:key="index">
+    <view class="list-item-class" bindtap="goToFileUpload">
+      <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
+      <view class="item-name">
+        <text class="item-name">文件标题</text>
+        <text class="item-size">1.1MB </text>
+        <text class="item-time">2023-10-15</text>
+      </view>
+      <!-- <text class="item-size">1.1MB</text>
+      <text class="item-time">2023-10-15</text> -->
+      <button class="delete-btn" catchtap="downloadItem" data-index="{{index}}">Y</button>
+      <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
+    </view>
+    
+</view>
+</view>
+</view>

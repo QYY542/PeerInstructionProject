@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Login/Login",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
@@ -17,7 +18,8 @@
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
     "pages/Student/StudentQuestion/StudentQuestion",
-    "pages/Student/StudentForum/StudentForumMain/StudentForumMain"
+    "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,5 +28,9 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell"
+  }
 }

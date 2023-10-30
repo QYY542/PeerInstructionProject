@@ -32,7 +32,8 @@
 </view>
 
 </view>
+
 <view class="comment-input-section">
     <input class="comment-input" type="text" placeholder="写评论..." />
-      <button class="submit-comment-btn" bindtap="submitComment">发布</button>
-  </view>
+    <button class="submit-comment-btn" bindtap="submitComment">发布</button>
+</view>
