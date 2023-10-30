@@ -1,5 +1,3 @@
-
-
 .post-detail {
   background-color: #ffffff;
   padding: 20rpx;
@@ -64,12 +62,18 @@
   flex: 1;
 }
 
+.comment-list-section {
+  flex: 1;
+  overflow-y: scroll;
+  margin-bottom: 80px
+}
+
 .list-item {
   background-color: rgba(39, 39, 39, 0.7); /* 使颜色半透明 */
   backdrop-filter: blur(100px); /* 添加模糊效果 */
   margin-bottom: 20rpx;
   padding: 5rpx;
-  border-radius: 25rpx;
+  border-radius: 28rpx;
   display: flex;
   flex-direction: column;
 }
@@ -81,7 +85,6 @@
   border-radius: 25rpx;
   display: flex;
   flex-direction: column;
-  
 }
 
 .comment-author, .comment-time, .comment-content {

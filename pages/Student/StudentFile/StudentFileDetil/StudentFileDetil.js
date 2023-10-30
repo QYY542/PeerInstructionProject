@@ -94,35 +94,6 @@ Page({
       })
     }
 
-  },
-  addNewFile(){
-    const that = this;  // 保存当前页面的this对象，以便在回调函数中使用
-    wx.chooseMessageFile({
-      count: 1,  // 允许用户选择的最大文件数
-      type: 'file',  // 文件类型
-      success(res) {
-        console.log(res)
-        const { tempFiles } = res;  // 获取选择的文件列表
-        if (tempFiles && tempFiles.length > 0) {
-          const file = tempFiles[0];  // 获取第一个文件（因为count设置为1，所以只有一个文件）
-          const newItem = {
-            name: file.name,  // 文件名
-            fileId: Math.random().toString(36).substring(2),  // 生成一个随机的文件ID
-            // 其他你想要保存的文件信息...
-          };
-          const items = that.data.items.concat(newItem);  // 将新文件添加到items数组中
-          that.setData({
-            items,  // 更新页面数据，以显示新文件
-          });
-        }
-      },
-      fail(err) {
-        console.error('选择文件失败:', err);
-      }
-    });
-  },
-  saveOperation(){
-
   }
   
 })

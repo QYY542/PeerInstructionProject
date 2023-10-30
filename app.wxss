@@ -49,7 +49,7 @@ input {
 .greenBtn {
   width: 80%; 
   padding: 25rpx 0;
-  background-color: #1aad19;
+  background-color: #07C160;
   color: #fff;
   border-radius: 10rpx;
   text-align: center;
@@ -100,7 +100,7 @@ input {
 .list-container {
   padding: 20rpx;
   margin-top: 20rpx;
-  border-radius: 35rpx;
+  border-radius: 25rpx;
   background-color: #fff;
   height: 65vh;
   overflow-y: auto;
@@ -121,7 +121,7 @@ input {
   padding: 20rpx;
   border-bottom: 1rpx solid #ddd;
   background-color: #e2a6a6;
-  border-radius: 30rpx;
+  border-radius: 20rpx;
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
   height: 150rpx;
 }
@@ -133,7 +133,7 @@ input {
   padding: 20rpx;
   border-bottom: 1rpx solid #ddd;
   background-color: #85e4f5;
-  border-radius: 30rpx;
+  border-radius: 20rpx;
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
   height: 150rpx;
 }

@@ -1,0 +1,9 @@
+/* pages/Student/StudentFile/StudentFileDetil/StudentFileDetil.wxss */
+.fileTitle{
+  margin-left: 55rpx;
+  font-size: 40rpx;
+}
+.updateTime{
+  margin-left: 55rpx;
+  font-size: 25rpx;
+}

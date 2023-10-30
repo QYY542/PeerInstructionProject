@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Login/Login",
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
     "pages/Forum/PostDetil/PostDetil",
@@ -14,12 +14,13 @@
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
-    "pages/Student/StudentFile/StudentFile",
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
-    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload"
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+    "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
+    "pages/Student/StudentFile/StudentFileMain/StudentFileMain"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,6 +32,7 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell"
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
   }
 }

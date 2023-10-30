@@ -1,1 +1,5 @@
 /* pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload.wxss */
+.updateTime{
+  margin-left: 55rpx;
+  font-size: 25rpx;
+}

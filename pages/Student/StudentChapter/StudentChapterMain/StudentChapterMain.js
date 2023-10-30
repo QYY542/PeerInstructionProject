@@ -11,7 +11,7 @@ Page({
 
   goToFileMain: function(e) {
     wx.navigateTo({
-      url: '/'
+      url: '/pages/Student/StudentFile/StudentFileMain/StudentFileMain'
     });
   },
 

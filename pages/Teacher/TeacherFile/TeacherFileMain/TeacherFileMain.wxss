@@ -21,3 +21,7 @@
   font-size: 28rpx;
   width: 65%;
 }
+
+.gap{
+  width: 15rpx;
+}
