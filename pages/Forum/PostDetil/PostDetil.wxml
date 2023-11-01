@@ -1,5 +1,5 @@
-<view class=".container">
 
+  <view class="list-container-post-detil">
 <!-- 帖子详情区域 -->
 <view class="post-detail">
     <view class="post-title-section">
@@ -29,8 +29,8 @@
           </view>
         </view>
     </scroll-view>
-</view>
 
+</view>
 </view>
 
 <view class="comment-input-section">

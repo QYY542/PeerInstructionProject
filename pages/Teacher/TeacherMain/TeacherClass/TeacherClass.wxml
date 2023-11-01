@@ -11,8 +11,6 @@
 <view class="list-title">我的课程 ({{courseCount}})</view>
 <!-- 列表容器 -->
 <view class="list-container">
-    
-
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
     <view class="list-item-class" bindtap="goToChapterList" data-index="{{index}}">

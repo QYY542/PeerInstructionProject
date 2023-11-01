@@ -3,3 +3,9 @@
   margin-left: 55rpx;
   font-size: 25rpx;
 }
+.list-container-file-detil {
+  padding: 20rpx;
+  background-color: #fff;
+  height: 90vh;
+  overflow-y: auto;
+}

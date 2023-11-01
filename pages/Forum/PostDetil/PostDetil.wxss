@@ -144,3 +144,10 @@
   max-width: 180rpx;
   height: 70rpx;
 }
+
+.list-container-post-detil {
+  padding: 20rpx;
+  background-color: #fff;
+  height: 90vh;
+  overflow-y: auto;
+}

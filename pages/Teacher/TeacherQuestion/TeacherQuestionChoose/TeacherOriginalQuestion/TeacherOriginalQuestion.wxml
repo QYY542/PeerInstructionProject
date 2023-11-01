@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="tags-input">
+    <view wx:for="{{tags}}" wx:key="index" class="tag">
+        <text>{{item}}</text>
+        <view bindtap="deleteTag" data-index="{{index}}" class="delete-tag">x</view>
+    </view>
+    <input placeholder="输入后按空格添加新标签" value="{{currentTag}}" bindinput="inputTag" bindconfirm="handleConfirm" class="input-tag" />
+</view>
+
+
+
+    <textarea placeholder="请输入题目内容" bindinput="inputQuestion" class="content-input"></textarea>
+
+    <view class="image-picker">
+        <view class="chosen-image" wx:if="{{imageSrc}}">
+          <image bindtap="previewImage" src="{{imageSrc}}" mode="aspectFit"/>
+        </view>
+        <button class="darkBtn" bindtap="chooseImage">相册相机选择图片</button>
+        <button class="darkBtn" bindtap="chooseRecordImage">聊天记录选择图片</button> 
+        <button class="darkBtn" wx:if="{{imageSrc}}" bindtap="deleteImage">删除图片</button> 
+    </view>
+
+    <view class="options">
+        <view class="option">
+            <text>A. </text><input type="text" placeholder="选项内容" bindinput="inputOptionA" />
+        </view>
+        <view class="option">
+            <text>B. </text><input type="text" placeholder="选项内容" bindinput="inputOptionB" />
+        </view>
+        <view class="option">
+            <text>C. </text><input type="text" placeholder="选项内容" bindinput="inputOptionC" />
+        </view>
+        <view class="option">
+            <text>D. </text><input type="text" placeholder="选项内容" bindinput="inputOptionD" />
+        </view>
+    </view>
+
+    <view class="answer">
+    <checkbox-group bindchange="checkboxChange">
+        <text>正确答案：</text>
+        <label><checkbox value="A" checked="{{answer.indexOf('A') !== -1}}" /> A</label>
+        <label><checkbox value="B" checked="{{answer.indexOf('B') !== -1}}" /> B</label>
+        <label><checkbox value="C" checked="{{answer.indexOf('C') !== -1}}" /> C</label>
+        <label><checkbox value="D" checked="{{answer.indexOf('D') !== -1}}" /> D</label>
+      </checkbox-group>
+    </view>
+
+    <button class="darkBtn" bindtap="submit">确认</button>
+</view>

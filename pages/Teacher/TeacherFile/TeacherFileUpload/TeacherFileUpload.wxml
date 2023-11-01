@@ -2,7 +2,8 @@
 
 <input class="input-field" type="text" placeholder="请在此输入文件标题"  bindinput="fileTitle" />
 <text class="updateTime">上次更新于2023-10-30 21:09</text>
-<button class="darkBtn" bindtap="addNewFile">添加文件</button>
+<button class="darkBtn" bindtap="addNewFileDisk">从内部存储中添加</button>
+<button class="darkBtn" bindtap="addNewFileMessage">从聊天记录中添加</button>
 <button class="darkBtn" bindtap="saveOperation">保存</button>
 
 <mp-cells ext-class="my-cells" title="文件列表">

@@ -21,6 +21,30 @@ Page({
           name:"课堂成员.xlsx",
           src:3
         },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
+        {
+          name:"课堂成员.xlsx",
+          src:3
+        },
       ],
       buttons:[
         {
@@ -95,7 +119,11 @@ Page({
     }
 
   },
-  addNewFile(){
+  addNewFileDisk(){
+    const that = this;
+    wx.getFileSystemManager()
+  },
+  addNewFileMessage(){
     const that = this;  // 保存当前页面的this对象，以便在回调函数中使用
     wx.chooseMessageFile({
       count: 1,  // 允许用户选择的最大文件数

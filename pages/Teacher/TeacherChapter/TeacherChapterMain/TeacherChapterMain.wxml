@@ -11,7 +11,7 @@
 
 <button class="darkBtn" bindtap="goToFileMain">文件区</button>
 <button class="darkBtn" bindtap="goToForumMain">讨论区</button>
-<button class="darkBtn" bindtap="goToQuestionMain">添加题目</button>
+<button class="darkBtn" bindtap="goToQuestionChoose">添加题目</button>
 <!-- 列表容器 -->
 <view class="list-container-question">
 <!-- 列表部分 -->
@@ -25,4 +25,5 @@
     </view>
 </view>
 </view>
+<mp-half-screen-dialog bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}"  desc="请选择添加题目来源" buttons="{{buttons}}"></mp-half-screen-dialog>
 </view>

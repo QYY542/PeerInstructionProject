@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 70rpx;
+}
+/*输入框*/
+.input-field {
+  width: 80%; 
+  margin-bottom: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-input {
+  width: 80%;  /* 从 input 样式中继承宽度 */
+  padding: 20rpx;  /* 从 input 样式中继承填充 */
+  border: 1rpx solid #ddd;  /* 从 input 样式中继承边框 */
+  border-radius: 10rpx;  /* 从 input 样式中继承边框半径 */
+  font-size: 28rpx;  /* 从 input 样式中继承字体大小 */
+  height: 100rpx;  /* 设置一个较大的高度以容纳更多文本 */
+  margin-bottom: 30rpx;  /* 从 .input-field 样式中继承底部外边距 */
+  margin-left: auto;  /* 从 .input-field 样式中继承左外边距 */
+  margin-right: auto;  /* 从 .input-field 样式中继承右外边距 */
+}
+
+.textarea-question, .option input {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.textarea-question {
+  height: 200rpx;
+}
+
+.image-picker {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40rpx;
+}
+
+.chosen-image {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.options {
+  padding: 20rpx 0;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.option text {
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.option input {
+  flex: 1;  /* 使输入框占据剩余空间 */
+  padding: 10rpx;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+}
+
+.answer label {
+  margin-right: 20rpx;
+}
+.answer text {
+  margin-left: 40rpx;
+}
+
+/*标签*/
+.tags-input {
+  width: 83%; 
+  margin-bottom: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;  /* 允许内容自动换行 */
+  border-radius: 10rpx;
+  border: 1px solid #ccc;
+  padding: 5px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.tag {
+  background-color: #f5c0c0;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  margin-right: 5px; /* 在标签之间添加间距 */
+  margin-bottom: 5px; /* 在标签之间添加上下间距 */
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.delete-tag {
+  margin-left: 8px;         /* 增加距离，使其看起来不拥挤 */
+  font-size: 14px;          /* 增大字体大小 */
+  color: #900;
+  cursor: pointer;
+  padding: 0px 8px;         /* 增大水平padding，不影响垂直padding */
+  border-radius: 2px; 
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* 移除点击动画效果 */
+}
+
+.input-tag {
+  flex: 1;  /* 允许输入框在容器中自动扩展 */
+  min-width: 120px;  /* 为输入框设置一个最小宽度 */
+  border: none;
+  outline: none;
+  padding: 5px;
+  line-height: 20px;
+}
+
+
