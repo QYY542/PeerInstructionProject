@@ -122,4 +122,29 @@
   line-height: 20px;
 }
 
+/*共享题库*/
+.shared-option {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.shared-option text {
+  margin-left: 40rpx;
+}
+
+.radio-label {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.option-text {
+  font-size: 14px;
+}
+radio-group {
+  display: flex;
+  align-items: center;
+}
+
 

@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Login/Login",
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
@@ -22,7 +21,7 @@
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
-    
+    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
   ],
   "window": {

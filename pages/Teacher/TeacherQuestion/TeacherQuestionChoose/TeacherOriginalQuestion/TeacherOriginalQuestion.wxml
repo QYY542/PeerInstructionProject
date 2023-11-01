@@ -44,6 +44,18 @@
         <label><checkbox value="D" checked="{{answer.indexOf('D') !== -1}}" /> D</label>
       </checkbox-group>
     </view>
+    
+    <view class="shared-option">
+  <text >添加到共享题库？</text>
+  <radio-group bindchange="radioChange">
+    <label class="radio-label">
+      <radio value="yes" checked="{{shared}}"/> 是
+    </label>
+    <label class="radio-label">
+      <radio value="no" checked="{{!shared}}"/> 否
+    </label>
+  </radio-group>
+</view>
 
     <button class="darkBtn" bindtap="submit">确认</button>
 </view>
