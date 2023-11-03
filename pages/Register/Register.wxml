@@ -9,5 +9,6 @@
     <input class="input-field" placeholder="邮箱地址" bindinput="inputEmail" />
     <input class="input-field" placeholder="手机号" bindinput="inputPhone" />
   </view>
+  <checkbox checked="{{checkboxValue}}"  bindtap="handleCheckboxChange">我是老师</checkbox>
   <button class="greenBtn" bindtap="handleRegister">注册</button>
 </view>
