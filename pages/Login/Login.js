@@ -16,22 +16,53 @@ Page({
     });
   },
   
-  handleLogin() {
-      // 这里可以添加登录逻辑，如请求后端API进行登录验证
-      console.log('===登录===');
-      console.log('邮箱:', this.data.email);
-      console.log('密码:', this.data.password);
-      // 进入教师版界面 or 学生版界面
-      if(this.data.email == '1' && this.data.password == '1'){
-        wx.redirectTo({
-          url: '/pages/Teacher/TeacherMain/TeacherClass/TeacherClass'
-        });     
-      }else if(this.data.email == '2' && this.data.password == '2'){
-        wx.redirectTo({
-          url: '/pages/Student/StudentMain/StudentClass/StudentClass'
-        });  
-      }
-  },
+  handleLogin: function() {
+    console.log(this.data.email)
+    console.log(this.data.password)
+    /*
+    向后端传递邮箱与密码，返回判断结果：
+    学生登录成功
+    教师登录成功
+    密码错误
+    邮箱不存在
+    */
+    wx.request({
+      url: 'http://127.0.0.1:5000/login/',// 后端接口地址
+      data: {email:this.data.email, password:this.data.password},
+      dataType: String,//传递给后端的数据类型
+      method: 'GET',
+      header: {'Content-Type': 'application/json;charset=utf-8'},
+      timeout: 0,
+      success: (result) => {
+        console.log(result)
+        var get = JSON.parse(result.data)
+        console.log(JSON.parse(result.data).msg)
+        if(get.msg == '教师登录成功'){
+          wx.redirectTo({
+            url: '/pages/Teacher/TeacherMain/TeacherClass/TeacherClass'
+          });
+        }else if(get.msg == '学生登录成功'){
+          wx.redirectTo({
+            url: '/pages/Student/StudentMain/StudentClass/StudentClass'
+          });
+        }else if(get.msg == '密码错误'){
+          wx.showToast({
+            title: '密码错误',
+            icon: 'none',
+            duration: 2000
+          })
+        }else if(result.data == '邮箱不存在'){
+          wx.showToast({
+            title: '邮箱不存在',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+},
 
   handleWeChatLogin(){
     wx.showToast({
