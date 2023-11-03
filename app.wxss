@@ -1,5 +1,6 @@
 @import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
-/**显示文字DEVELOP**/
+
+/**显示文字WZC**/
 .container {
   display: flex;
   flex-direction: column;
