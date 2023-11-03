@@ -52,6 +52,7 @@ Page({
     注册成功
     邮箱已注册
     前后密码不一致
+    参数缺失
     */
     wx.request({
       url: 'http://127.0.0.1:5000/register/',
@@ -61,6 +62,33 @@ Page({
       timeout: 0,
       success: (result) => {
         var get = JSON.parse(result.data)
+        if(get.msg == '请检查请求参数awa'){
+          wx.showToast({
+            title: '缺少注册信息',
+            icon: 'none',
+            duration: 2000
+          })
+        }else if(get.msg == '两次密码不同'){
+          wx.showToast({
+            title: '前后密码不一致',
+            icon: 'none',
+            duration: 2000
+          })
+        }else if(get.msg == '注册成功OvO'){
+          wx.showToast({
+            title: '注册成功',
+          })
+          wx.navigateTo({
+            url: 'pages/Login/Login',
+          })
+        }else if(get.msg == '邮箱已被占用Orz'){
+          wx.showToast({
+            title: '邮箱已被注册',
+            icon: 'none',
+            duration: 2000
+          })
+
+        }
       },
       fail: (err) => {},
       complete: (res) => {},
@@ -73,8 +101,9 @@ Page({
     console.log('确认密码:', this.data.confirmPassword);
     console.log('邮箱地址:', this.data.email);
     console.log('手机号:', this.data.phone);
+    console.log('是否为老师',this.data.is_teacher)
 
-    // 其他验证和注册逻辑...
+
 }
 
 });
