@@ -128,9 +128,14 @@ deleteLastTag() {
   },
 
   //选择正确答案
-  checkboxChange(e) {
-    this.setData({ answer: e.detail.value });
-  },
+checkboxChange(e) {
+  const sortedAnswers = e.detail.value.sort();
+  // 获取checkbox的value值，这是一个数组
+  console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+  // 更新数据
+  this.setData({ answer: sortedAnswers });
+  console.log('answer：', this.data.answer);
+},
   //是否共享
   radioChange(e) {
     this.setData({ shared: e.detail.value === 'yes' });

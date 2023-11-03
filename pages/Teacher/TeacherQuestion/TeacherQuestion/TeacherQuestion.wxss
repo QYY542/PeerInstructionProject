@@ -1,0 +1,127 @@
+/* 容器样式 */
+.container {
+  padding: 30rpx;
+  font-family: sans-serif;
+}
+
+/* 问题样式 */
+.question {
+  margin-bottom: 20rpx;
+}
+
+.question-text {
+  font-size: 34rpx;
+  line-height: 1.5;
+  color: #333;
+}
+
+.question-image {
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+/* 分隔线样式 */
+.separator {
+  height: 3rpx;
+  background-color: #ddd;
+  margin: 20rpx 0;
+}
+
+/* 选项列表样式 */
+.options-container {
+  margin-bottom: 20rpx;
+}
+
+.option {
+  display: flex;
+  margin: 20rpx 0;
+}
+
+.option-prefix {
+  width: 10%;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+/* 选项按钮样式 */
+.option-btn {
+  flex-grow: 1;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  transition: all 0.3s ease;
+  background-color: #f8f8f8;
+}
+
+/* 选中与正确答案样式 */
+.option-btn.selected,
+.option-btn.correct {
+  border: 4rpx solid #4CAF50;
+}
+
+/* 选项文本样式 */
+.option-text {
+  font-size: 30rpx;
+  line-height: 1.5;
+  color: #333;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+}
+
+/* 进度条样式 */
+.option-content {
+  position: relative;
+  width: 80%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.option-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.progress-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0, 150, 136, 0.2);
+  transition: width 0.3s ease;
+  border-radius: 5rpx;
+}
+
+/* 投票统计样式 */
+.option-stats {
+  
+  font-size: 24rpx;
+  color: #666;
+  text-align: left;
+  margin-top: 10rpx;
+}
+
+/*题目控制*/
+.input-time {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.open-btn,
+.reveal-btn {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.open-btn[disabled],
+.reveal-btn[disabled] {
+  background-color: #ccc;
+}
+

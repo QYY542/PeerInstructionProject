@@ -10,7 +10,7 @@
   <view wx:for="{{items}}" wx:for-item="item" wx:key="index">
     <mp-cell>
       <view>{{item.name}}</view>
-      <view slot="footer" id="{{item.src}}" bindtap="showMore">更多</view>
+      <view slot="footer" id="{{item.src}}" catchtap="showMore">更多</view>
     </mp-cell>
   </view>
 </mp-cells>

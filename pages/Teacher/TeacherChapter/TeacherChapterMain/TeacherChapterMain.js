@@ -65,7 +65,7 @@ Page({
       show:false
     })
     wx.navigateTo({
-      url: '/'
+      url: '/pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion'
     });
   },
 

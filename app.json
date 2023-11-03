@@ -1,6 +1,9 @@
 {
   "pages": [
+    
     "pages/Login/Login",
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
@@ -16,13 +19,13 @@
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
-    "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
