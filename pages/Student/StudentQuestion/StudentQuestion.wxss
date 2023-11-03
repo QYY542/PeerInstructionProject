@@ -1,1 +1,87 @@
-/* pages/Student/StudentQuestion/StudentQuestion.wxss */
+.container {
+  padding: 30rpx;
+  font-family: -apple-system-font, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.question {
+  margin-bottom: 20rpx;
+}
+
+.question-text {
+  font-size: 34rpx;
+  line-height: 1.5;
+  color: #333;
+}
+
+.question-image {
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+.options-container {
+  margin-bottom: 20rpx;
+}
+
+.option {
+  display: flex;
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+.option-prefix {
+  width: 10%;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.option-btn {
+  width: 150rpx;
+  flex-grow: 1;
+  background-color: #f8f8f8;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  transition: all 0.3s ease;
+}
+
+.option-btn.selected {
+  background-color: #b7e0ad;
+}
+
+.option-text {
+  max-width: 100%;
+  font-size: 30rpx;
+  line-height: 1.5;
+  color: #333;
+  word-wrap: break-word; /* 自动换行 */
+  white-space: normal; /* 允许换行 */
+  text-align: left; /* 文本左对齐 */
+}
+
+.timer {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #1aad19;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.submit-btn:active {
+  background-color: #138e16;
+}
+
+.separator {
+  height: 3rpx;
+  background-color: #ddd;
+  margin: 20rpx 0;
+}

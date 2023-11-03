@@ -1,1 +1,104 @@
-/* pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  height: 95vh; /* 视口高度 */
+}
+/*标签*/
+.tags-input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; 
+  z-index: 10;  
+  background-color: #ffffff; 
+  flex-shrink: 0; /* 防止它在容器空间不足时缩小 */
+
+  width: 83%; 
+  margin-bottom: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;  /* 允许内容自动换行 */
+  border-radius: 10rpx;
+  border: 1px solid #ccc;
+  padding: 5px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.tag {
+  background-color: #f5c0c0;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  margin-right: 5px; /* 在标签之间添加间距 */
+  margin-bottom: 5px; /* 在标签之间添加上下间距 */
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.delete-tag {
+  margin-left: 8px;         /* 增加距离，使其看起来不拥挤 */
+  font-size: 14px;          /* 增大字体大小 */
+  color: #900;
+  cursor: pointer;
+  padding: 0px 8px;         /* 增大水平padding，不影响垂直padding */
+  border-radius: 2px; 
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* 移除点击动画效果 */
+}
+
+.input-tag {
+  flex: 1;  /* 允许输入框在容器中自动扩展 */
+  min-width: 120px;  /* 为输入框设置一个最小宽度 */
+  border: none;
+  outline: none;
+  padding: 5px;
+  line-height: 20px;
+}
+
+/*列表*/
+.list-container {
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 25rpx;
+  background-color: #fff;
+  height: 80vh;
+  overflow-y: auto;
+  flex-grow: 1; /* 使其占据剩余空间 */
+}
+
+.list-item-bank {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;   /* 修改为从上部开始 */
+  padding: 20rpx;
+  padding-bottom: 28rpx;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #58ffbf;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx; 
+  height: 150rpx;
+}
+
+.item-name {
+  flex: 1;
+  padding-left: 10rpx;
+  padding-top: 10rpx;  /* 为了使文字有一些上边距 */
+  font-size: 26rpx;  
+  display: -webkit-box;
+  -webkit-line-clamp: 3;  
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-image {
+  width: 200rpx;
+  height: 160rpx;
+  padding-right: 10rpx;
+  border-radius: 10rpx;
+  background-color: #E0E0E0;  /* 提供一个默认的背景颜色 */
+}

@@ -1,2 +1,19 @@
-<!--pages/Student/StudentQuestion/StudentQuestion.wxml-->
-<text>pages/Student/StudentQuestion/StudentQuestion.wxml</text>
+<view class="container">
+  <view class="question">
+    <text class="question-text" user-select="true">{{questionText}}</text>
+    <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit"/>
+  </view>
+  <view class="separator"></view> <!-- 评论数量和评论列表之间的分隔线 -->
+  <view class="options-container">
+    <block wx:for="{{options}}" wx:key="option">
+      <view class="option" data-index="{{index}}" bindtap="onOptionTap">
+        <view class="option-prefix">{{item.option}}</view>
+        <view class="option-btn {{item.selected ? 'selected' : ''}}">
+          <text class="option-text">{{item.text}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <text class="timer" user-select="true">剩余时间：{{remainingTime}}秒</text>
+  <button class="submit-btn" bindtap="onSubmit">提交答案</button>
+</view>

@@ -23,7 +23,7 @@ Page({
   
   goToQuestionMain: function(e) {
     wx.navigateTo({
-      url: '/'
+      url: '/pages/Student/StudentQuestion/StudentQuestion'
     });
   },
 });

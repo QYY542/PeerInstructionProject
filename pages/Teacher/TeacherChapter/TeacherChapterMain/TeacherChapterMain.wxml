@@ -25,5 +25,5 @@
     </view>
 </view>
 </view>
-<mp-half-screen-dialog bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}"  desc="请选择添加题目来源" buttons="{{buttons}}"></mp-half-screen-dialog>
+<mp-half-screen-dialog title="添加题目" bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}"  desc="请选择添加题目来源" buttons="{{buttons}}"></mp-half-screen-dialog>
 </view>

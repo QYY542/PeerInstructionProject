@@ -37,12 +37,18 @@ Page({
     })
   },
   goToFileMain: function(e) {
+    this.setData({
+      show:false
+    })
     wx.navigateTo({
       url: '/pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain'
     });
   },
 
   goToForumMain: function() {
+    this.setData({
+      show:false
+    })
     wx.navigateTo({
       url: '/pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain'
     });
@@ -55,8 +61,11 @@ Page({
   },
   
   goToQuestionMain: function(e) {
+    this.setData({
+      show:false
+    })
     wx.navigateTo({
-      url: '/'
+      url: '/pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion'
     });
   },
 
@@ -64,10 +73,16 @@ Page({
     console.log(e.detail.index)
     //查看文件
     if(e.detail.index == 1){
+      this.setData({
+        show:false
+      })
       wx.navigateTo({
         url: '/pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion'
       });
     }else{
+      this.setData({
+        show:false
+      })
       wx.navigateTo({
         url: '/pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank'
       });

@@ -14,16 +14,19 @@
   margin-right: auto;
 }
 .content-input {
-  width: 80%;  /* 从 input 样式中继承宽度 */
-  padding: 20rpx;  /* 从 input 样式中继承填充 */
-  border: 1rpx solid #ddd;  /* 从 input 样式中继承边框 */
-  border-radius: 10rpx;  /* 从 input 样式中继承边框半径 */
-  font-size: 28rpx;  /* 从 input 样式中继承字体大小 */
-  height: 100rpx;  /* 设置一个较大的高度以容纳更多文本 */
-  margin-bottom: 30rpx;  /* 从 .input-field 样式中继承底部外边距 */
-  margin-left: auto;  /* 从 .input-field 样式中继承左外边距 */
-  margin-right: auto;  /* 从 .input-field 样式中继承右外边距 */
+  width: 80%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+  min-height: 100rpx;  /* 设定一个最小高度 */
+  margin-bottom: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;  /* 防止用户手动调整大小 */
 }
+
 
 .textarea-question, .option input {
   width: 100%;
@@ -120,6 +123,31 @@
   outline: none;
   padding: 5px;
   line-height: 20px;
+}
+
+/*共享题库*/
+.shared-option {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.shared-option text {
+  margin-left: 40rpx;
+}
+
+.radio-label {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.option-text {
+  font-size: 14px;
+}
+radio-group {
+  display: flex;
+  align-items: center;
 }
 
 

@@ -5,7 +5,8 @@ Page({
     question: '',
     imageSrc: '',
     options: {A: '', B: '', C: '', D: ''},
-    answer: []  // 答案现在是一个数组
+    answer: [],  // 答案是一个数组
+    shared: true, // 默认为'是'
   },
   //标签
   inputTag(e) {
@@ -49,7 +50,7 @@ deleteLastTag() {
   }
 },
 
-  //
+  //输入文本
 
   inputQuestion(e) {
     this.setData({ question: e.detail.value });
@@ -101,6 +102,7 @@ deleteLastTag() {
     })
   },
 
+  //输入选项文本
   inputOptionA(e) {
     let options = this.data.options;
     options.A = e.detail.value;
@@ -125,9 +127,19 @@ deleteLastTag() {
     this.setData({ options: options });
   },
 
-  checkboxChange(e) {
-    this.setData({ answer: e.detail.value });
-  },
+  //选择正确答案
+checkboxChange(e) {
+  const sortedAnswers = e.detail.value.sort();
+  // 获取checkbox的value值，这是一个数组
+  console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+  // 更新数据
+  this.setData({ answer: sortedAnswers });
+  console.log('answer：', this.data.answer);
+},
+  //是否共享
+  radioChange(e) {
+    this.setData({ shared: e.detail.value === 'yes' });
+},
 
   submit() {
     console.log('题目数据：', this.data);

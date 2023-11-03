@@ -2,7 +2,12 @@
   "pages": [
     
     "pages/Login/Login",
+<<<<<<< HEAD
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Student/StudentQuestion/StudentQuestion",
+=======
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
+>>>>>>> 7d49e923251428d0e78a40bb10c4906d7f0523b6
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
@@ -18,13 +23,13 @@
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
-    "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
-    
+    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
