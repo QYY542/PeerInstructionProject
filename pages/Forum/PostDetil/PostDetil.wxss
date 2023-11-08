@@ -87,26 +87,6 @@
   flex-direction: column;
 }
 
-.comment-author, .comment-time, .comment-content {
-  margin-bottom: 10rpx;
-  word-wrap: break-word;  /* 允许在单词内断行 */
-  white-space: normal;  /* 允许文本自动换行 */
-}
-
-.comment-author {
-  font-weight: bold;
-  color: #333;
-}
-
-.comment-time {
-  font-size: 25rpx;
-  color: #666;
-}
-
-.comment-content {
-  font-size: 28rpx;
-  color: #666;
-}
 
 /*底部输入框*/
 .comment-input-section {

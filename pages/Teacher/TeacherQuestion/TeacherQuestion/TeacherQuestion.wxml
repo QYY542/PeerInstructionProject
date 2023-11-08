@@ -3,7 +3,7 @@
   <!-- 问题部分 -->
   <view class="question">
     <text class="question-text" user-select="true">{{questionText}}</text>
-    <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit"/>
+    <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit" bindtap="previewImage"/>
   </view>
   <view class="separator"></view>
 

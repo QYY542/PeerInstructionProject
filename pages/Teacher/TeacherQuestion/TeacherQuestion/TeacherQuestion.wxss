@@ -18,6 +18,7 @@
 .question-image {
   width: 100%;
   margin: 20rpx 0;
+  height: 300rpx;
 }
 
 /* 分隔线样式 */

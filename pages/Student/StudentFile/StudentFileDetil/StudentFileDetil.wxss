@@ -5,5 +5,5 @@
 }
 .updateTime{
   margin-left: 55rpx;
-  font-size: 25rpx;
+  font-size: 27rpx;
 }
