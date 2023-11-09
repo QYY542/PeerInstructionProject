@@ -1,4 +1,3 @@
-/* pages/Student/StudentFile/StudentFileDetil/StudentFileDetil.wxss */
 .fileTitle{
   margin-left: 55rpx;
   font-size: 40rpx;

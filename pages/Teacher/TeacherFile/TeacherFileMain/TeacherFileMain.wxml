@@ -18,14 +18,13 @@
     <view class="list-item-class" bindtap="goToFileUpload">
       <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
       <view class="item-name">
-        <text class="item-name">文件标题</text>
-        <text class="item-size">1.1MB </text>
-        <text class="item-time">2023-10-15</text>
+        <text class="comment-title">文件标题</text>
+        <text class="comment-time">2023-10-15</text>
+        <text class="comment-content">1.1MB </text>
       </view>
-      <!-- <text class="item-size">1.1MB</text>
-      <text class="item-time">2023-10-15</text> -->
+      <!-- 下载和删除按钮 -->
       <button class="delete-btn" catchtap="downloadItem" data-index="{{index}}">Y</button>
-      <view class="gap"></view>
+      <view class="gap_width"></view>
       <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
     </view>
     

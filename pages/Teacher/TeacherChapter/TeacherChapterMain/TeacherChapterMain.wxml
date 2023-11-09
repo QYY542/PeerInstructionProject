@@ -1,14 +1,13 @@
 <view class="container">
 
 <!-- 标题部分 -->
-<view class="header">
-    章节主页（教师版）
-</view>
-
+<view class="header">章节主页（教师版）</view>
 <view class="greeting">
-    章节名称：XXX
+  <input class="chapter-input" type="text" placeholder="输入章节名称" value="{{ chapterName }}" disabled="{{ !editMode }}" bindinput="onChapterNameInput" />
+  <button class="edit-save-btn" bindtap="toggleEditMode">{{ editSaveBtnText }}</button>
 </view>
 
+<!-- 三个按钮 -->
 <button class="darkBtn" bindtap="goToFileMain">文件区</button>
 <button class="darkBtn" bindtap="goToForumMain">讨论区</button>
 <button class="darkBtn" bindtap="goToQuestionChoose">添加题目</button>
@@ -25,5 +24,7 @@
     </view>
 </view>
 </view>
+
+<!-- 隐藏页面 -->
 <mp-half-screen-dialog title="添加题目" bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}"  desc="请选择添加题目来源" buttons="{{buttons}}"></mp-half-screen-dialog>
 </view>

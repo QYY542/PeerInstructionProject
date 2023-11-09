@@ -12,16 +12,15 @@
   margin-bottom: 10rpx;  /* 增加每个item之间的距离 */
   height: 150rpx; /* 设置为auto以适应内容的高度 */
 }
+
+/*文件大小*/
 .item-size{
   font-size: 28rpx;
   width: 65%;
 }
 
+/*上传时间*/
 .item-time{
   font-size: 28rpx;
   width: 65%;
-}
-
-.gap{
-  width: 15rpx;
 }

@@ -1,5 +1,8 @@
 Page({
   data: {
+    chapterName: '', // 保存章节名称
+    editMode: false, // 编辑模式
+    editSaveBtnText: '修改', // 按钮文本
     show:false,
     items: [
       { name: '题目1' },
@@ -89,4 +92,33 @@ Page({
     }
   },
 
+  // 输入框输入事件
+  onChapterNameInput(event) {
+    this.setData({
+      chapterName: event.detail.value
+    });
+  },
+
+  // 切换编辑模式
+  toggleEditMode() {
+    const currentEditMode = this.data.editMode;
+    if (!currentEditMode) {
+      // 进入编辑模式
+      this.setData({
+        editMode: true,
+        editSaveBtnText: '保存'
+      });
+    } else {
+      // 保存章节名称
+      const newChapterName = this.data.chapterName;
+      // 执行保存章节名称的操作
+      console.log('New chapter name:', newChapterName);
+
+      // 退出编辑模式
+      this.setData({
+        editMode: false,
+        editSaveBtnText: '修改'
+      });
+    }
+  }
 });

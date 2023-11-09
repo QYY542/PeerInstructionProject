@@ -183,10 +183,25 @@ input {
   text-decoration: underline; /* 添加下划线 */
 }
 
+.gap_width{
+  width: 15rpx;
+}
+
+.gap_height{
+  height: 15rpx;
+}
+
+/* 分隔线样式 */
+.separator {
+  height: 3rpx; /* 设置高度为3像素 */
+  background-color: #ddd; /* 设置背景颜色为淡灰色 */
+  margin: 20rpx 0; /* 设置上下外边距为20像素，左右外边距为0 */
+}
+
 /*论坛*/
 .comment-title {
   font-weight: bold;
-  color: #333;
+  color: rgb(0, 0, 0);
   word-wrap: break-word;
   white-space: normal;
   overflow: hidden;

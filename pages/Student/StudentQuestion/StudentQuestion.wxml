@@ -1,19 +1,30 @@
 <view class="container">
+  <!-- 问题视图 -->
   <view class="question">
     <text class="question-text" user-select="true">{{questionText}}</text>
     <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit" bindtap="previewImage"/>
   </view>
-  <view class="separator"></view> <!-- 评论数量和评论列表之间的分隔线 -->
+
+  <!-- 分隔线 -->
+  <view class="separator"></view>
+  
+  <!-- 选项容器 -->
   <view class="options-container">
     <block wx:for="{{options}}" wx:key="option">
       <view class="option" data-index="{{index}}" bindtap="onOptionTap">
+        <!-- ABCD -->
         <view class="option-prefix">{{item.option}}</view>
+        <!-- 按钮 -->
         <view class="option-btn {{item.selected ? 'selected' : ''}}">
+          <!-- 按钮文本 -->
           <text class="option-text">{{item.text}}</text>
         </view>
       </view>
     </block>
   </view>
+
+  <!-- 倒计时 -->
   <text class="timer" user-select="true">剩余时间：{{remainingTime}}秒</text>
+  <!-- 提交按钮 -->
   <button class="submit-btn" bindtap="onSubmit">提交答案</button>
 </view>
