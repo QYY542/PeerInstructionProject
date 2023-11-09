@@ -1,5 +1,4 @@
 
-
 .content-input {
   width: 80%;  /* 从 input 样式中继承宽度 */
   padding: 20rpx;  /* 从 input 样式中继承填充 */

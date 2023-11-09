@@ -1,10 +1,13 @@
 <view class="container">
+  <!-- 标题部分 -->
   <view class="title">加入课程</view>
   
+  <!-- 输入框 -->
   <view>
     <input class="input-field" type="text" placeholder="课程ID"  bindinput="inputClassID" />
     <input class="input-field" type="text" placeholder="选课密码"  bindinput="inputClassPassword"  />
   </view>
   
+  <!-- 下一步按钮 -->
   <button class="darkBtn" bindtap="nextStep">下一步</button>
 </view>

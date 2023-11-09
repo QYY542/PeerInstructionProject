@@ -3,29 +3,25 @@
   <!-- 问题部分 -->
   <view class="question">
     <text class="question-text" user-select="true">{{questionText}}</text>
-    <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit"/>
+    <image class="question-image" wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="aspectFit" bindtap="previewImage"/>
   </view>
   <view class="separator"></view>
 
   <!-- 选项列表 -->
   <view class="options-container">
     <block wx:for="{{options}}" wx:key="option">
-      <!-- Option with prefix and content -->
       <view class="option">
-        <!-- Option prefix (e.g., A, B, C, D) -->
         <view class="option-prefix">{{item.option}}</view>
-        <!-- Option content wrapper -->
         <view class="option-content-wrapper">
-          <!-- Option content including the button and progress bar -->
           <view class="option-content">
             <view class="option-btn {{item.selected ? 'selected' : ''}} {{item.option === correctAnswer ? 'correct' : ''}}">
               <text class="option-text">{{item.text}}</text>
             </view>
-            <!-- Progress bar (displaying current attempt's percentage) -->
+            <!-- Progress bar -->
             <view class="progress-bar" wx:if="{{currentAttempt === 1 }}" style="width: {{item.firstPercentage}}%;"></view>
             <view class="progress-bar" wx:if="{{currentAttempt === 2}}" style="width: {{item.secondPercentage}}%;"></view>
           </view>
-          <!-- Option stats for current attempt -->
+          <!-- 统计数据 -->
           <view>
             <text class="option-stats"wx:if="{{currentAttempt >= 1}}">第一次:{{item.firstVotes}}票 ({{item.firstPercentage}}%) ;</text>
             <text class="option-stats" wx:if="{{currentAttempt >= 2}}">第二次:{{item.secondVotes}}票 ({{item.secondPercentage}}%) ;</text>
@@ -39,7 +35,7 @@
   <!-- 题目控制部分 -->
   <view class="question-control">
     <input class="input-time" type="number" placeholder="设置开放题目时间（秒）" bindinput="updateTime" disabled="{{!canSetTime}}" />
-    <view wx:if="{{timeLeft > 0}}">剩余时间：{{timeLeft}}秒</view>
+    <view class="time-left">剩余时间：{{timeLeft}}秒</view>
     <button class="open-btn" bindtap="handleQuestionAction" disabled="{{!canOpenQuestion}}">{{buttonText}}</button>
     <button class="reveal-btn" bindtap="revealAnswer" disabled="{{!canRevealAnswer}}">开放答案</button>
     

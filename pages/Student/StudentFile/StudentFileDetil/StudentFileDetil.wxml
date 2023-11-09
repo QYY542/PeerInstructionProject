@@ -1,7 +1,10 @@
 <view class="container">
 
+<!-- 标题部分 -->
 <text class="fileTitle">文件名称</text>
 <text class="updateTime">上次更新于2023-10-30 21:09</text>
+<view class="separator"></view>
+<!-- 文件列表 -->
 <mp-cells ext-class="my-cells" title="文件列表">
   <view wx:for="{{items}}" wx:for-item="item" wx:key="index">
     <mp-cell>
@@ -10,5 +13,7 @@
     </mp-cell>
   </view>
 </mp-cells>
+
+<!-- 隐藏页面 -->
 <mp-half-screen-dialog bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}" title="文件信息" desc="保存文件后请注意文件路径" tips= "如有问题请联系授课老师" buttons="{{buttons}}"></mp-half-screen-dialog>
 </view>

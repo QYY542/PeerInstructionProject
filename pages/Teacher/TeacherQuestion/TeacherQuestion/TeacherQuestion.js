@@ -2,7 +2,7 @@
 Page({
   data: {
     questionText: '一辆质量为1.5吨的汽车以10米/秒的速度行驶在水平路面上。当司机看到前方有障碍物时，立即踩下刹车。如果刹车后汽车以2米/秒²的加速度均匀减速，假设路面光滑且没有摩擦力，请计算汽车完全停下来前行驶的距离。',
-    imageSrc: '', // 若有相关示意图，可放置图片URL
+    imageSrc: 'http://tmp/PGoUDrBHjgar43b1e0596076b7889cb264753a2fe141.jpg', // 若有相关示意图，可放置图片URL
 
     remainingTime: 60, // 剩余答题时间（秒）
 
@@ -166,10 +166,15 @@ console.log(this.data.canOpenQuestion)
 
 
 
-
+  previewImage(){
+    wx.previewMedia({
+      sources: [{url:this.data.imageSrc,type:'image'}],
+    })
+  },
 
   onLoad() {
     this.markCorrectAnswer();
+    this.countDown(); // 开始倒计时
     // 其他 onLoad 逻辑
   },
   markCorrectAnswer() {
@@ -195,8 +200,4 @@ console.log(this.data.canOpenQuestion)
       this.setData({ remainingTime: time });
     }, 1000);
   },
-
-  onLoad() {
-    this.countDown(); // 开始倒计时
-  }
 });
