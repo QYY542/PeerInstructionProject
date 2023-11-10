@@ -14,6 +14,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    //定义一些全局变量方便各页面初始化调用
+    uer_id:"",//用于后端索引用户
+    current_course_id:""//当前课程id
   }
 })
