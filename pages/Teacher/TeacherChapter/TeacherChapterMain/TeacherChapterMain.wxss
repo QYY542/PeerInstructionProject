@@ -9,7 +9,7 @@
 }
 
 .gap_width{
-  width: 50rpx;
+  width: 10rpx;
 }
 
 .edit-save-btn {
