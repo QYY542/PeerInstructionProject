@@ -5,7 +5,8 @@ Page({
       password: '',
       confirmPassword: '',
       email: '',
-      phone: ''
+      phone: '',
+      is_teacher: 'is_student'
   },
 
   //处理输入
@@ -75,11 +76,8 @@ Page({
             duration: 2000
           })
         }else if(get.msg == '注册成功OvO'){
-          wx.showToast({
-            title: '注册成功',
-          })
           wx.navigateTo({
-            url: 'pages/Login/Login',
+            url: '/pages/Login/Login',
           })
         }else if(get.msg == '邮箱已被占用Orz'){
           wx.showToast({
@@ -102,8 +100,6 @@ Page({
     console.log('邮箱地址:', this.data.email);
     console.log('手机号:', this.data.phone);
     console.log('是否为老师',this.data.is_teacher)
-
-
 }
 
 });
