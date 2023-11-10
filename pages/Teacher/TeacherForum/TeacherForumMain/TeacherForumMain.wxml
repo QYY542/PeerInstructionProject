@@ -16,7 +16,12 @@
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
     <view class="list-item-forum" bindtap="goToPostDetil">
-      <text class="comment-title">{{item.title}}</text>
+      <view class="greeting">
+        <text class="comment-title">{{item.title}}</text>
+        <button class="top" >置顶</button>
+        <view class="gap_width"></view>
+        <button class="more" catchtap="handleMore">···</button>
+      </view>
       <text class="comment-time">{{item.time}}</text>
       <text class="comment-content">{{item.content}}</text>
     </view>
