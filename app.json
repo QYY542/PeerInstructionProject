@@ -1,7 +1,8 @@
 {
   "pages": [
-    
     "pages/Login/Login",
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",

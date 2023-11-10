@@ -22,7 +22,18 @@ Page({
   nextStep: function() {
     if (this.data.className && this.data.classPassword) {
       // 在这里添加你的代码来处理“下一步”操作
-      // 例如，你可能想要导航到另一个页面或者做一些其他的事情
+      wx.request({
+        url: 'http://127.0.0.1:5000/NewClass/',
+        data: {class_name:this.data.className, class_pw:this.data.classPassword},
+        method: 'GET',
+        success: (result) => {
+          //回报成功
+        },
+        fail: (err) => {
+          //汇报错误原因（有必要的话）
+        },
+        complete: (res) => {},
+      })
       wx.redirectTo({
         url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  // 假设你有一个名为'nextPage'的页面
       });
