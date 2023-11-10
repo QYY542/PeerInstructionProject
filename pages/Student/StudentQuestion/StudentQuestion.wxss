@@ -47,7 +47,7 @@
 
 /* 选项按钮样式 */
 .option-btn {
-  max-width: 550rpx;
+  max-width: 500rpx;
   flex-grow: 1;
   background-color: #f8f8f8;
   padding: 20rpx;

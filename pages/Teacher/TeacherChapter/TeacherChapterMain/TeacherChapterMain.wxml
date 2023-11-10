@@ -5,6 +5,7 @@
 <view class="greeting">
   <input class="chapter-input" type="text" placeholder="输入章节名称" value="{{ chapterName }}" disabled="{{ !editMode }}" bindinput="onChapterNameInput" />
   <button class="edit-save-btn" bindtap="toggleEditMode">{{ editSaveBtnText }}</button>
+  <view class="gap_width"></view>
 </view>
 
 <!-- 三个按钮 -->

@@ -3,7 +3,7 @@
 .list-container-forum {
   padding: 20rpx;
   margin-top: 20rpx;
-  border-radius: 35rpx;
+  border-radius: 25rpx;
   background-color: #fff;
   height: 65vh;
   overflow-y: auto;
