@@ -63,31 +63,17 @@ Page({
       timeout: 0,
       success: (result) => {
         var get = JSON.parse(result.data)
-        if(get.msg == '请检查请求参数awa'){
-          wx.showToast({
-            title: '缺少注册信息',
-            icon: 'none',
-            duration: 2000
-          })
-        }else if(get.msg == '两次密码不同'){
-          wx.showToast({
-            title: '前后密码不一致',
-            icon: 'none',
-            duration: 2000
-          })
-        }else if(get.msg == '注册成功OvO'){
+        if(get.msg == '注册成功'){
           wx.navigateTo({
             url: '/pages/Login/Login',
-          })
-        }else if(get.msg == '邮箱已被占用Orz'){
-          wx.showToast({
-            title: '邮箱已被注册',
-            icon: 'none',
-            duration: 2000
-          })
-
-        }
-      },
+        })
+      }else{
+        wx.showToast({
+          title: get.msg,
+          duration:2000
+        })
+      }
+    },
       fail: (err) => {},
       complete: (res) => {},
     })

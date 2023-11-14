@@ -3,7 +3,6 @@
   
   <view>
     <input class="input-field" type="text" placeholder="课程名称"  bindinput="inputClassName" />
-    <input class="input-field" type="text" placeholder="选课密码"  bindinput="inputClassPassword"  />
   </view>
   
   <button class="darkBtn" bindtap="nextStep">下一步</button>

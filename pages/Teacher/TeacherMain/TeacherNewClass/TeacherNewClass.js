@@ -1,7 +1,8 @@
 Page({
   data: {
     className: '',
-    classPassword: ''
+    classPassword: '',
+    course_id:''
   },
   
   // 当用户输入课程名称时调用的函数
@@ -11,31 +12,37 @@ Page({
     });
   },
   
-  // 当用户输入课程密码时调用的函数
-  inputClassPassword: function(e) {
-    this.setData({
-      classPassword: e.detail.value
-    });
-  },
   
   // 当用户点击“下一步”按钮时调用的函数
   nextStep: function() {
-    if (this.data.className && this.data.classPassword) {
+    if (this.data.className) {
       // 在这里添加你的代码来处理“下一步”操作
       wx.request({
-        url: 'http://127.0.0.1:5000/NewClass/',
-        data: {class_name:this.data.className, class_pw:this.data.classPassword},
+        url: 'http://127.0.0.1:5000/NewCourse/',
+        data: {course_name:this.data.className, user_id:getApp().globalData.user_id},
         method: 'GET',
         success: (result) => {
-          //回报成功
+          //得到课程id和课程密码
+          res = JSON.parse(result.data)
+          this.data.course_id = res.course_id;
+          this.data.classPassword = res.course_pw;
+          wx.showModal({
+            title: '创建成功',
+            content: '选课密码：'+ this.data.classPassword,
+            complete: (res) => {
+              if (res.cancel) {
+              }
+              if (res.confirm) {
+              }
+            }
+          })
         },
         fail: (err) => {
-          //汇报错误原因（有必要的话）
         },
         complete: (res) => {},
       })
       wx.redirectTo({
-        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  // 假设你有一个名为'nextPage'的页面
+        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  
       });
     } else {
       wx.showToast({

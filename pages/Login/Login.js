@@ -36,7 +36,7 @@ Page({
         console.log(result)
         var get = JSON.parse(result.data)
         console.log(JSON.parse(result.data).msg)
-        if(get.msg == '登录成功'){
+        if(result.statusCode == 200){
           if(get.is_teacher == 'is_teacher'){
             getApp().globalData.user_id = get.user_id
             console.log(getApp().globalData.email)
