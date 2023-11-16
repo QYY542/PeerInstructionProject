@@ -41,7 +41,9 @@ Page({
     replyContent: ''
   },
 
-  
+  replyToComment(){
+    
+  },
 
 
 });
