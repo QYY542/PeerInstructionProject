@@ -1,0 +1,10 @@
+.on-going-flag {
+  color: #40a140; /* 红色文字 */
+  font-size: 17px; /* 字体大小 */
+  margin-right: 5px; /* 右侧留出一些间隔 */
+  font-weight: bold; /* 加粗 */
+}
+
+.gap_height{
+  height: 60rpx;
+}

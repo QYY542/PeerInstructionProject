@@ -36,25 +36,12 @@ Page({
         content: '从产品的角度也收获很多，谢谢！',
         time: '2023-10-25 11:30'
       }
-    ]
+    ],
+    replyTarget: '', // 新添加的变量，用于存储当前回复的目标
+    replyContent: ''
   },
 
-  // 页面加载时执行的函数
-  onLoad: function(options) {
-    // 可以在这里获取帖子和评论的数据，例如通过wx.request函数从服务器获取数据
-    // 例如：
-    // wx.request({
-    //   url: 'https://example.com/getPostDetail',
-    //   data: {
-    //     postId: options.postId
-    //   },
-    //   success: (res) => {
-    //     this.setData({
-    //       post: res.data.post,
-    //       comments: res.data.comments
-    //     });
-    //   }
-    // });
-  },
   
+
+
 });

@@ -13,7 +13,7 @@
 <view class="list-container-forum">
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
-    <view class="list-item-forum" bindtap="goToPostDetil">
+    <view class="list-item-forum" bindtap="goToPostDetail">
       <text class="comment-title">{{item.title}}</text>
       <text class="comment-time">{{item.time}}</text>
       <text class="comment-content">{{item.content}}</text>

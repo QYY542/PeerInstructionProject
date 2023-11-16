@@ -25,7 +25,7 @@ Page({
     courseCount: 4  // Assuming that each post is related to a different course
   },
 
-  goToPostDetil: function() {
+  goToPostDetail: function() {
     wx.navigateTo({
       url: '/pages/Forum/PostDetil/PostDetil'
     });

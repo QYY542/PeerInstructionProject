@@ -16,7 +16,8 @@
     <view class="list-item-class" bindtap="goToChapterList" data-index="{{index}}">
         <view class="item-name">
           <text class="comment-title">{{item.name}}</text>
-          <view class="gap_height"></view>
+          <view class="gap_height" wx:if="{{!item.isOnGoing}}"></view>
+          <text class="on-going-flag" wx:if="{{item.isOnGoing}}">·正在上课·</text>
           <text class="comment-content">{{item.teacher}}</text>
         </view>
         <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
