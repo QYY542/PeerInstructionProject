@@ -6,7 +6,7 @@ Page({
       confirmPassword: '',
       email: '',
       phone: '',
-      is_teacher: 'is_student'
+      is_teacher: 0
   },
 
   //处理输入
@@ -56,7 +56,7 @@ Page({
     参数缺失
     */
     wx.request({
-      url: 'http://127.0.0.1:5000/register/',
+      url: getApp().globalData.ip + 'user/register',
       data: {name:this.data.username, stu_id:this.data.studentID, password:this.data.password, verify_pw:this.data.confirmPassword, email:this.data.email, tel_num:this.data.phone, is_teacher:this.data.is_teacher},
       dataType: String,
       method: 'POST',
@@ -86,6 +86,13 @@ Page({
     console.log('邮箱地址:', this.data.email);
     console.log('手机号:', this.data.phone);
     console.log('是否为老师',this.data.is_teacher)
-}
+},
+  handleCheckboxChange: function(){
+    if(this.data.is_teacher == 0){
+      this.data.is_teacher = 1
+    }else{
+      this.data.is_teacher = 0
+    }
+  }
 
 });

@@ -17,6 +17,8 @@ App({
     //定义一些全局变量方便各页面初始化调用
     uer_id:"",//用于后端索引用户
     current_course_id:"",//当前课程id
-    course_list:[]//维护的课程列表，学生老师形式一致,里面有class_id
+    current_chapter_id:"",//当成章节id
+    course_list:[],//维护的课程列表，学生老师形式一致,里面有class_id
+    ip:"http://10.63.135.25:5080/"
   }
 })

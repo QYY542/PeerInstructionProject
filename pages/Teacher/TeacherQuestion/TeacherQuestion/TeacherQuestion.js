@@ -73,6 +73,16 @@ console.log(this.data.canOpenQuestion)
     if (this.data.canOpenQuestion) {
       if (this.data.buttonText === '开放题目' || this.data.buttonText === '再次开放') {
         this.openQuestion();
+        wx.request({
+          url: getApp().globalData.ip + 'url',
+          data: {course_id:getApp().globalData.current_course_id},//向后端传递当前课程id以索引题目
+          method: 'GET',
+          responseType: responseType,
+          timeout: 0,
+          success: (result) => {},
+          fail: (err) => {},
+          complete: (res) => {},
+        })
       } else if (this.data.buttonText === '停止作答') {
         this.stopCountdown();
       }

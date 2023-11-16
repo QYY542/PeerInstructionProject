@@ -18,7 +18,7 @@ Page({
     if (this.data.className) {
       // 在这里添加你的代码来处理“下一步”操作
       wx.request({
-        url: 'http://127.0.0.1:5000/NewCourse/',
+        url: getApp().globalData.ip + 'course/NewCourse',
         data: {course_name:this.data.className, user_id:getApp().globalData.user_id},
         method: 'GET',
         success: (result) => {

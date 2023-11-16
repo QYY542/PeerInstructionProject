@@ -26,7 +26,7 @@ Page({
     邮箱不存在
     */
     wx.request({
-      url: 'http://127.0.0.1:5000/login/',// 后端接口地址
+      url: getApp().globalData.ip + 'user/login',// 后端接口地址
       data: {email:this.data.email, password:this.data.password},
       dataType: String,//传递给后端的数据类型
       method: 'GET',
