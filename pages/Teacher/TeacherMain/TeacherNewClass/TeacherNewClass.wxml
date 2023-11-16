@@ -3,7 +3,6 @@
   <!-- 输入框 -->
   <view>
     <input class="input-field" type="text" placeholder="课程名称"  bindinput="inputClassName" />
-    <input class="input-field" type="text" placeholder="选课密码"  bindinput="inputClassPassword"  />
   </view>
   
   <!-- 下一步按钮 -->

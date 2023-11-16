@@ -26,7 +26,7 @@ Page({
     邮箱不存在
     */
     wx.request({
-      url: 'http://127.0.0.1:5000/login/',// 后端接口地址
+      url: getApp().globalData.ip + 'user/login',// 后端接口地址
       data: {email:this.data.email, password:this.data.password},
       dataType: String,//传递给后端的数据类型
       method: 'GET',
@@ -36,7 +36,7 @@ Page({
         console.log(result)
         var get = JSON.parse(result.data)
         console.log(JSON.parse(result.data).msg)
-        if(get.msg == '登录成功'){
+        if(result.statusCode == 200){
           if(get.is_teacher == 'is_teacher'){
             getApp().globalData.user_id = get.user_id
             console.log(getApp().globalData.email)
