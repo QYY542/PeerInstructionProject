@@ -22,7 +22,7 @@ Page({
   nextStep: function() {
     if (this.data.classID && this.data.classPassword) {
       wx.request({
-        url: 'http://127.0.0.1:5000/EnterClass/',
+        url: 'http://127.0.0.1:5000/course/JoinCourse/',
         data: {course_id:this.data.classID, course_pw:this.data.classPassword, user_id: getApp().globalData.user_id},
         method: 'GET',
         timeout: 0,
