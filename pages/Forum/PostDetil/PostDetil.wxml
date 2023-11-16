@@ -25,7 +25,7 @@
     <view class="separator"></view>
     <scroll-view class="comment-list" scroll-y="true">
         <view class="list" wx:for="{{comments}}" wx:key="index">
-        <view class="list-item">
+        <view class="list-item" bindtap="replyToComment" data-index="{{index}}">
             <view class="list-item-2">
                 <!-- 评论作者 -->
                 <text class="comment-author">{{item.author}}</text>
@@ -43,7 +43,8 @@
 
 <view class="comment-input-section">
     <!-- 评论输入框 -->
-    <input class="comment-input" type="text" placeholder="写评论..." />
-    <!-- 发布评论按钮 -->
-    <button class="submit-comment-btn" bindtap="submitComment">发布</button>
+<input class="comment-input" type="text" placeholder="写评论..." />
+
+<!-- 发布评论按钮 -->
+<button class="submit-comment-btn" bindtap="submitComment">发布</button>
 </view>
