@@ -44,5 +44,10 @@ Page({
 
   onLoad() {
     this.countDown(); // 开始倒计时
-  }
+  },
+  previewImage(){
+    wx.previewMedia({
+      sources: [{url:this.data.imageSrc,type:'image'}],
+    })
+  },
 });

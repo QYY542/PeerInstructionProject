@@ -14,10 +14,9 @@
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
     <view class="list-item-forum" bindtap="goToPostDetil">
-      <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
-      <text class="item-name">标题</text>
-      <text class="item-text">帖子内容</text>
-      <text class="item-text">发帖时间</text>
+      <text class="comment-title">{{item.title}}</text>
+      <text class="comment-time">{{item.time}}</text>
+      <text class="comment-content">{{item.content}}</text>
     </view>
 </view>
 </view>

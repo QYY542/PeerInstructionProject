@@ -8,11 +8,13 @@
 <view class="greeting">
     课程ID：XXXXX
 </view>
-<view class="list-title">课程章节 ({{courseCount}})</view>
+
+<view class="list-title">
+    课程章节 ({{courseCount}})
+</view>
+
 <!-- 列表容器 -->
 <view class="list-container">
-    
-
     <!-- 列表部分 -->
     <view class="list" wx:for="{{items}}" wx:key="index">
         <view class="list-item-chapter" bindtap="goToChapterMain" >

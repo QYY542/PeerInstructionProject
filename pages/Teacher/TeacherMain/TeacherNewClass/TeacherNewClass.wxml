@@ -1,9 +1,10 @@
 <view class="container">
   <view class="title">创建课程</view>
-  
+  <!-- 输入框 -->
   <view>
     <input class="input-field" type="text" placeholder="课程名称"  bindinput="inputClassName" />
   </view>
   
+  <!-- 下一步按钮 -->
   <button class="darkBtn" bindtap="nextStep">下一步</button>
 </view>

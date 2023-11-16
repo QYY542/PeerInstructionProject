@@ -186,3 +186,67 @@ input {
   color: #007BFF; /* 设置文字为蓝色 */
   text-decoration: underline; /* 添加下划线 */
 }
+
+.gap_width{
+  width: 15rpx;
+}
+
+.gap_height{
+  height: 15rpx;
+}
+
+/* 分隔线样式 */
+.separator {
+  height: 3rpx; /* 设置高度为3像素 */
+  background-color: #ddd; /* 设置背景颜色为淡灰色 */
+  margin: 20rpx 0; /* 设置上下外边距为20像素，左右外边距为0 */
+}
+
+/*论坛*/
+.comment-title {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines you want to display */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* This will show '...' at the end when text is cut off */
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #333;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines you want to display */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* This will show '...' at the end when text is cut off */
+}
+
+.comment-time {
+  font-size: 25rpx;
+  color: #666;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines you want to display */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* This will show '...' at the end when text is cut off */
+}
+
+.comment-content {
+  font-size: 28rpx;
+  color: #666;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines you want to display */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* This will show '...' at the end when text is cut off */
+}

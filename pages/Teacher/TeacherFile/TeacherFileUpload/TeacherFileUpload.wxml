@@ -1,11 +1,16 @@
 <view class="container">
 
+<!-- 输入框 -->
 <input class="input-field" type="text" placeholder="请在此输入文件标题"  bindinput="fileTitle" />
 <text class="updateTime">上次更新于2023-10-30 21:09</text>
+
+
+<!-- 三个按钮 -->
 <button class="darkBtn" bindtap="addNewFileDisk">从内部存储中添加</button>
 <button class="darkBtn" bindtap="addNewFileMessage">从聊天记录中添加</button>
 <button class="darkBtn" bindtap="saveOperation">保存</button>
-
+<view class="separator"></view>
+<!-- 文件列表 -->
 <mp-cells ext-class="my-cells" title="文件列表">
   <view wx:for="{{items}}" wx:for-item="item" wx:key="index">
     <mp-cell>
@@ -14,5 +19,7 @@
     </mp-cell>
   </view>
 </mp-cells>
+
+<!-- 隐藏页面 -->
 <mp-half-screen-dialog bindbuttontap="buttontap" wx:if="{{show}}" show=" {{show}}" maskClosable=" {{false}}" title="文件信息" desc="保存文件后请注意文件路径" tips= "如有问题请联系授课老师" buttons="{{buttons}}"></mp-half-screen-dialog>
 </view>

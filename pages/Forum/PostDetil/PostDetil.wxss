@@ -1,153 +1,148 @@
+/* 帖子详情样式 */
 .post-detail {
-  background-color: #ffffff;
-  padding: 20rpx;
-  border-radius: 10rpx;
-  margin-bottom: 20rpx;
+  background-color: #ffffff; /* 设置背景颜色为白色 */
+  padding: 20rpx; /* 设置内边距为20像素 */
+  border-radius: 10rpx; /* 设置边框圆角为10像素 */
+  margin-bottom: 20rpx; /* 设置下外边距为20像素 */
 }
 
+/* 帖子标题样式 */
 .post-title-section {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* 使用弹性布局 */
+  flex-direction: column; /* 设置主轴方向为列 */
 }
+
 .post-title-section .post-title {
-  font-size: 40rpx;  /* 设置字体大小 */
-  font-weight: bold;  /* 设置字体为加粗 */
-  color: #333;
+  font-size: 40rpx; /* 设置字体大小为40像素 */
+  font-weight: bold; /* 设置字体加粗 */
+  color: #333; /* 设置字体颜色为深灰色 */
 }
 
 .post-title-section .post-content {
-  font-size: 30rpx;
-  color: #666;
-  word-wrap: break-word;  /* 允许在单词内断行 */
-  white-space: normal;  /* 允许文本自动换行 */
+  font-size: 30rpx; /* 设置字体大小为30像素 */
+  color: #666; /* 设置字体颜色为灰色 */
+  word-wrap: break-word; /* 允许在单词内换行 */
+  white-space: normal; /* 允许文本自动换行 */
 }
 
 .post-title-section .post-time {
-  font-size: 30rpx;
-  color: #666;
-  margin-top: 10rpx;
+  font-size: 30rpx; /* 设置字体大小为30像素 */
+  color: #666; /* 设置字体颜色为灰色 */
+  margin-top: 10rpx; /* 设置上外边距为10像素 */
 }
 
-.separator {
-  height: 3rpx;
-  background-color: #ddd;
-  margin: 20rpx 0;
+
+
+/* 帖子内容样式 */
+.post-content-section {
+  display: flex; /* 使用弹性布局 */
+  flex-direction: column; /* 设置主轴方向为列 */
+  min-height: 150rpx; /* 设置最小高度为150像素 */
 }
-.post-content-section{
-  display: flex;
-  flex-direction: column;
-  min-height: 150rpx;  /* 设置最小高度为 200rpx */
-}
+
 .post-content-section .post-content {
-  font-size: 30rpx;
-  color: #666;
-  word-wrap: break-word;  /* 允许在单词内断行 */
-  white-space: normal;  /* 允许文本自动换行 */
+  font-size: 30rpx; /* 设置字体大小为30像素 */
+  color: #666; /* 设置字体颜色为灰色 */
+  word-wrap: break-word; /* 允许在单词内换行 */
+  white-space: normal; /* 允许文本自动换行 */
 }
 
+/* 评论列表样式 */
 .comment-list-section {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 20rpx;
-  border-radius: 10rpx;
+  flex: 1; /* 使用弹性布局，并占用剩余空间 */
+  background-color: #ffffff; /* 设置背景颜色为白色 */
+  padding: 20rpx; /* 设置内边距为20像素 */
+  border-radius: 10rpx; /* 设置边框圆角为10像素 */
 }
 
 .comment-count {
-  font-size: 25rpx;
-  color: #333;
-  margin-bottom: 10rpx;
+  font-size: 25rpx; /* 设置字体大小为25像素 */
+  color: #333; /* 设置字体颜色为深灰色 */
+  margin-bottom: 10rpx; /* 设置下外边距为10像素 */
 }
 
 .comment-list {
-  flex: 1;
+  flex: 1; /* 使用弹性布局，并占用剩余空间 */
 }
 
+/* 评论列表样式 */
 .comment-list-section {
-  flex: 1;
-  overflow-y: scroll;
-  margin-bottom: 80px
+  flex: 1; /* 使用弹性布局，并占用剩余空间 */
+  overflow-y: scroll; /* 设置垂直方向出现滚动条 */
+  margin-bottom: 80px; /* 设置下外边距为80像素 */
 }
 
 .list-item {
-  background-color: rgba(39, 39, 39, 0.7); /* 使颜色半透明 */
+  background-color: rgba(39, 39, 39, 0.7); /* 设置背景颜色为半透明黑色 */
   backdrop-filter: blur(100px); /* 添加模糊效果 */
-  margin-bottom: 20rpx;
-  padding: 5rpx;
-  border-radius: 28rpx;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 20rpx; /* 设置下外边距为20像素 */
+  padding: 5rpx; /* 设置内边距为5像素 */
+  border-radius: 28rpx; /* 设置边框圆角为28像素 */
+  display: flex; /* 使用弹性布局 */
+  flex-direction: column; /* 设置主轴方向为列 */
 }
-
 
 .list-item-2 {
-  background-color: rgb(255, 255, 255);
-  padding: 20rpx;
-  border-radius: 25rpx;
-  display: flex;
-  flex-direction: column;
+  background-color: rgb(255, 255, 255); /* 设置背景颜色为白色 */
+  padding: 20rpx; /* 设置内边距为20像素 */
+  border-radius: 25rpx; /* 设置边框圆角为25像素 */
+  display: flex; /* 使用弹性布局 */
+  flex-direction: column; /* 设置主轴方向为列 */
 }
 
-.comment-author, .comment-time, .comment-content {
-  margin-bottom: 10rpx;
-  word-wrap: break-word;  /* 允许在单词内断行 */
-  white-space: normal;  /* 允许文本自动换行 */
-}
-
-.comment-author {
-  font-weight: bold;
-  color: #333;
-}
-
-.comment-time {
-  font-size: 25rpx;
-  color: #666;
-}
-
-.comment-content {
-  font-size: 28rpx;
-  color: #666;
-}
-
-/*底部输入框*/
+/* 评论输入样式 */
 .comment-input-section {
-  position: fixed;  /* 固定定位 */
-  justify-content: space-between;
-  bottom: 0;  /* 定位到底部 */
-  width: 100%;  /* 宽度为100% */
-  background-color: #fff;  /* 背景颜色 */
-  display: flex;  /* 使用flex布局 */
-  flex: auto;
-  align-items: center;  /* 垂直居中 */
-  padding: 20rpx;  /* 添加一些内间距 */
-  border-top: 1rpx solid #ddd;  /* 添加顶部边框 */
-  padding-bottom: 35rpx;
+  position: fixed; /* 设置定位为固定位置 */
+  justify-content: space-between; /* 在主轴上平均分配剩余空间 */
+  bottom: 0; /* 设置底部边距为0 */
+  width: 100%; /* 设置宽度为100% */
+  background-color: #fff; /* 设置背景颜色为白色 */
+  display: flex; /* 使用弹性布局 */
+  flex: auto; /* 使用剩余空间 */
+  align-items: center; /* 在交叉轴上居中对齐 */
+  padding: 20rpx; /* 设置内边距为20像素 */
+  border-top: 1rpx solid #ddd; /* 设置上边框为1像素的灰色实线 */
+  padding-bottom: 35rpx; /* 设置下内边距为35像素 */
 }
 
 .comment-input {
-  padding: 10rpx;
-  border: 1rpx solid #ddd;
-  border-radius: 30rpx;
-  flex: 1;  /* 允许输入框占用更多空间 */
-  max-width: 470rpx;
+  padding: 10rpx; /* 设置内边距为10像素 */
+  border: 1rpx solid #ddd; /* 设置边框为1像素的灰色实线 */
+  border-radius: 30rpx; /* 设置边框圆角为30像素 */
+  flex: 1; /* 使用弹性布局，并占用剩余空间 */
+  max-width: 470rpx; /* 设置最大宽度为470像素 */
 }
 
 .submit-comment-btn {
-  display: flex;         /* 使用flex布局 */
-  justify-content: center; /* 水平居中 */
-  align-items: center;     /* 垂直居中 */
-  flex: none;             /* 修改此行 */
-  background-color: #000000;  /* 按钮颜色 */
-  color: #fff;  /* 文字颜色 */
-  padding: 20rpx 20rpx;
-  border-radius: 20rpx;
-  min-width: 180rpx;
-  max-width: 180rpx;
-  height: 70rpx;
+  display: flex; /* 使用弹性布局 */
+  justify-content: center; /* 在主轴上居中对齐 */
+  align-items: center; /* 在交叉轴上居中对齐 */
+  flex: none; /* 不占用剩余空间 */
+  background-color: #000000; /* 设置背景颜色为黑色 */
+  color: #fff; /* 设置字体颜色为白色 */
+  padding: 20rpx 20rpx; /* 设置内边距为20像素 */
+  border-radius: 20rpx; /* 设置边框圆角为20像素 */
+  min-width: 180rpx; /* 设置最小宽度为180像素 */
+  max-width: 180rpx; /* 设置最大宽度为180像素 */
+  height: 70rpx; /* 设置高度为70像素 */
 }
 
+/* 帖子列表容器样式 */
 .list-container-post-detil {
-  padding: 20rpx;
-  background-color: #fff;
-  height: 90vh;
-  overflow-y: auto;
+  padding: 20rpx; /* 设置内边距为20像素 */
+  background-color: #fff; /* 设置背景颜色为白色 */
+  height: 90vh; /* 设置高度为90%视口高度 */
+  overflow-y: auto; /* 设置垂直方向出现滚动条 */
+}
+
+.comment-content {
+  font-size: 28rpx; /* 设置字体大小为28像素 */
+  color: #666; /* 设置字体颜色为灰色 */
+  word-wrap: break-word; /* 允许在单词内换行 */
+  white-space: normal; /* 允许文本自动换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  display: -webkit-box; /* 基于 WebKit 的浏览器 */
+  -webkit-line-clamp: 200; /* 设置最大行数为200行 */
+  -webkit-box-orient: vertical; /* 设置盒子的子元素排列方式为垂直方向 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
 }

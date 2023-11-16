@@ -1,1 +1,4 @@
 /* pages/Student/StudentFile/StudentFileMain/StudentFileMain.wxss */
+.list-container{
+  height: 78vh;
+}
