@@ -23,7 +23,7 @@ Page({
       },
       {
         author: '前端小赵',
-        content: '写得很清楚，点赞！',
+        content: '@开发者小李 写得很清楚，点赞！',
         time: '2023-10-25 10:30'
       },
       {
@@ -37,11 +37,30 @@ Page({
         time: '2023-10-25 11:30'
       }
     ],
-    replyTarget: '', // 新添加的变量，用于存储当前回复的目标
-    replyContent: ''
+    replyContent: '',
+    replyTo: '', // 用于保存被回复的作者
   },
 
-  
+  replyToComment: function (event) {
+    const index = event.currentTarget.dataset.index;
+    const author = event.currentTarget.dataset.author;
+
+    // 获取已有的 replyContent，如果没有则设为空字符串
+    const existingContent = this.data.replyContent || '';
+
+    // 将被回复的作者添加到输入框中，并在已有内容前面加上 @${author}
+    this.setData({
+      replyTo: author,
+      replyContent: `@${author} ${existingContent}`,
+    });
+  },
+
+  inputChange: function (event) {
+    // 处理输入框的值变化，更新 replyContent
+    this.setData({
+      replyContent: event.detail.value,
+    });
+  },
 
 
 });

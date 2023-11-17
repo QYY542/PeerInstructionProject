@@ -9,7 +9,7 @@
   <view class="separator"></view>
   
   <!-- 选项容器 -->
-  <view class="options-container">
+  <view class="options-container" wx:if="{{!isAnswerPublished}}">
     <block wx:for="{{options}}" wx:key="option">
       <view class="option" data-index="{{index}}" bindtap="onOptionTap">
         <!-- ABCD -->
@@ -23,8 +23,27 @@
     </block>
   </view>
 
+
+
+<!-- 选项容器(公布答案后) -->
+<view class="options-container" wx:if="{{isAnswerPublished}}">
+  <block wx:for="{{options}}" wx:key="option">
+    <view class="option" data-index="{{index}}">
+      <!-- ABCD -->
+      <view class="option-prefix">{{item.option}}</view>
+      <!-- 按钮 -->
+      <view class="option-btn {{item.option === correctAnswer ? 'correct' : (item.selected && item.option !== correctAnswer ? 'wrong' : '')}}">
+        <!-- 按钮文本 -->
+        <text class="option-text">{{item.text}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+
   <!-- 倒计时 -->
-  <text class="timer" user-select="true">剩余时间：{{remainingTime}}秒</text>
+  <text class="timer" user-select="true" wx:if="{{!isAnswerPublished}}">剩余时间：{{remainingTime}}秒</text>
+  <text class="timer" user-select="true" wx:if="{{isAnswerPublished}}">已经公布答案</text>
+
   <!-- 提交按钮 -->
-  <button class="submit-btn" bindtap="onSubmit">提交答案</button>
+  <button class="submit-btn" bindtap="onSubmit" disabled="{{isAnswerPublished}}">提交答案</button>
 </view>

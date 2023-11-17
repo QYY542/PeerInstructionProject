@@ -61,6 +61,16 @@
   background-color: #b7e0ad;
 }
 
+/* 正确答案样式 */
+.option-btn.correct {
+  background-color: #b7e0ad; /* 绿色 */
+}
+
+/* 错误答案样式 */
+.option-btn.wrong {
+  background-color: #ff9999; /* 红色 */
+}
+
 /* 选项文本样式 */
 .option-text {
   font-size: 30rpx;
@@ -81,12 +91,12 @@
 /* 提交按钮样式 */
 .submit-btn {
   width: 100%;
-  background-color: #1aad19;
   color: #fff;
   border-radius: 10rpx;
   padding: 20rpx;
   font-size: 34rpx;
   text-align: center;
+  background-color: #1aad19;
 }
 
 /* 提交按钮按下样式 */

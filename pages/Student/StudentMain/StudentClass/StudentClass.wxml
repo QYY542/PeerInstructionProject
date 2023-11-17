@@ -2,11 +2,11 @@
 
 <!-- 标题部分 -->
 <view class="header">
-    主界面（学生版）          课程名录
+    课程列表
 </view>
 
 <view class="greeting">
-    XXXXX同学，欢迎!
+    {{username}}同学，欢迎!
 </view>
 <view class="list-title">
     我的课程 ({{courseCount}})
@@ -14,21 +14,27 @@
 
 <!-- 列表容器 -->
 <view class="list-container">
-    <!-- 列表部分 -->
-    <view class="list" wx:for="{{items}}" wx:key="index">
-      <view class="list-item-class" bindtap="goToChapterList" data-index="{{index}}">
+<!-- 列表部分 -->
+<view class="list" wx:for="{{items}}" wx:key="index">
+    <view class="list-item-class" bindtap="goToChapterList" data-index="{{index}}">
         <view class="item-name">
           <text class="comment-title">{{item.name}}</text>
-          <view class="gap_height"></view>
+          <view class="gap_height" wx:if="{{!item.isOnGoing}}"></view>
+          <text class="on-going-flag" wx:if="{{item.isOnGoing}}" >·   正在上课</text>
           <text class="comment-content">{{item.teacher}}</text>
         </view>
+        <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
         <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
-        </view>
     </view>
+</view>
 
 </view>
 
 <!-- 创建课程按钮 -->
-<button class="darkBtn" bindtap="addItem">加入课程</button>
+<view class="btnContent">
+  <button class="purpleBtn" bindtap="goToPersonalInfo">个人主页</button>
+  <view class="gap_width"></view>
+  <button class="darkBtn" bindtap="addItem">加入课程</button>
+</view>
 
 </view>

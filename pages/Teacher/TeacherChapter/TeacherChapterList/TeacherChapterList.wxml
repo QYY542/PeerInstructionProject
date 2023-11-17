@@ -28,9 +28,9 @@
 
 <!-- 创建课程按钮 -->
 <view class="btnContent">
-  <button class="darkBtn" bindtap="addItem">创建章节</button>
+  <button class="{{classBtnStyle}}" bindtap="startClass">{{classBtnText}}</button>
   <view class="gap_width"></view>
-  <button class="darkBtn" bindtap="startClass">开始上课</button>
+  <button class="darkBtn" bindtap="addItem">创建章节</button>
 </view>
 
 

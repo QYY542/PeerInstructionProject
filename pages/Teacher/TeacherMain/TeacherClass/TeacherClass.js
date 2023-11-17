@@ -13,6 +13,7 @@ Page({
       }
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
+    username: "王佳慧"
   },
 
   deleteItem: function(e) {
@@ -54,6 +55,12 @@ Page({
     let itemName = this.data.items[index].name;
     wx.navigateTo({
       url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'
+    });
+  },
+
+  goToPersonalInfo: function(e) {
+    wx.navigateTo({
+      url: '/pages/PersonalInfo/PersonalInfo'
     });
   }
 });

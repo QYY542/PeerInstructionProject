@@ -6,20 +6,21 @@ Page({
     options: [
       { option: 'A', text: '25米', selected: false },
       { option: 'B', text: '30米', selected: false },
-      { option: 'C', text: '40米', selected: false },
+      { option: 'C', text: '40米', selected: true },
       { option: 'D', text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案', selected: false },
     ],
     remainingTime: 60, // 剩余答题时间（秒）
     correctAnswer: 'A', // 正确答案选项
+    selectedAnswer: 'B',
+    isAnswerPublished:true
   },
   onOptionTap(e) {
-    const index = e.currentTarget.dataset.index;
-    const options = this.data.options.map((item, idx) => {
-      item.selected = idx === index;
-      return item;
-    });
-
-    this.setData({ options });
+      const index = e.currentTarget.dataset.index;
+      const options = this.data.options.map((item, idx) => {
+        item.selected = idx === index;
+        return item;
+      });
+      this.setData({ options });
   },
 
   onSubmit() {
