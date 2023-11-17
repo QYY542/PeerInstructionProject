@@ -29,7 +29,33 @@ Page({
     ]
   },
 
-  onLoad(options) {
+  onLoad: function() {
+    //拉取该章节题目列表
+    wx.request({
+      url: getApp().globalData.ip + 'url',
+      data: {course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},//发送对应课程章节id索引题目列表
+      method: 'GET',
+      success: (result) => {
+        var res = JSON.stringify(result.data)
+              var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),popularity:(\d+)/g;
+              var match;
+              var resultList = [];
+              while ((match = regex.exec(res)) !== null) {
+                var courseName = match[6];
+                console.log(courseName)
+                var courseId = parseInt(match[2]);
+                console.log(courseId)
+                // 构造字典对象并添加到结果列表
+                var courseObject = {
+                  'name': courseName,
+                  'course_id': courseId
+                };
+                resultList.push(courseObject);
+              }
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
     this.setData({
       show:false
     })
@@ -113,6 +139,17 @@ Page({
       const newChapterName = this.data.chapterName;
       // 执行保存章节名称的操作
       console.log('New chapter name:', newChapterName);
+      wx.request({
+        url: getApp().globalData.ip + 'course/EditChapter',
+        data: {chapter_id:getApp().globalData.current_chapter_id,chapter_name:this.data.chapterName},
+        method: 'POST',
+        timeout: 0,
+        success: (result) => {
+          //下次拉取时已经更新
+        },
+        fail: (err) => {},
+        complete: (res) => {},
+      })
 
       // 退出编辑模式
       this.setData({

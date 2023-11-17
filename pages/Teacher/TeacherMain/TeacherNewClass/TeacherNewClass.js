@@ -16,15 +16,19 @@ Page({
   // 当用户点击“下一步”按钮时调用的函数
   nextStep: function() {
     if (this.data.className) {
-      // 在这里添加你的代码来处理“下一步”操作
       wx.request({
         url: getApp().globalData.ip + 'course/NewCourse',
         data: {course_name:this.data.className, user_id:getApp().globalData.user_id},
         method: 'GET',
         success: (result) => {
+          console.log(result.data)
           //得到课程id和课程密码
-          res = JSON.parse(result.data)
+          var res = result.data         
+          console.log(res.course_id)
           this.data.course_id = res.course_id;
+          getApp().globalData.current_course_id = res.course_id;
+          console.log(getApp().globalData.current_course_id)
+          console.log(res.course_pw)
           this.data.classPassword = res.course_pw;
           wx.showModal({
             title: '创建成功',

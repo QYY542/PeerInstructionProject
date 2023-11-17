@@ -149,7 +149,6 @@ Page({
   addItem: function() {
     wx.navigateTo({
       url: '/pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass'
-
     });
   },
 

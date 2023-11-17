@@ -75,15 +75,28 @@ console.log(this.data.canOpenQuestion)
         this.openQuestion();
         wx.request({
           url: getApp().globalData.ip + 'url',
-          data: {course_id:getApp().globalData.current_course_id},//向后端传递当前课程id以索引题目
+          data: {course_id:getApp().globalData.current_course_id,},//向后端传递当前课程id以索引题目
           method: 'GET',
-          responseType: responseType,
           timeout: 0,
-          success: (result) => {},
+          success: (result) => {
+          },
           fail: (err) => {},
           complete: (res) => {},
         })
       } else if (this.data.buttonText === '停止作答') {
+        //从后端接收反馈
+        wx.request({
+          url: getApp().globalData.ip + 'url',
+          data: {},
+          method: 'GET',
+          responseType: responseType,
+          timeout: 0,
+          success: (result) => {
+
+          },
+          fail: (err) => {},
+          complete: (res) => {},
+        })
         this.stopCountdown();
       }
     }
