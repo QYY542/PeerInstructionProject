@@ -1,7 +1,8 @@
 {
   "pages": [
-
+    
     "pages/Login/Login",
+    "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
@@ -11,7 +12,7 @@
     "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
-    "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
+    
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
