@@ -144,5 +144,16 @@ checkboxChange(e) {
   submit() {
     console.log('题目数据：', this.data);
     // 这里可以编写提交数据到服务器的代码
+    wx.request({
+      url: getApp().globalData.ip + 'url',
+      data: {user_id:getApp().globalData.user_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id,tags:this.data.tags, question:this.data.question, imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
+      method: 'POST',
+      timeout: 0,
+      success: (result) => {
+
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   }
 });

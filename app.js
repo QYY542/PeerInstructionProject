@@ -18,7 +18,8 @@ App({
     uer_id:"",//用于后端索引用户
     current_course_id:"",//当前课程id
     current_chapter_id:"",//当成章节id
-    course_list:[],//维护的课程列表，学生老师形式一致,里面有class_id
-    ip:"http://10.63.135.25:5080/"
+    course_list:[],//维护的课程列表，学生老师形式一致
+    chapter_list:[],//维护的章节列表
+    ip:"http://10.62.165.3:5080/"
   }
 })
