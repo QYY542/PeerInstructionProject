@@ -127,10 +127,9 @@ wx.request({
   },
 
   goToChapterMain: function(e) {
-    let index = e.currentTarget.dataset.index;
+    var index = e.currentTarget.dataset.index;
     console.log(index)
     getApp().globalData.current_chapter_id = this.data.items[index].chapter_id
-    console.log(this.data.items[index].chapter_id)
     wx.navigateTo({
       url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain'
     });

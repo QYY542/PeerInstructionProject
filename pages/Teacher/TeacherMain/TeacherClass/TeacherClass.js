@@ -1,14 +1,7 @@
 Page({
   data: {
     items: [
-      { 
-        name: '课程1',
-        teacher: '王老师'
-      },
-      { 
-        name: '课程2',
-        teacher: '李老师'
-      }
+      { },
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
   },
