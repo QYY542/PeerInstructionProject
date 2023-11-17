@@ -1,10 +1,11 @@
 /* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
-.greeting {
+.title {
   display: flex;
   align-items: center;
   text-align: left;
   margin: 10rpx 0;
   color: #333;
+  font-size: 28rpx;
 }
 
 .comment-title {

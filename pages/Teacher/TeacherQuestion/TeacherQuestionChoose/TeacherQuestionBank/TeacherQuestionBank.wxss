@@ -101,3 +101,28 @@
   border-radius: 10rpx;
   background-color: #E0E0E0;  /* 提供一个默认的背景颜色 */
 }
+
+.pikerList{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50rpx;
+  margin-right: 80rpx;
+}
+
+
+
+.picker {
+  flex: 1;
+  display: inline-block;
+  position: relative;
+}
+
+.picker text {
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+}
+
+
+
+

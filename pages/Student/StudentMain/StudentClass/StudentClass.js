@@ -3,14 +3,17 @@ Page({
     items: [
       { 
         name: '课程1',
-        teacher: '王老师'
+        teacher: '王老师',
+        isOnGoing: false
       },
       { 
         name: '课程2',
-        teacher: '李老师'
+        teacher: '李老师',
+        isOnGoing: true
       }
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
+    username: "王子建"
   },
   onShow:function (){
     wx.request({
@@ -132,6 +135,11 @@ Page({
     let itemName = this.data.items[index].name;
     wx.navigateTo({
       url: '/pages/Student/StudentChapter/StudentChapterList/StudentChapterList'
+    });
+  },
+  goToPersonalInfo: function(e) {
+    wx.navigateTo({
+      url: '/pages/PersonalInfo/PersonalInfo'
     });
   }
 });

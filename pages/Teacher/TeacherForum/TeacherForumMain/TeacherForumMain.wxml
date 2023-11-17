@@ -16,7 +16,7 @@
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
   <view class="list-item-forum" bindtap="goToPostDetail">
-    <view class="greeting">
+    <view class="title">
       <text class="comment-title">{{item.title}}</text>
       <button class="top" wx:if="{{item.isTop}}">置顶</button>
       <button class="untop" wx:if="{{!item.isTop}}"></button>

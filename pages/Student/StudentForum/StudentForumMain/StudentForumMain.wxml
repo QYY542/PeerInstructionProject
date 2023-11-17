@@ -13,11 +13,14 @@
 <view class="list-container-forum">
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
-    <view class="list-item-forum" bindtap="goToPostDetail">
+  <view class="list-item-forum" bindtap="goToPostDetail">
+    <view class="title">
       <text class="comment-title">{{item.title}}</text>
-      <text class="comment-time">{{item.time}}</text>
-      <text class="comment-content">{{item.content}}</text>
+      <button class="top" wx:if="{{item.isTop}}">置顶</button>
     </view>
+    <text class="comment-time">{{item.time}}</text>
+    <text class="comment-content">{{item.content}}</text>
+  </view>
 </view>
 </view>
 </view>

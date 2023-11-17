@@ -13,6 +13,7 @@ Page({
       }
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
+    username: "王佳慧"
   },
   
   onLoad:function (){
@@ -162,6 +163,12 @@ Page({
     getApp().globalData.current_course_id = this.data.items[index].course_id
     wx.navigateTo({
       url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'
+    });
+  },
+
+  goToPersonalInfo: function(e) {
+    wx.navigateTo({
+      url: '/pages/PersonalInfo/PersonalInfo'
     });
   }
 });

@@ -26,7 +26,6 @@
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

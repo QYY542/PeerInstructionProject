@@ -3,15 +3,15 @@
 <view class="post-detail">
     <!-- 帖子标题 -->
     <view class="post-title-section">
-        <text class="post-title">{{post.title}}</text>
+        <text class="post-title" style="user-select: auto;">{{post.title}}</text>
         <!-- 帖子发布时间 -->
-        <text class="post-time">{{post.time}}</text>
+        <text class="post-time" style="user-select: auto;">{{post.time}}</text>
     </view>
     <!-- 标题和内容之间的分隔线 -->
     <view class="separator"></view>
     <!-- 帖子内容 -->
     <view class="post-content-section">
-        <text class="post-content">{{post.content}}</text>
+        <text class="post-content" style="user-select: auto;">{{post.content}}</text>
     </view>
     
 </view>
@@ -25,7 +25,7 @@
     <view class="separator"></view>
     <scroll-view class="comment-list" scroll-y="true">
         <view class="list" wx:for="{{comments}}" wx:key="index">
-        <view class="list-item" bindtap="replyToComment" data-index="{{index}}">
+        <view class="list-item" bindtap="replyToComment" data-index="{{index}}" data-author="{{item.author}}">
             <view class="list-item-2">
                 <!-- 评论作者 -->
                 <text class="comment-author">{{item.author}}</text>
@@ -42,9 +42,10 @@
 </view>
 
 <view class="comment-input-section">
-    <!-- 评论输入框 -->
-<input class="comment-input" type="text" placeholder="写评论..." />
+<!-- 评论输入框 -->
+<input class="comment-input" type="text" placeholder="写评论..." bindinput="inputChange" value="{{replyContent}}" />
 
 <!-- 发布评论按钮 -->
 <button class="submit-comment-btn" bindtap="submitComment">发布</button>
+
 </view>

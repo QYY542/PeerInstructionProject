@@ -1,0 +1,4 @@
+/* pages/PersonalInfo/PersonalInfo.wxss */
+.text{
+  margin-left: 50rpx;
+}

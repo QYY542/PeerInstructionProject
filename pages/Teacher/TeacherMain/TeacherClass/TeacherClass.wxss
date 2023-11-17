@@ -8,3 +8,36 @@
 .gap_height{
   height: 60rpx;
 }
+
+.btnContent{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: 10rpx 0;
+}
+
+.darkBtn {
+  width: 60%; 
+  padding: 25rpx 0;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.purpleBtn {
+  width: 60%; 
+  padding: 25rpx 0;
+  background-color: rgb(124, 85, 122);
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
