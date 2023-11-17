@@ -1,4 +1,67 @@
 /* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
+.title {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: 10rpx 0;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.comment-title {
+  width: 27vh;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines you want to display */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* This will show '...' at the end when text is cut off */
+}
+
+.top{
+  max-width: 10px;
+  max-height: 10px;
+  border: none;
+  background-color: #f6b61f;
+  color: #fff;
+  font-size: 13px;
+  writing-mode: vertical-lr; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.untop{
+  max-width: 10px;
+  max-height: 10px;
+  border: none;
+  background-color: #f5f385;
+  color: #fff;
+  font-size: 13px;
+  writing-mode: vertical-lr; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.more{
+  max-width: 10px;
+  max-height: 10px;
+  border: none;
+  background-color: #f6b61f;
+  color: #fff;
+  font-size: 13px;
+  writing-mode: horizontal-tb; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
 .list-container-forum {
   padding: 20rpx;

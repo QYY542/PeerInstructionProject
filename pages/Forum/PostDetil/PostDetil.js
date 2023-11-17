@@ -23,7 +23,7 @@ Page({
       },
       {
         author: '前端小赵',
-        content: '写得很清楚，点赞！',
+        content: '@开发者小李 写得很清楚，点赞！',
         time: '2023-10-25 10:30'
       },
       {
@@ -36,25 +36,31 @@ Page({
         content: '从产品的角度也收获很多，谢谢！',
         time: '2023-10-25 11:30'
       }
-    ]
+    ],
+    replyContent: '',
+    replyTo: '', // 用于保存被回复的作者
   },
 
-  // 页面加载时执行的函数
-  onLoad: function(options) {
-    // 可以在这里获取帖子和评论的数据，例如通过wx.request函数从服务器获取数据
-    // 例如：
-    // wx.request({
-    //   url: 'https://example.com/getPostDetail',
-    //   data: {
-    //     postId: options.postId
-    //   },
-    //   success: (res) => {
-    //     this.setData({
-    //       post: res.data.post,
-    //       comments: res.data.comments
-    //     });
-    //   }
-    // });
+  replyToComment: function (event) {
+    const index = event.currentTarget.dataset.index;
+    const author = event.currentTarget.dataset.author;
+
+    // 获取已有的 replyContent，如果没有则设为空字符串
+    const existingContent = this.data.replyContent || '';
+
+    // 将被回复的作者添加到输入框中，并在已有内容前面加上 @${author}
+    this.setData({
+      replyTo: author,
+      replyContent: `@${author} ${existingContent}`,
+    });
   },
-  
+
+  inputChange: function (event) {
+    // 处理输入框的值变化，更新 replyContent
+    this.setData({
+      replyContent: event.detail.value,
+    });
+  },
+
+
 });

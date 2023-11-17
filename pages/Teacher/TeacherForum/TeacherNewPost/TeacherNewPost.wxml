@@ -14,6 +14,19 @@
 <!-- 内容输入框 -->
 <textarea class="content-input" placeholder="输入帖子内容" bindinput="inputContent"></textarea>
 
+    <!-- 是否置顶 -->
+    <view class="top-option">
+      <text >是否置顶？</text>
+      <radio-group bindchange="radioChange">
+        <label class="radio-label">
+          <radio value="yes" checked="{{shared}}"/> 是
+        </label>
+        <label class="radio-label">
+          <radio value="no" checked="{{!shared}}"/> 否
+        </label>
+      </radio-group>
+    </view>
+
 <!-- 发布按钮 -->
 <button class="darkBtn" bindtap="post">发布帖子</button>
 

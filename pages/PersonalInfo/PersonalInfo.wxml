@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="title">个人资料</view>
+
+  <view>
+    <text class="text">用户名</text>
+    <input class="input-field" placeholder="用户名" bindinput="inputUsername" value="{{username}}"/>
+    <text class="text">学号</text>
+    <input class="input-field" placeholder="学号" bindinput="inputStudentID" value="{{studentID}}"/>
+    <text class="text">密码</text>
+    <input class="input-field" placeholder="密码" bindinput="inputPassword" value="{{password}}"/>
+    <text class="text">邮箱地址</text>
+    <input class="input-field" placeholder="邮箱地址" bindinput="inputEmail" value="{{email}}"/>
+    <text class="text">手机号</text>
+    <input class="input-field" placeholder="手机号" bindinput="inputPhone" value="{{phone}}"/>
+  </view>
+  <button class="greenBtn" bindtap="handleSave">保存</button>
+</view>

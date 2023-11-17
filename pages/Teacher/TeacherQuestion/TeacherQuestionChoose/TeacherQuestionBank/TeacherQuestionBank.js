@@ -41,7 +41,61 @@ Page({
         image: '' 
       }
   ],
+    itemsShow:[],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
+
+    subjects: ['无','数学分析', '物理', '化学', '生物'],  // 学科选择器的选项
+    selectedSubjectIndex: 0,    // 选择的学科索引
+    selectedSubject: '',        // 选择的学科
+
+    difficulties: ['无','简单', '中等', '困难'],  // 难度选择器的选项
+    selectedDifficultyIndex: 0,    // 选择的难度索引
+    selectedDifficulty: '',        // 选择的难度
+
+    yearRange: [],           // 年份范围数组
+    selectedYearIndex: 0,    // 选择的年份索引
+    selectedYear: '',        // 选择的年份
+  },
+
+  onLoad: function () {
+    const currentYear = new Date().getFullYear(); // 获取当前年份
+    const yearRange = [];
+    const items = this.data.items;
+  
+    yearRange.push('无');
+    for (let i = currentYear; i >= 1990; i--) {
+      yearRange.push(i.toString());
+    }
+  
+    this.setData({
+      yearRange: yearRange,
+      itemsShow:items,
+    });
+  
+    // ... 其他初始化逻辑
+  },
+
+  updateItemsShow: function () {
+    const tags = this.data.tags;
+    const selectedYear = this.data.selectedYear;
+    const selectedSubject = this.data.selectedSubject;
+    const selectedDifficulty = this.data.selectedDifficulty;
+
+    // 根据条件过滤 items
+    const filteredItems = this.data.items.filter(item => {
+      // 根据实际需求调整条件判断逻辑
+      const hasTags = tags.length === 0 || tags.every(tag => item.name.includes(tag));
+      const hasSelectedYear = !selectedYear || item.year === selectedYear;
+      const hasSelectedSubject = !selectedSubject || item.subject === selectedSubject;
+      const hasSelectedDifficulty = !selectedDifficulty || item.difficulty === selectedDifficulty;
+
+      return hasTags && hasSelectedYear && hasSelectedSubject && hasSelectedDifficulty;
+    });
+
+    // 更新 itemsShow
+    this.setData({
+      itemsShow: filteredItems,
+    });
   },
 //标签
 inputTag(e) {
@@ -67,6 +121,7 @@ addTag(tag) {
   if (tag && this.data.tags.indexOf(tag) === -1) {
     this.data.tags.push(tag);
     this.setData({ tags: this.data.tags });
+    this.updateItemsShow(); // 在更新 tags 后调用 updateItemsShow
   }
 },
 
@@ -74,6 +129,7 @@ deleteTag(e) {
   const index = e.currentTarget.dataset.index;
   this.data.tags.splice(index, 1);
   this.setData({ tags: this.data.tags });
+  this.updateItemsShow(); // 在更新 tags 后调用 updateItemsShow
 },
 
 // 新增函数来删除最后一个标签
@@ -88,6 +144,65 @@ goToOriginalQuestion(){
   wx.navigateTo({
     url: '/pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion'
   });
-}
- 
+},
+// 选择年份的回调函数
+bindYearChange: function (e) {
+  const selectedYearIndex = e.detail.value;
+  const selectedYear = this.data.yearRange[selectedYearIndex];
+
+  this.setData({
+    selectedYearIndex: selectedYearIndex,
+    selectedYear: selectedYear,
+  });
+
+  if(selectedYear == '无'){
+    this.setData({
+      selectedYearIndex: selectedYearIndex,
+      selectedYear: '',
+    });
+  }
+
+  this.updateItemsShow(); // 在更新时间后调用 updateItemsShow
+},
+
+// 选择学科的回调函数
+bindSubjectChange: function (e) {
+  const selectedSubjectIndex = e.detail.value;
+  const selectedSubject = this.data.subjects[selectedSubjectIndex];
+
+  this.setData({
+    selectedSubjectIndex: selectedSubjectIndex,
+    selectedSubject: selectedSubject,
+  });
+
+  if(selectedSubject == '无'){
+    this.setData({
+      selectedSubjectIndex: selectedSubjectIndex,
+      selectedSubject: '',
+    });
+  }
+
+  this.updateItemsShow(); // 在更新学科后调用 updateItemsShow
+},
+
+
+// 选择难度的回调函数
+bindDifficultyChange: function (e) {
+  const selectedDifficultyIndex = e.detail.value;
+  const selectedDifficulty = this.data.difficulties[selectedDifficultyIndex];
+
+  this.setData({
+    selectedDifficultyIndex: selectedDifficultyIndex,
+    selectedDifficulty: selectedDifficulty,
+  });
+
+  if(selectedDifficulty == '无'){
+    this.setData({
+      selectedDifficultyIndex: selectedDifficultyIndex,
+      selectedDifficulty: '',
+    });
+  }
+
+  this.updateItemsShow(); // 在更新难度后调用 updateItemsShow
+},
 })
