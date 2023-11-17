@@ -1,8 +1,8 @@
 Page({
   data: {
     items: [
-      { name: '章节1' ,id:""},
-      { name: '章节2' ,id:""}
+      { name: '章节1' ,chapter_id:""},
+      { name: '章节2' ,chapter_id:""}
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
     isClassStarted: false, // 初始课堂状态为未开始
@@ -50,7 +50,6 @@ Page({
           items: resultList,
           courseCount: resultList.length  // 更新课程数量
         });
-        this.data.items = resultList
         getApp().globalData.chapter_list = resultList
         console.log("全局变量")
         console.log(getApp().globalData.chapter_list)
@@ -127,7 +126,7 @@ wx.request({
       data: {chapter_name:"新章节", course_id:getApp().globalData.current_course_id},
       timeout: 0,
       success: (result) => {
-        var res = JSON.parse(result.data)
+        var res = result.data
         console.log( getApp().globalData.current_course_id)
         getApp().globalData.current_chapter_id = res.chapter_id
         //添加成功，直接跳转到相应的章节界面
@@ -142,7 +141,9 @@ wx.request({
 
   goToChapterMain: function(e) {
     let index = e.currentTarget.dataset.index;
+    console.log(index)
     getApp().globalData.current_chapter_id = this.data.items[index].chapter_id
+    console.log(this.data.items[index].chapter_id)
     wx.navigateTo({
       url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain'
     });
