@@ -1,28 +1,39 @@
 {
   "pages": [
-    "pages/Login/Login",
+    "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
+    "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
+    "pages/PersonalInfo/PersonalInfo",
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+
+
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
-    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
+    "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
 
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
+    "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
+    "pages/Login/Login",
+
+
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
     "pages/Forum/PostDetil/PostDetil",
     "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
 
-    "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
+
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
-    "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
-    "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
-    "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
-    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
+
+
+    
+
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
-    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
 

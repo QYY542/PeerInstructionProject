@@ -17,7 +17,7 @@ Page({
   },
   onShow:function (){
     wx.request({
-      url: 'http://127.0.0.1:5000/course/MainMenu/',
+      url: getApp().globalData.ip + 'course/MainMenu',
       data: {user_id:getApp().globalData.user_id},//传递该用户id以索引
       method: 'GET',
       timeout: 0,
@@ -57,7 +57,7 @@ Page({
   onLoad:function (){
     //页面加载时向后端请求该教师目前的课程数据进行页面初始化
     wx.request({
-      url: 'http://127.0.0.1:5000/course/MainMenu/',
+      url: getApp().globalData.ip + 'course/MainMenu',
       data: {user_id:getApp().globalData.user_id},//传递该用户id以索引
       method: 'GET',
       timeout: 0,
@@ -118,12 +118,6 @@ Page({
   },
 
   addItem: function() {
-    let items = this.data.items;
-    items.push({ name: '新的课程xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' });
-    this.setData({
-      items: items,
-      courseCount: items.length  // 更新课程数量
-    });
     wx.navigateTo({
       url: '/pages/Student/StudentMain/StudentNewClass/StudentNewClass'
     });

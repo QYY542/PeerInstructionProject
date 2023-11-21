@@ -3,7 +3,7 @@ Page({
     currentTag: '',
     tags: [],
     question: '',
-    imageSrc: '',
+    imageSrc: 'defualt',
     options: {A: '', B: '', C: '', D: ''},
     answer: [],  // 答案是一个数组
     shared: true, // 默认为'是'
@@ -145,15 +145,18 @@ checkboxChange(e) {
     console.log('题目数据：', this.data);
     // 这里可以编写提交数据到服务器的代码
     wx.request({
-      url: getApp().globalData.ip + 'url',
+      url: getApp().globalData.ip + 'chapter/NewQuestion',
       data: {user_id:getApp().globalData.user_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id,tags:this.data.tags, question:this.data.question, imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
       method: 'POST',
       timeout: 0,
       success: (result) => {
-
       },
       fail: (err) => {},
       complete: (res) => {},
+    })
+    //退回到上一界面
+    wx.navigateTo({
+      url: 'pages/Teacher/TeacherQuestion/TeacherQuestionChoose',
     })
   }
 });

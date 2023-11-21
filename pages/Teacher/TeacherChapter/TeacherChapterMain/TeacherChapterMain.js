@@ -32,26 +32,31 @@ Page({
   onLoad: function() {
     //拉取该章节题目列表
     wx.request({
-      url: getApp().globalData.ip + 'url',
+      url: getApp().globalData.ip + 'chapter/ChapterMenu',
       data: {course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},//发送对应课程章节id索引题目列表
       method: 'GET',
       success: (result) => {
         var res = JSON.stringify(result.data)
-              var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),popularity:(\d+)/g;
+              var regex = /#answer:(.*?),creator_id:(\d+),difficulty:(\d+),question_id:(\d+),question_text:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
-                var courseName = match[6];
+                var question_text = match[5];
                 console.log(courseName)
-                var courseId = parseInt(match[2]);
+                var questionId = parseInt(match[4]);
+                var answer = JSON.parse(match[1])
                 console.log(courseId)
                 // 构造字典对象并添加到结果列表
                 var courseObject = {
-                  'name': courseName,
-                  'course_id': courseId
+                  'question_text': question_text,
+                  'question_id': questionId
                 };
                 resultList.push(courseObject);
               }
+              this.setData({
+                items: resultList,
+                courseCount: resultList.length  // 更新题目列表
+              });
       },
       fail: (err) => {},
       complete: (res) => {},

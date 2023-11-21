@@ -7,7 +7,9 @@ Page({
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
     isClassStarted: false, // 初始课堂状态为未开始
     classBtnStyle:'greenBtn',
-    classBtnText:'开始上课'
+    classBtnText:'开始上课',
+    course_id:'',
+    course_pw:''
   },
 
   computed: {
@@ -21,6 +23,7 @@ Page({
   },
 
   onShow: function(){
+    
     //页面加载时向后端请求该教师目前课程章节进行页面初始化
     wx.request({
       url: getApp().globalData.ip + 'course/CourseMenu',

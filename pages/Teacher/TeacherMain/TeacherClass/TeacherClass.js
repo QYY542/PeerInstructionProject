@@ -1,19 +1,12 @@
 Page({
   data: {
     items: [
-      { 
-        name: '课程1',
-        teacher: '王老师',
-        isOnGoing: false
-      },
-      { 
-        name: '课程2',
-        teacher: '李老师',
-        isOnGoing: true
-      }
+      { },
     ],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
-    username: "王佳慧"
+    username: "王佳慧",
+    course_pw:'',
+    course_id:''
   },
   
   onLoad:function (){
@@ -27,7 +20,7 @@ Page({
         console.log(result)
         var res = JSON.stringify(result.data)
         console.log(res)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),popularity:(\d+)/g;
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
@@ -35,11 +28,13 @@ Page({
           console.log(courseName)
           var courseId = parseInt(match[2]);
           console.log(courseId)
+          var pw = parseInt(match[8])
         
           // 构造字典对象并添加到结果列表
           var courseObject = {
             'name': courseName,
-            'course_id': courseId
+            'course_id': courseId,
+            'course_pw': pw
           };
           resultList.push(courseObject);
         }
@@ -67,18 +62,20 @@ Page({
         console.log(result)
         var res = JSON.stringify(result.data)
         console.log(res)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),popularity:(\d+)/g;
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
           var courseName = match[6];
           console.log(courseName)
           var courseId = parseInt(match[2]);
-          console.log(courseId)      
+          console.log(courseId)     
+          var pw = parseInt(match[8]) 
           // 构造字典对象并添加到结果列表
           var courseObject = {
             'name': courseName,
-            'course_id': courseId
+            'course_id': courseId,
+            'course_pw': pw
           };
           resultList.push(courseObject);
         }
@@ -117,7 +114,7 @@ Page({
             method: 'GET',
             success: (result) => {
               var res = JSON.stringify(result.data)
-              var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),popularity:(\d+)/g;
+              var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
@@ -125,10 +122,12 @@ Page({
                 console.log(courseName)
                 var courseId = parseInt(match[2]);
                 console.log(courseId)
+                var pw = parseInt(match[8])
                 // 构造字典对象并添加到结果列表
                 var courseObject = {
                   'name': courseName,
-                  'course_id': courseId
+                  'course_id': courseId,
+                  'course_pw': pw
                 };
                 resultList.push(courseObject);
               }

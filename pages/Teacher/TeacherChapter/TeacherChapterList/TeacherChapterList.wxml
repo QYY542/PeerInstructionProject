@@ -6,7 +6,7 @@
 </view>
 
 <view class="greeting">
-    课程ID：XXXXX
+    课程ID：{{course_id}}  选课密码: {{course_pw}}
 </view>
 
 <view class="list-title">
@@ -17,7 +17,7 @@
 <view class="list-container">
     <!-- 列表部分 -->
     <view class="list" wx:for="{{items}}" wx:key="index">
-        <view class="list-item-chapter" bindtap="goToChapterMain" >
+        <view class="list-item-chapter" bindtap="goToChapterMain" data-index="{{index}}" >
             <text class="item-name">{{item.name}}</text>
             <!-- catchtap防止冒泡-->
             <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>

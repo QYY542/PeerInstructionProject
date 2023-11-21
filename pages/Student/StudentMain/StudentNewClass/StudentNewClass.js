@@ -22,9 +22,9 @@ Page({
   nextStep: function() {
     if (this.data.classID && this.data.classPassword) {
       wx.request({
-        url: 'http://127.0.0.1:5000/course/JoinCourse/',
+        url: getApp().globalData.ip + 'course/JoinCourse',
         data: {course_id:this.data.classID, course_pw:this.data.classPassword, user_id: getApp().globalData.user_id},
-        method: 'GET',
+        method: 'POST',
         timeout: 0,
         success: (result) => {
           if(result.statusCode == 200){
@@ -33,19 +33,20 @@ Page({
               title: '加入成功',
               duration: 2000
             })
-            wx.navigateTo({
-              url: 'pages/Student/StudentMain/StudentClass/StudentClass',
+            wx.redirectTo({
+              url: '/pages/Student/StudentChapter/StudentChapterList/StudentChapterList' 
+            });
+          }else{
+            wx.showToast({
+              title: '加入失败',
+              icon: 'error'
             })
           }
         },
         fail: (err) => {},
         complete: (res) => {},
       })
-      // 在这里添加你的代码来处理“下一步”操作
-      // 例如，你可能想要导航到另一个页面或者做一些其他的事情
-      wx.redirectTo({
-        url: '/pages/Student/StudentChapter/StudentChapterList/StudentChapterList'  // 假设你有一个名为'nextPage'的页面
-      });
+
     } else {
       wx.showToast({
         title: '请填写所有字段',

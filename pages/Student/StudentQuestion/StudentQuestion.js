@@ -12,7 +12,8 @@ Page({
     remainingTime: 60, // 剩余答题时间（秒）
     correctAnswer: 'A', // 正确答案选项
     selectedAnswer: 'B',
-    isAnswerPublished:true
+    isAnswerPublished:true,
+    question_id:''
   },
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
@@ -27,6 +28,16 @@ Page({
     // 提交答案的处理
     const selectedOptions = this.data.options.filter(option => option.selected);
     console.log('提交的答案是：', selectedOptions);
+    wx.request({
+      url: getApp().globalData.ip + 'url',//todo:确定地址
+      data: {question_id:this.data.question_id, uer_id:getApp().globalData.user_id, question_choice:this.data.selectedAnswer},
+      timeout: 0,
+      success: (result) => {
+
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   },
   
   // 倒计时函数，需要在onLoad或其他生命周期函数中启动

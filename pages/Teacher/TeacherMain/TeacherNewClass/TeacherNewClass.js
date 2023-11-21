@@ -2,7 +2,8 @@ Page({
   data: {
     className: '',
     classPassword: '',
-    course_id:''
+    course_id:'',
+    course_pw:''
   },
   
   // 当用户输入课程名称时调用的函数
@@ -32,7 +33,7 @@ Page({
           this.data.classPassword = res.course_pw;
           wx.showModal({
             title: '创建成功',
-            content: '选课密码：'+ this.data.classPassword,
+            content: '课程id: ' + this.data.course_id +'选课密码：'+ this.data.classPassword,
             complete: (res) => {
               if (res.cancel) {
               }
@@ -46,7 +47,7 @@ Page({
         complete: (res) => {},
       })
       wx.redirectTo({
-        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  
+        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList?course_id='+ this.data.course_id +'&course_pw=' + this.data.course_pw 
       });
     } else {
       wx.showToast({
@@ -56,7 +57,7 @@ Page({
     }
 
     console.log('===创建新课程===');
-    console.log('课程名称:', this.data.className);
+    console.log('课程id:', this.data.className);
     console.log('课程密码:', this.data.classPassword);
   }
 });
