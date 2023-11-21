@@ -1,16 +1,21 @@
 {
   "pages": [
-    "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
+    "pages/Forum/PostDetil/PostDetil",
+    "pages/Forum/ReplyToPost/ReplyToPost",
+    "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+    "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
+    "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
+    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
+
     "pages/PersonalInfo/PersonalInfo",
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
 
-
-    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
     "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
 
-    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
@@ -20,8 +25,8 @@
 
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
-    "pages/Forum/PostDetil/PostDetil",
-    "pages/Forum/ReplyToPost/ReplyToPost",
+
+
     "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
 
 
@@ -32,10 +37,7 @@
 
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
-    "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
 
-    "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
-    "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
 
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
   ],

@@ -34,8 +34,83 @@ Page({
     ],
     courseCount: 4  // Assuming that each post is related to a different course
   },
+  onShow: function () {
+    //向后端拉取帖子列表
+    wx.request({
+      url: getApp().globalData.ip + 'url',//todo:确定地址
+      data: {chapter_id:getApp().globalData.current_chapter_id},//传递章节id
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        var res = JSON.stringify(result.data)
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;//todo:确定传递格式与列表格式
+        var match;
+        var resultList = [];
+        while ((match = regex.exec(res)) !== null) {
+          var courseName = match[6];
+          console.log(courseName)
+          var courseId = parseInt(match[2]);
+          console.log(courseId)
+          var pw = parseInt(match[8])
+          // 构造字典对象并添加到结果列表
+          var courseObject = {
+            'name': courseName,
+            'course_id': courseId,
+            'course_pw': pw
+          };
+          resultList.push(courseObject);
+        }
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+    // 页面加载时对 items 进行排序
+    let items = this.data.items;
 
+    items.sort((a, b) => {
+      // 首先按照 isTop 字段降序排列
+      if (b.isTop - a.isTop !== 0) {
+        return b.isTop - a.isTop;
+      }
+      
+      // 如果 isTop 相同，则按照 time 字段降序排列
+      return new Date(b.time) - new Date(a.time);
+    });
+    // 更新数据
+    this.setData({
+      items: items,
+    });
+  },
   onLoad: function () {
+    //向后端拉取帖子列表
+    wx.request({
+      url: getApp().globalData.ip + 'url',//todo:确定地址
+      data: {chapter_id:getApp().globalData.current_chapter_id},//传递章节id
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        var res = JSON.stringify(result.data)
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;//todo:确定传递格式与列表格式
+        var match;
+        var resultList = [];
+        while ((match = regex.exec(res)) !== null) {
+          var courseName = match[6];
+          console.log(courseName)
+          var courseId = parseInt(match[2]);
+          console.log(courseId)
+          var pw = parseInt(match[8])
+          // 构造字典对象并添加到结果列表
+          var courseObject = {
+            'name': courseName,
+            'course_id': courseId,
+            'course_pw': pw
+          };
+          resultList.push(courseObject);
+        }
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
     // 页面加载时对 items 进行排序
     let items = this.data.items;
 

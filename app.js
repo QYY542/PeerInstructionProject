@@ -23,6 +23,7 @@ App({
     course_list:[],//维护的课程列表，学生老师形式一致
     chapter_list:[],//维护的章节列表
     file_list:[],//维护的文件列表
+    forum_list:[],//维护的帖子列表
     ip:"http://10.62.165.3:5080/"
   }
 })

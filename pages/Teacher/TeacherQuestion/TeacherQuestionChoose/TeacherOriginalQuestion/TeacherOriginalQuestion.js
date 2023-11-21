@@ -156,7 +156,7 @@ checkboxChange(e) {
     })
     //退回到上一界面
     wx.navigateTo({
-      url: 'pages/Teacher/TeacherQuestion/TeacherQuestionChoose',
+      url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
     })
   }
 });
