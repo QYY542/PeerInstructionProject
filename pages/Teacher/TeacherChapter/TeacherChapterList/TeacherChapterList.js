@@ -7,7 +7,8 @@ Page({
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
     isClassStarted: false, // 初始课堂状态为未开始
     classBtnStyle:'greenBtn',
-    classBtnText:'开始上课'
+    classBtnText:'开始上课',
+    coursePassword:'000002'
   },
 
   computed: {

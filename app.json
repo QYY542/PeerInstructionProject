@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/Login/Login",
+    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
+    
     "pages/PersonalInfo/PersonalInfo",
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
-    "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
 
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
@@ -26,7 +27,6 @@
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
-
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
   ],
   "window": {

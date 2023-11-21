@@ -48,6 +48,8 @@
         <label><checkbox value="D"  /> D</label>
       </checkbox-group>
     </view>
+
+
     
     <!-- 是否添加到共享题库 -->
     <view class="shared-option">
@@ -60,6 +62,16 @@
           <radio value="no" checked="{{!shared}}"/> 否
         </label>
       </radio-group>
+    </view>
+
+    <!-- 选择题目难度 -->
+    <view class="answer">
+      <checkbox-group bindchange="checkboxChangeDifficulty">
+        <text>选择难度：</text>
+        <label><checkbox value="简单"  /> 简单</label>
+        <label><checkbox value="中等"  /> 中等</label>
+        <label><checkbox value="困难"  /> 困难</label>
+      </checkbox-group>
     </view>
 
     <button class="darkBtn" bindtap="submit">确认</button>

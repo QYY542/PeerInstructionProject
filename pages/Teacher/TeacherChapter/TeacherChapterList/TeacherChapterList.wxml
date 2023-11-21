@@ -6,7 +6,7 @@
 </view>
 
 <view class="greeting">
-    课程ID：XXXXX
+    选课密码：{{coursePassword}}
 </view>
 
 <view class="list-title">
