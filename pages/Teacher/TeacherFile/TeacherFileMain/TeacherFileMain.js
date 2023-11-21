@@ -66,8 +66,8 @@ Page({
     });
   },
 
-  goToFileUpload(){
-    //var index = e.currentTarget.dataset.index
+  goToFileUpload(e){
+    var index = e.currentTarget.dataset.index
     //todo:确定传递格式后将打开文件的id赋给全局变量
     wx.navigateTo({
       url: '/pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload'

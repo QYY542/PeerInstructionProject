@@ -22,8 +22,7 @@ Page({
     },
   },
 
-  onShow: function(){
-    
+  onShow: function(){ 
     //页面加载时向后端请求该教师目前课程章节进行页面初始化
     wx.request({
       url: getApp().globalData.ip + 'course/CourseMenu',

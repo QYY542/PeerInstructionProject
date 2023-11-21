@@ -62,10 +62,11 @@ Page({
         console.log(result)
         var res = JSON.stringify(result.data)
         console.log(res)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),password:(\d+),popularity:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
+          console.log(match[6])
           var courseName = match[6];
           console.log(courseName)
           var courseId = parseInt(match[2]);

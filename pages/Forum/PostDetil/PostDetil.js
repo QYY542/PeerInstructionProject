@@ -55,12 +55,68 @@ Page({
     });
   },
 
+  onShow: function () {
+    wx.request({
+      url: getApp().globalData.ip + '',
+      data: {user_id:getApp().globalData.user_id,forum_id:getApp().globalData.current_forum_id,reply_content:this.data.replyContent,reply_to:this.data.replyTo},//传递用户id，帖子id,回复消息，回复对象
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        console.log(result)
+        var res = JSON.stringify(result.data)
+        console.log(res)
+        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),password:(\d+),popularity:(\d+)/g;
+        var match;
+        var resultList = [];
+        while ((match = regex.exec(res)) !== null) {
+          console.log(match[6])
+          var courseName = match[6];
+          console.log(courseName)
+          var courseId = parseInt(match[2]);
+          console.log(courseId)     
+          var pw = parseInt(match[8]) 
+          // 构造字典对象并添加到结果列表
+          var courseObject = {
+            'name': courseName,
+            'course_id': courseId,
+            'course_pw': pw
+          };
+          resultList.push(courseObject);
+        }
+        // 打印结果列表
+        console.log(resultList);
+        this.setData({
+          items: resultList,
+          courseCount: resultList.length  // 更新课程数量
+        });
+        getApp().globalData.forum_list = resultList
+        console.log("全局变量")
+        console.log(getApp().globalData.course_list)
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+  },
   inputChange: function (event) {
     // 处理输入框的值变化，更新 replyContent
     this.setData({
       replyContent: event.detail.value,
     });
   },
+  submitComment: function () {
+    //处理发帖文本，成功后更新界面
+    wx.request({
+      url: getApp().globalData.ip + 'url',
+      data: data,
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
 
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+    
+  }
 
 });

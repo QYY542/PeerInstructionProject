@@ -1,9 +1,14 @@
 {
   "pages": [
+    "pages/Login/Login",
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+
     "pages/Forum/PostDetil/PostDetil",
     "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
@@ -12,7 +17,7 @@
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
 
     "pages/PersonalInfo/PersonalInfo",
-    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+
 
     "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
 
@@ -20,7 +25,7 @@
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
-    "pages/Login/Login",
+
 
 
     "pages/Register/Register",
