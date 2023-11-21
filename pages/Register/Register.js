@@ -6,7 +6,13 @@ Page({
       confirmPassword: '',
       email: '',
       phone: '',
-      is_teacher: 0
+      is_teacher: 2
+  },
+
+  onLoad(){
+    this.setData({
+      is_teacher : 0
+    })
   },
 
   //处理输入

@@ -44,15 +44,18 @@ Page({
   replyToComment: function (event) {
     const index = event.currentTarget.dataset.index;
     const author = event.currentTarget.dataset.author;
-
+  
     // 获取已有的 replyContent，如果没有则设为空字符串
     const existingContent = this.data.replyContent || '';
-
-    // 将被回复的作者添加到输入框中，并在已有内容前面加上 @${author}
-    this.setData({
-      replyTo: author,
-      replyContent: `@${author} ${existingContent}`,
-    });
+  
+    // 判断 replyContent 中是否已经包含 @${author}，如果已包含，则不重复添加
+    if (!existingContent.includes(`@${author}`)) {
+      // 将被回复的作者添加到输入框中，并在已有内容前面加上 @${author}
+      this.setData({
+        replyTo: author,
+        replyContent: `@${author} ${existingContent}`,
+      });
+    }
   },
 
   onShow: function () {

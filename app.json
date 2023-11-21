@@ -42,8 +42,15 @@
 
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
+<<<<<<< HEAD
 
 
+=======
+    "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+    "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
+    "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
+>>>>>>> develop
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank"
   ],
   "window": {
