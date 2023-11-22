@@ -58,18 +58,62 @@ Page({
   },
 
   showMore(e){
+    /*
     this.setData({
       show:true,
       src:e.currentTarget.id
     })
     const src = e.currentTarget.id
     console.log(src)
+    */
+   this.setData({
+    src:e.currentTarget.id
+  })
+   const src = e.currentTarget.id
+   console.log(src)
+         //查看文件
+         wx.showLoading({
+          title: '文件下载中...',
+        });
+        wx.downloadFile({
+          url: this.data.src,
+          success:(res =>{
+            wx.hideLoading();
+            console.log(typeof(res))
+            const filePath = res.tempFilePath
+            console.log(filePath)
+            wx.openDocument({
+              filePath: filePath,
+              fileType: '',
+              showMenu:true,
+              success(res){
+                console.log("打开文档成功")
+              },
+              fail(res){
+                wx.showToast({
+                  title: '打开文档失败',
+                  icon: 'none'
+                });
+              }
+            })
+          }),
+          fail(err) {
+            wx.hideLoading();
+            wx.showToast({
+              title: '下载文件失败',
+              icon: 'none'
+            });
+            console.error("下载文件失败", err);
+          }
+        })
   },
 
+  //可能弃用
   buttontap(e){
     console.log(e.detail.index)
-    //查看文件
+    
     if(e.detail.index == 1){
+      //查看文件
       wx.showLoading({
         title: '文件下载中...',
       });
@@ -105,29 +149,46 @@ Page({
         }
       })
     }else{
+      //下载文件
       wx.showLoading({
         title: '文件下载中...',
       });
       wx.downloadFile({
         url: this.data.src,
-        success:(res =>{
+        success: (res) => {
           wx.hideLoading();
-          console.log(res)
-          const tempFilePaths = res.tempFilePath
-          wx.saveFileToDisk({
-            filePath: tempFilePaths,
-            success(res) {
-              console.log(res)
-            },
-            fail(res){
-              wx.showToast({
-                title: '打开文档失败',
-                icon: 'none'
-              });
-            }
-          })
-        }),
-        fail(err) {
+          console.log(res);
+          if (res.statusCode === 200) {
+            const tempFilePath = res.tempFilePath;
+            wx.getFileSystemManager().saveFile({
+              tempFilePath: tempFilePath,
+              success: (res) => {
+                console.log(res);
+                const savedFilePath = res.savedFilePath;
+                // 在此处进行文件保存成功后的操作，例如显示成功提示等
+
+                wx.showToast({
+                  title: '保存文件成功',
+                  icon: 'none'
+                });
+              },
+              fail: (res) => {
+                wx.showToast({
+                  title: '保存文件失败',
+                  icon: 'none'
+                });
+                console.error("保存文件失败", res);
+              }
+            });
+          } else {
+            wx.showToast({
+              title: '下载文件失败',
+              icon: 'none'
+            });
+            console.error("下载文件失败", res);
+          }
+        },
+        fail: (err) => {
           wx.hideLoading();
           wx.showToast({
             title: '下载文件失败',
@@ -135,7 +196,7 @@ Page({
           });
           console.error("下载文件失败", err);
         }
-      })
+      });
     }
 
   },

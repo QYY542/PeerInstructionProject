@@ -190,7 +190,7 @@ checkboxChange(e) {
   radioChangeDifficulty(e) {
     const value = e.detail.value;
     const year = new Date().getFullYear();
-    const teacherName = '老师名字';
+    const subject = '科目';
   
     const tags = [...this.data.tags]; // 创建 tags 数组的副本
   
@@ -200,7 +200,7 @@ checkboxChange(e) {
     }
   
     // 在数组开头添加新的标签
-    tags.unshift(value, year, teacherName);
+    tags.unshift(value, year, subject);
   
     // 更新 difficulty 和 tags
     this.setData({
