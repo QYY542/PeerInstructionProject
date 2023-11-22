@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
+
     "pages/Login/Login",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     
     "pages/PersonalInfo/PersonalInfo",
-    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
 
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
