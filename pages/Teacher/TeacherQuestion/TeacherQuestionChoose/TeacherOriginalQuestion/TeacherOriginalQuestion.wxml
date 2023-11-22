@@ -66,13 +66,13 @@
 
     <!-- 选择题目难度 -->
     <view class="answer">
-      <checkbox-group bindchange="checkboxChangeDifficulty">
-        <text>选择难度：</text>
-        <label><checkbox value="简单"  /> 简单</label>
-        <label><checkbox value="中等"  /> 中等</label>
-        <label><checkbox value="困难"  /> 困难</label>
-      </checkbox-group>
-    </view>
+  <radio-group bindchange="radioChangeDifficulty">
+    <text>选择难度：</text>
+    <label><radio value="简单" /> 简单</label>
+    <label><radio value="中等" /> 中等</label>
+    <label><radio value="困难" /> 困难</label>
+  </radio-group>
+</view>
 
     <button class="darkBtn" bindtap="submit">确认</button>
 </view>

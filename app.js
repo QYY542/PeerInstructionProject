@@ -20,7 +20,7 @@ App({
     current_chapter_id:"",//当成章节id
     course_list:[],//维护的课程列表，学生老师形式一致
     chapter_list:[],//维护的章节列表
-    // ip:"http://10.62.165.3:5080/",
+    // ip:"http://10.63.51.5:5080/",
     ip:"http://back.gddg08.top/"
   }
 })

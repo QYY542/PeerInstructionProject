@@ -6,7 +6,7 @@
 
 
 <!-- 三个按钮 -->
-<button class="darkBtn" bindtap="addNewFileDisk">从内部存储中添加</button>
+<!--<button class="darkBtn" bindtap="addNewFileDisk">从内部存储中添加</button>-->
 <button class="darkBtn" bindtap="addNewFileMessage">从聊天记录中添加</button>
 <button class="darkBtn" bindtap="saveOperation">保存</button>
 <view class="separator"></view>

@@ -141,7 +141,7 @@ Page({
   },
   addNewFileDisk(){
     const that = this;
-    wx.getFileSystemManager()
+    wx.chooseFile
   },
   addNewFileMessage(){
     const that = this;  // 保存当前页面的this对象，以便在回调函数中使用
