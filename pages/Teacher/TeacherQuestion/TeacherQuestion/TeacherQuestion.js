@@ -69,14 +69,14 @@ Page({
   // 处理开放题目和停止作答逻辑
   handleQuestionAction: function() {
 console.log(this.data.canOpenQuestion)
-
     if (this.data.canOpenQuestion) {
       if (this.data.buttonText === '开放题目' || this.data.buttonText === '再次开放') {
         this.openQuestion();
         wx.request({
           url: getApp().globalData.ip + 'url',
-          data: {course_id:getApp().globalData.current_course_id,},//向后端传递当前课程id以索引题目
-          method: 'GET',
+          data: {course_id:getApp().globalData.current_course_id,question_id:getApp().globalData.current_question_id,
+          time_limit:this.data.openTime},//向后端传递当前课程id与题目id与开放时间todo:可能的回调函数
+          method: 'POST',
           timeout: 0,
           success: (result) => {
           },
@@ -86,13 +86,12 @@ console.log(this.data.canOpenQuestion)
       } else if (this.data.buttonText === '停止作答') {
         //从后端接收反馈
         wx.request({
-          url: getApp().globalData.ip + 'url',
-          data: {},
+          url: getApp().globalData.ip + 'url',//todo
+          data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id},
           method: 'GET',
-          responseType: responseType,
           timeout: 0,
           success: (result) => {
-
+            
           },
           fail: (err) => {},
           complete: (res) => {},
@@ -183,11 +182,17 @@ console.log(this.data.canOpenQuestion)
       title: '开放答案',
       icon: 'none'
     });
+    //向后端传递该题的id，课程id,将改题目开放
+    wx.request({
+      url: getApp().globalData.ip + 'url',
+      data: {question_id:getApp().globalData.current_question_id, course_id:getApp().globalData.current_course_id},
+      method: 'POST',
+      timeout: 0,
+      success: (result) => {},
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   },
-
-
-
-
 
   previewImage(){
     wx.previewMedia({
@@ -198,7 +203,42 @@ console.log(this.data.canOpenQuestion)
   onLoad() {
     this.markCorrectAnswer();
     this.countDown(); // 开始倒计时
-    // 其他 onLoad 逻辑
+    wx.request({
+      url: getApp().globalData.ip + 'chapter/GetQuestion',
+      data: {question_id:getApp().globalData.current_question_id},//传递题目id
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        console.log(result)
+        var res = JSON.stringify(result.data)
+              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var match;
+              match = regex.exec(res)
+              console.log(match)
+              var question_text = match[6]
+              var answer = match[1]
+              answer = answer.slice(1, -1)
+              var options = match[4]
+              options = options.replace(/'/g, '"')
+              options = options.slice(1, -1)
+              var option_list = JSON.parse('{' + options + '}')
+              var options_list = Object.keys(option_list).map(function(key) {
+                return { key: key, value: obj[key] };
+            });
+              console.log(question_text)
+              console.log(answer)
+              console.log(options_list)
+              //设置题目文本
+              this.data.questionText = question_text
+              this.data.correctAnswer = answer
+              this.data.options[0].text = options_list['A']
+              this.data.options[1].text = options_list['B']
+              this.data.options[2].text = options_list['C']
+              this.data.options[3].text = options_list['D']
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   },
   markCorrectAnswer() {
     const correctAnswer = this.data.correctAnswer;

@@ -3,7 +3,7 @@
 <!-- 标题部分 -->
 <view class="header">章节主页（教师版）</view>
 <view class="greeting">
-  <input class="chapter-input" type="text" placeholder="输入章节名称" value="{{ chapterName }}" disabled="{{ !editMode }}" bindinput="onChapterNameInput" />
+  <input class="chapter-input" type="text" placeholder="{{placeholder_value}}" value="{{ chapterName }}" disabled="{{ !editMode }}" bindinput="onChapterNameInput" />
   <view class="gap_width"></view>
   <button class="edit-save-btn" bindtap="toggleEditMode">{{ editSaveBtnText }}</button>
   <view class="gap_width"></view>

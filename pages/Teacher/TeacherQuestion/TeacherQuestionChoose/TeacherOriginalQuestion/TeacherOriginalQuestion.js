@@ -3,7 +3,7 @@ Page({
     currentTag: '',
     tags: [],
     question: '',
-    imageSrc: 'defualt',
+    imageSrc: '',
     options: {A: '', B: '', C: '', D: ''},
     answer: [],  // 答案是一个数组
     shared: true, // 默认为'是'
@@ -83,7 +83,7 @@ deleteLastTag() {
         console.log("获取图片成功");
         console.log(res.tempFiles[0]);
         this.setData({
-          imageSrc:res.tempFiles[0].tempFilePath
+          imageSrc:res.tempFiles[0].path
         })
       }),
       fail:(err =>{
@@ -141,22 +141,28 @@ checkboxChange(e) {
     this.setData({ shared: e.detail.value === 'yes' });
 },
 
-  submit() {
+  submit: function() {
     console.log('题目数据：', this.data);
-    // 这里可以编写提交数据到服务器的代码
+    // 这里可以编写提交数据到服务器的代码,两个
+    wx.uploadFile({
+      filePath: this.data.imageSrc,
+      name: 'question_img',
+      url: getApp().globalData.ip + 'chapter/NewQuestion',
+    })
     wx.request({
       url: getApp().globalData.ip + 'chapter/NewQuestion',
-      data: {user_id:getApp().globalData.user_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id,tags:this.data.tags, question:this.data.question, imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
+      data: {user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,  imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
+      dataType: String,
       method: 'POST',
       timeout: 0,
       success: (result) => {
+        wx.showToast({
+          title: '创建成功',
+        })
       },
       fail: (err) => {},
       complete: (res) => {},
     })
-    //退回到上一界面
-    wx.navigateTo({
-      url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
-    })
+
   }
 });

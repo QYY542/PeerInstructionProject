@@ -13,7 +13,10 @@ Page({
     correctAnswer: 'A', // 正确答案选项
     selectedAnswer: 'B',
     isAnswerPublished:true,
-    question_id:''
+  },
+  onPullDownRefresh: function () {
+    //下拉重新获取改题目的状态信息，包括是否允许作答，答题情况等
+    
   },
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
@@ -56,6 +59,42 @@ Page({
 
   onLoad() {
     this.countDown(); // 开始倒计时
+    wx.request({
+      url: getApp().globalData.ip + 'chapter/GetQuestion',
+      data: {question_id:getApp().globalData.current_question_id},//传递题目id
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        console.log(result)
+        var res = JSON.stringify(result.data)
+              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var match;
+              match = regex.exec(res)
+              console.log(match)
+              var question_text = match[6]
+              var answer = match[1]
+              answer = answer.slice(1, -1)
+              var options = match[4]
+              options = options.replace(/'/g, '"')
+              options = options.slice(1, -1)
+              var option_list = JSON.parse('{' + options + '}')
+              var options_list = Object.keys(option_list).map(function(key) {
+                return { key: key, value: obj[key] };
+            });
+              console.log(question_text)
+              console.log(answer)
+              console.log(options_list)
+              //设置题目文本
+              this.data.questionText = question_text
+              this.data.correctAnswer = answer
+              this.data.options[0].text = options_list['A']
+              this.data.options[1].text = options_list['B']
+              this.data.options[2].text = options_list['C']
+              this.data.options[3].text = options_list['D']
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   },
   previewImage(){
     wx.previewMedia({
