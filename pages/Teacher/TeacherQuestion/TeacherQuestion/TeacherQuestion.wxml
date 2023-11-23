@@ -14,7 +14,7 @@
         <view class="option-prefix">{{item.option}}</view>
         <view class="option-content-wrapper">
           <view class="option-content">
-            <view class="option-btn {{item.selected ? 'selected' : ''}} {{item.option === correctAnswer ? 'correct' : ''}}">
+            <view class="option-btn {{item.selected ? 'selected' : ''}} {{item.correct ? 'correct' : ''}}">
               <text class="option-text">{{item.text}}</text>
             </view>
             <!-- Progress bar -->
