@@ -143,6 +143,30 @@ checkboxChange(e) {
 },
 
   submit: function() {
+
+    const difficulty = this.data.difficulty;
+    const year = new Date().getFullYear();
+    const subject = '科目';
+  
+    const tags = [...this.data.tags]; // 创建 tags 数组的副本
+  
+    // 删除前三个标签
+    if (tags.length >= 3) {
+      tags.splice(0, 3);
+    }
+  
+    // 在数组开头添加新的标签
+    tags.unshift(difficulty, year, subject);
+  
+    // 更新 difficulty 和 tags
+    this.setData({
+      tags: tags
+    });
+  
+    // 打印选择的难度和标签
+    console.log('标签:', this.data.tags);
+
+
     console.log('题目数据：', this.data);
     // 这里可以编写提交数据到服务器的代码,两个
     wx.uploadFile({
@@ -172,27 +196,13 @@ checkboxChange(e) {
   },
   radioChangeDifficulty(e) {
     const value = e.detail.value;
-    const year = new Date().getFullYear();
-    const subject = '科目';
-  
-    const tags = [...this.data.tags]; // 创建 tags 数组的副本
-  
-    // 删除前三个标签
-    if (tags.length >= 3) {
-      tags.splice(0, 3);
-    }
-  
-    // 在数组开头添加新的标签
-    tags.unshift(value, year, subject);
-  
+
     // 更新 difficulty 和 tags
     this.setData({
       difficulty: value,
-      tags: tags
     });
   
     // 打印选择的难度和标签
     console.log('选择的难度:', value);
-    console.log('标签:', this.data.tags);
   }
 });
