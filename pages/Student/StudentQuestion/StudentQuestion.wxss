@@ -1,33 +1,41 @@
+/* 容器样式 */
 .container {
-  padding: 30rpx;
-  font-family: -apple-system-font, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 50rpx;
+  padding-bottom: 50rpx;
 }
 
+/* 问题样式 */
 .question {
   margin-bottom: 20rpx;
 }
 
+/* 问题文本样式 */
 .question-text {
   font-size: 34rpx;
   line-height: 1.5;
   color: #333;
 }
 
+/* 问题图片样式 */
 .question-image {
   width: 100%;
+  height: 300rpx;
   margin: 20rpx 0;
 }
 
+/* 选项容器样式 */
 .options-container {
   margin-bottom: 20rpx;
 }
 
+/* 选项样式 */
 .option {
   display: flex;
   width: 100%;
   margin: 20rpx 0;
 }
 
+/* 选项前缀样式 */
 .option-prefix {
   width: 10%;
   text-align: center;
@@ -37,21 +45,34 @@
   margin-right: 20rpx;
 }
 
+/* 选项按钮样式 */
 .option-btn {
-  width: 150rpx;
+  max-width: 500rpx;
   flex-grow: 1;
   background-color: #f8f8f8;
   padding: 20rpx;
   border-radius: 10rpx;
   transition: all 0.3s ease;
+  
 }
 
+/* 选中的选项按钮样式 */
 .option-btn.selected {
   background-color: #b7e0ad;
 }
 
+/* 正确答案样式 */
+.option-btn.correct {
+  background-color: #b7e0ad; /* 绿色 */
+}
+
+/* 错误答案样式 */
+.option-btn.wrong {
+  background-color: #ff9999; /* 红色 */
+}
+
+/* 选项文本样式 */
 .option-text {
-  max-width: 100%;
   font-size: 30rpx;
   line-height: 1.5;
   color: #333;
@@ -60,26 +81,30 @@
   text-align: left; /* 文本左对齐 */
 }
 
+/* 倒计时文本样式 */
 .timer {
   font-size: 32rpx;
   color: #666;
   margin-bottom: 20rpx;
 }
 
+/* 提交按钮样式 */
 .submit-btn {
   width: 100%;
-  background-color: #1aad19;
   color: #fff;
   border-radius: 10rpx;
   padding: 20rpx;
   font-size: 34rpx;
   text-align: center;
+  background-color: #1aad19;
 }
 
+/* 提交按钮按下样式 */
 .submit-btn:active {
   background-color: #138e16;
 }
 
+/* 分隔线样式 */
 .separator {
   height: 3rpx;
   background-color: #ddd;

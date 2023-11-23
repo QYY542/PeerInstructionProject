@@ -1,4 +1,31 @@
 /* pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain.wxss */
+.greeting {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: 10rpx 0;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.gap_width{
+  width: 10rpx;
+}
+
+.edit-save-btn {
+  max-width: 80px;
+  max-height: 40px;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  writing-mode: horizontal-tb; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 
 .list-container-question {
   padding: 20rpx;

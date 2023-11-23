@@ -15,7 +15,6 @@ Page({
       password: e.detail.value
     });
   },
-  
   handleLogin: function() {
     console.log(this.data.email)
     console.log(this.data.password)
@@ -27,7 +26,7 @@ Page({
     邮箱不存在
     */
     wx.request({
-      url: 'http://127.0.0.1:5000/login/',// 后端接口地址
+      url: getApp().globalData.ip + 'user/login',// 后端接口地址
       data: {email:this.data.email, password:this.data.password},
       dataType: String,//传递给后端的数据类型
       method: 'GET',
@@ -37,26 +36,20 @@ Page({
         console.log(result)
         var get = JSON.parse(result.data)
         console.log(JSON.parse(result.data).msg)
-        if(get.msg == '教师登录成功'){
-          wx.redirectTo({
-            url: '/pages/Teacher/TeacherMain/TeacherClass/TeacherClass'
-          });
-        }else if(get.msg == '学生登录成功'){
-          wx.redirectTo({
-            url: '/pages/Student/StudentMain/StudentClass/StudentClass'
-          });
-        }else if(get.msg == '密码错误'){
-          wx.showToast({
-            title: '密码错误',
-            icon: 'none',
-            duration: 2000
-          })
-        }else if(result.data == '邮箱不存在'){
-          wx.showToast({
-            title: '邮箱不存在',
-            icon: 'none',
-            duration: 2000
-          })
+        if(result.statusCode == 200){
+          if(get.is_teacher == 'is_teacher'){
+            getApp().globalData.user_id = get.user_id
+            console.log(getApp().globalData.email)
+            wx.redirectTo({
+              url: '/pages/Teacher/TeacherMain/TeacherClass/TeacherClass'
+            });
+          }else if(get.is_teacher == 'is_student'){
+            getApp().globalData.user_id = get.user_id
+            wx.redirectTo({
+              url: '/pages/Student/StudentMain/StudentClass/StudentClass'
+            });
+          }
+        }else if(get.msg == '登录失败'){
         }
       },
       fail: (err) => {},

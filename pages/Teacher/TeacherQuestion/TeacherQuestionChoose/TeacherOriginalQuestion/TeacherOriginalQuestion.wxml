@@ -1,4 +1,5 @@
 <view class="container">
+  <!-- 标签部分 -->
   <view class="tags-input">
     <view wx:for="{{tags}}" wx:key="index" class="tag">
         <text>{{item}}</text>
@@ -8,9 +9,10 @@
   </view>
 
 
-
+    <!-- 题目内容输入框 -->
     <textarea placeholder="请输入题目内容" bindinput="inputQuestion" class="content-input"auto-height="true"></textarea>
 
+    <!-- 选择图片 -->
     <view class="image-picker">
         <view class="chosen-image" wx:if="{{imageSrc}}">
           <image bindtap="previewImage" src="{{imageSrc}}" mode="aspectFit"/>
@@ -20,6 +22,7 @@
         <button class="darkBtn" wx:if="{{imageSrc}}" bindtap="deleteImage">删除图片</button> 
     </view>
 
+    <!-- 编辑选项内容 -->
     <view class="options">
         <view class="option">
             <text>A. </text><input type="text" placeholder="选项内容" bindinput="inputOptionA" />
@@ -35,8 +38,9 @@
         </view>
     </view>
 
+    <!-- 选择正确答案 -->
     <view class="answer">
-    <checkbox-group bindchange="checkboxChange">
+      <checkbox-group bindchange="checkboxChange">
         <text>正确答案：</text>
         <label><checkbox value="A"  /> A</label>
         <label><checkbox value="B"  /> B</label>
@@ -44,16 +48,29 @@
         <label><checkbox value="D"  /> D</label>
       </checkbox-group>
     </view>
+
+
     
+    <!-- 是否添加到共享题库 -->
     <view class="shared-option">
-  <text >添加到共享题库？</text>
-  <radio-group bindchange="radioChange">
-    <label class="radio-label">
-      <radio value="yes" checked="{{shared}}"/> 是
-    </label>
-    <label class="radio-label">
-      <radio value="no" checked="{{!shared}}"/> 否
-    </label>
+      <text >添加到共享题库？</text>
+      <radio-group bindchange="radioChange">
+        <label class="radio-label">
+          <radio value="yes" checked="{{shared}}"/> 是
+        </label>
+        <label class="radio-label">
+          <radio value="no" checked="{{!shared}}"/> 否
+        </label>
+      </radio-group>
+    </view>
+
+    <!-- 选择题目难度 -->
+    <view class="answer">
+  <radio-group bindchange="radioChangeDifficulty">
+    <text>选择难度：</text>
+    <label><radio value="简单" /> 简单</label>
+    <label><radio value="中等" /> 中等</label>
+    <label><radio value="困难" /> 困难</label>
   </radio-group>
 </view>
 

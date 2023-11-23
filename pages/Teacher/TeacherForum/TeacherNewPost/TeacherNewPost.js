@@ -5,12 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    forum_title:'',
+    forum_text:'',
+    is_top:''
   },
-
+  inputTitle(e){
+    this.setData({
+      forum_title: e.detail.value
+    });
+  },
+  inputContent(e){
+    this.setData({
+      forum_text: e.detail.value
+    })
+  },
+  radioChange: function (e) {
+    var selected = e.detail.value
+    this.setData({
+      is_top:selected
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
+  post: function() {
+    //将内容传递给后端
+    wx.request({
+      url: getApp().globalData.ip + 'url',//todo:确定地址
+      data: {chapter_id:getApp().globalData.current_chapter_id, forum_title:this.data.forum_title, forum_text:this.data.forum_text},
+      method: 'POST',
+      timeout: 0,
+      success: (result) => {
+        if(result.statusCode == 200){
+          //如果创建成功，返回上一界面,会触发上一界面的onshow
+          wx.navigateTo({
+            url: 'pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain',
+          })
+        }else{
+          //可以显示错误原因
+        }
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+    
+  },
   onLoad(options) {
 
   },

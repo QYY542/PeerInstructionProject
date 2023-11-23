@@ -6,18 +6,20 @@
 </view>
 
 <view class="greeting">
-    课程ID：XXXXX
+    课程ID：{{course_id}}  选课密码: {{course_pw}}
 </view>
-<view class="list-title">课程章节 ({{courseCount}})</view>
+
+<view class="list-title">
+    课程章节 ({{courseCount}})
+</view>
+
 <!-- 列表容器 -->
 <view class="list-container">
-    
-
     <!-- 列表部分 -->
     <view class="list" wx:for="{{items}}" wx:key="index">
-        <view class="list-item-chapter" bindtap="goToChapterMain" >
+        <view class="list-item-chapter" bindtap="goToChapterMain" data-index="{{index}}">
             <text class="item-name">{{item.name}}</text>
-            <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素-->
+            <!-- catchtap防止冒泡-->
             <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
         </view>
     </view>
@@ -25,6 +27,9 @@
 </view>
 
 <!-- 创建课程按钮 -->
-<button class="darkBtn" bindtap="addItem">创建章节</button>
-
+<view class="btnContent">
+  <button class="{{classBtnStyle}}" bindtap="startClass">{{classBtnText}}</button>
+  <view class="gap_width"></view>
+  <button class="darkBtn" bindtap="addItem">创建章节</button>
+</view>
 </view>

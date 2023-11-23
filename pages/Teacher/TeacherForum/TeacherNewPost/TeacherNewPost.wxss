@@ -1,5 +1,4 @@
 
-
 .content-input {
   width: 80%;  /* 从 input 样式中继承宽度 */
   padding: 20rpx;  /* 从 input 样式中继承填充 */
@@ -10,4 +9,29 @@
   margin-bottom: 30rpx;  /* 从 .input-field 样式中继承底部外边距 */
   margin-left: auto;  /* 从 .input-field 样式中继承左外边距 */
   margin-right: auto;  /* 从 .input-field 样式中继承右外边距 */
+}
+
+/*是否置顶*/
+.top-option {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.top-option text {
+  margin-left: 50rpx;
+}
+
+.radio-label {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.option-text {
+  font-size: 14px;
+}
+radio-group {
+  display: flex;
+  align-items: center;
 }

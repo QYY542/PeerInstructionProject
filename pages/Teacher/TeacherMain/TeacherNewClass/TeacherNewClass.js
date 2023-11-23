@@ -1,7 +1,9 @@
 Page({
   data: {
     className: '',
-    classPassword: ''
+    classPassword: '',
+    course_id:'',
+    course_pw:''
   },
   
   // 当用户输入课程名称时调用的函数
@@ -11,20 +13,41 @@ Page({
     });
   },
   
-  // 当用户输入课程密码时调用的函数
-  inputClassPassword: function(e) {
-    this.setData({
-      classPassword: e.detail.value
-    });
-  },
   
   // 当用户点击“下一步”按钮时调用的函数
   nextStep: function() {
-    if (this.data.className && this.data.classPassword) {
-      // 在这里添加你的代码来处理“下一步”操作
-      // 例如，你可能想要导航到另一个页面或者做一些其他的事情
+    if (this.data.className) {
+      wx.request({
+        url: getApp().globalData.ip + 'course/NewCourse',
+        data: {course_name:this.data.className, user_id:getApp().globalData.user_id},
+        method: 'GET',
+        success: (result) => {
+          console.log(result.data)
+          //得到课程id和课程密码
+          var res = result.data         
+          console.log(res.course_id)
+          this.data.course_id = res.course_id;
+          getApp().globalData.current_course_id = res.course_id;
+          console.log(getApp().globalData.current_course_id)
+          console.log(res.course_pw)
+          this.data.classPassword = res.course_pw;
+          wx.showModal({
+            title: '创建成功',
+            content: '课程id: ' + this.data.course_id +'选课密码：'+ this.data.classPassword,
+            complete: (res) => {
+              if (res.cancel) {
+              }
+              if (res.confirm) {
+              }
+            }
+          })
+        },
+        fail: (err) => {
+        },
+        complete: (res) => {},
+      })
       wx.redirectTo({
-        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'  // 假设你有一个名为'nextPage'的页面
+        url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList?course_id='+ this.data.course_id +'&course_pw=' + this.data.course_pw 
       });
     } else {
       wx.showToast({
@@ -34,7 +57,7 @@ Page({
     }
 
     console.log('===创建新课程===');
-    console.log('课程名称:', this.data.className);
+    console.log('课程id:', this.data.className);
     console.log('课程密码:', this.data.classPassword);
   }
 });
