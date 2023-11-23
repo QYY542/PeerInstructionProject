@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
+    "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
 
     "pages/Login/Login",
@@ -8,7 +10,7 @@
     "pages/PersonalInfo/PersonalInfo",
 
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
-    "pages/Student/StudentQuestion/StudentQuestion",
+ 
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
@@ -21,7 +23,7 @@
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
-    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
+
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
