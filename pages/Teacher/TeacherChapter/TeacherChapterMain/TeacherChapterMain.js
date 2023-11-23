@@ -44,7 +44,8 @@ Page({
                   'question_text': question_text,
                   'question_id': questionId,
                   'answer':answer,
-                  'round_count':round_count
+                  'round_count':round_count,
+                  'choosed':false
                 };
                 resultList.push(courseObject);
               }

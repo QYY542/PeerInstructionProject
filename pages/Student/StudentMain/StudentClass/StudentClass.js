@@ -126,7 +126,7 @@ Page({
 
   goToChapterList: function(e) {
     let index = e.currentTarget.dataset.index;
-    let itemName = this.data.items[index].name;
+    getApp().globalData.current_course_id = this.data.items[index].course_id
     wx.navigateTo({
       url: '/pages/Student/StudentChapter/StudentChapterList/StudentChapterList'
     });

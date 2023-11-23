@@ -17,9 +17,7 @@ Page({
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
                 var question_text = match[9];
-                console.log(courseName)
                 var questionId = parseInt(match[7]);
-                console.log(courseId)
                 var round_count = parseInt(match[10])
                 var courseObject = {
                   'question_text': question_text,
@@ -31,7 +29,8 @@ Page({
               var show_list = []
               var i = 0
               while(resultList[i] != null){
-                if(resultList[i].round != 0){
+                if(resultList[i].round_count != 0){
+                  console.log(resultList[i].round_count)
                   show_list.push(resultList[i])
                 }
                 i++
@@ -40,6 +39,7 @@ Page({
                 items: show_list,
                 courseCount: show_list.length  // 更新题目列表
               });
+              console.log(show_list)
               getApp().globalData.question_list = show_list//赋给全局变量
       },
       fail: (err) => {},
@@ -62,9 +62,7 @@ Page({
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
                 var question_text = match[9];
-                console.log(courseName)
                 var questionId = parseInt(match[7]);
-                console.log(courseId)
                 var round_count = parseInt(match[10])
                 var courseObject = {
                   'question_text': question_text,
@@ -76,7 +74,7 @@ Page({
               var show_list = []
               var i = 0
               while(resultList[i] != null){
-                if(resultList[i].round != 0){
+                if(resultList[i].round_count != 0){
                   show_list.push(resultList[i])
                 }
                 i++
@@ -113,7 +111,7 @@ Page({
   goToQuestionMain: function(e) {
     var index = e.currentTarget.dataset.index;
     //将对应参数赋给全局变量供后续调用
-    getApp().globalData.current_question_id = this.data.items[index].questionId
+    getApp().globalData.current_question_id = this.data.items[index].question_id
     wx.navigateTo({
       url: '/pages/Student/StudentQuestion/StudentQuestion'
     });

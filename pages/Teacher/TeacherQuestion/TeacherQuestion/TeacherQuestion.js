@@ -89,7 +89,7 @@ console.log(this.data.canOpenQuestion)
       if (this.data.buttonText === '开放题目' || this.data.buttonText === '再次开放') {
         this.openQuestion();
         wx.request({
-          url: getApp().globalData.ip + 'class/OpenQuestion',
+          url: getApp().globalData.ip + 'lesson/OpenQuestion',
           data: {course_id:getApp().globalData.current_course_id,question_id:getApp().globalData.current_question_id,
           time_limit:this.data.openTime,chapter_id:getApp().globalData.current_chapter_id},//向后端传递当前课程id与题目id章节id与开放时间
           method: 'POST',
@@ -103,12 +103,39 @@ console.log(this.data.canOpenQuestion)
       } else if (this.data.buttonText === '停止作答') {
         //从后端接收反馈
         wx.request({
-          url: getApp().globalData.ip + 'url',//todo
-          data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id},
+          url: getApp().globalData.ip + 'url',
+          data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id},
           method: 'GET',
           timeout: 0,
           success: (result) => {
-            
+            res = JSON.parse(result.data)
+            var a_num1 = res[0]
+            var b_num1 = res[1]
+            var c_num1 = res[2]
+            var d_num1 = res[3]
+            var a_num2 = res[4]
+            var b_num2 = res[5]
+            var c_num2 = res[6]
+            var d_num2 = res[7]
+            this.data.option[0].firstPercentage = a_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            this.data.option[1].firstPercentage = b_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            this.data.option[2].firstPercentage = c_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            this.data.option[3].firstPercentage = d_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            this.data.option[0].secondPercentage = a_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            this.data.option[1].secondPercentage = b_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            this.data.option[2].secondPercentage = c_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            this.data.option[3].secondPercentage = d_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            this.data.option[0].firstVotes = a_num1
+            this.data.option[1].firstVotes = b_num1
+            this.data.option[2].firstVotes = c_num1
+            this.data.option[3].firstVotes = d_num1
+            this.data.option[0].secondVotes = a_num2
+            this.data.option[1].secondVotes = b_num2
+            this.data.option[2].secondVotes = c_num2
+            this.data.option[3].secondVotes = d_num2
+            this.setData({
+              options:options
+            })
           },
           fail: (err) => {},
           complete: (res) => {},
@@ -199,10 +226,10 @@ console.log(this.data.canOpenQuestion)
       title: '开放答案',
       icon: 'none'
     });
-    //向后端传递该题的id，课程id,将改题目开放
+    //向后端传递该题的id，课程id,将改题目答案开放
     wx.request({
-      url: getApp().globalData.ip + 'url',
-      data: {question_id:getApp().globalData.current_question_id, course_id:getApp().globalData.current_course_id},
+      url: getApp().globalData.ip + 'lesson/PostAnswer',
+      data: {question_id:getApp().globalData.current_question_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},
       method: 'POST',
       timeout: 0,
       success: (result) => {},
@@ -222,7 +249,7 @@ console.log(this.data.canOpenQuestion)
     this.countDown(); // 开始倒计时
     this.setCorrectAnswers();
     wx.request({
-      url: getApp().globalData.ip + 'question/GetQuestion',
+      url: getApp().globalData.ip + 'question/TeacherGetQuestion',
       data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},
       method: 'GET',
       timeout: 0,
@@ -241,6 +268,10 @@ console.log(this.data.canOpenQuestion)
               options = options.replace(/'/g, '"')
               var options_list = JSON.parse(options)
               var round_count = parseInt(match[10])
+              var limit = parseInt(match[14])
+              var open_time = new Date(match[5]) 
+              var current_time = new Date()
+              var rest = limit - Math.floor((current_time - open_time)/1000)
               console.log('question_text:' + question_text)
               console.log('answer:' + answer)
               console.log('options_list:' + options_list['A'])
@@ -291,7 +322,8 @@ console.log(this.data.canOpenQuestion)
               this.setData({
                 questionText:question_text,
                 options:option,
-                currentAttempt:round_count
+                currentAttempt:round_count,
+                //timeLeft:rest
               })
               this.data.correctAnswer = answer
               this.setCorrectAnswers();

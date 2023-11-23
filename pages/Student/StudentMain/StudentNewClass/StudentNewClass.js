@@ -27,8 +27,7 @@ Page({
         method: 'POST',
         timeout: 0,
         success: (result) => {
-          if(result.statusCode == 200){
-            var get = JSON.parse(result.data)            
+          if(result.statusCode == 200){           
             wx.showToast({
               title: '加入成功',
               duration: 2000
