@@ -187,11 +187,6 @@ checkboxChange(e) {
       fail: (err) => {},
       complete: (res) => {},
     })
-
-    //退回到上一界面
-    // wx.navigateTo({
-    //   url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
-    // })
   },
   radioChangeDifficulty(e) {
     const value = e.detail.value;
