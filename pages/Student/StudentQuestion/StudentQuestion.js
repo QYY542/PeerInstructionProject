@@ -4,19 +4,49 @@ Page({
     questionText: '一辆质量为1.5吨的汽车以10米/秒的速度行驶在水平路面上。当司机看到前方有障碍物时，立即踩下刹车。如果刹车后汽车以2米/秒²的加速度均匀减速，假设路面光滑且没有摩擦力，请计算汽车完全停下来前行驶的距离。',
     imageSrc: 'http://tmp/PGoUDrBHjgar43b1e0596076b7889cb264753a2fe141.jpg', // 若有相关示意图，可放置图片URL
     options: [
-      { option: 'A', text: '25米', selected: false },
-      { option: 'B', text: '30米', selected: false },
-      { option: 'C', text: '40米', selected: true },
-      { option: 'D', text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案', selected: false },
+      { 
+        option: 'A', 
+        text: '25米', 
+        selected: false,
+        correct:false,
+       },
+      { 
+        option: 'B', 
+        text: '30米', 
+        selected: false,
+        correct:false,
+        },
+      { 
+        option: 'C', 
+        text: '40米', 
+        selected: true,
+        correct:false,
+        },
+      { 
+        option: 'D', 
+        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案', 
+        selected: false,
+        correct:false,  
+      },
     ],
     remainingTime: 60, // 剩余答题时间（秒）
-    correctAnswer: 'A', // 正确答案选项
-    selectedAnswer: 'B',
-    isAnswerPublished:true,
+    correctAnswer: ['A','C'], // 正确答案选项
+    selectedAnswer: ['B'],
+    isAnswerPublished:true
   },
-  onPullDownRefresh: function () {
-    //下拉重新获取改题目的状态信息，包括是否允许作答，答题情况等
-    
+  setCorrectAnswers: function() {
+    const correctAnswers = this.data.correctAnswer; // 正确答案列表
+    const options = this.data.options.map((item) => {
+      if (correctAnswers.includes(item.option)) {
+        item.correct = true;
+      } else {
+        item.correct = false;
+      }
+      return item;
+    });
+    this.setData({
+      options: options
+    });
   },
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
@@ -59,6 +89,7 @@ Page({
 
   onLoad() {
     this.countDown(); // 开始倒计时
+    this.setCorrectAnswers();
     wx.request({
       url: getApp().globalData.ip + 'chapter/GetQuestion',
       data: {question_id:getApp().globalData.current_question_id},//传递题目id

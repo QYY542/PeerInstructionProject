@@ -5,6 +5,7 @@ Page({
     question: '',
     imageSrc: '',
     options: {A: '', B: '', C: '', D: ''},
+    difficulty:'',
     answer: [],  // 答案是一个数组
     shared: true, // 默认为'是'
   },
@@ -143,6 +144,7 @@ checkboxChange(e) {
 
   submit: function() {
     console.log('题目数据：', this.data);
+<<<<<<< HEAD
     // 这里可以编写提交数据到服务器的代码,两个
     wx.uploadFile({
       filePath: this.data.imageSrc,
@@ -152,17 +154,84 @@ checkboxChange(e) {
     wx.request({
       url: getApp().globalData.ip + 'chapter/NewQuestion',
       data: {user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,  imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
+=======
+    console.log({user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,   options:this.data.options, answer:this.data.answer, shared:this.data.shared});
+    // 这里可以编写提交数据到服务器的代码
+    // wx.request({
+    //   url: getApp().globalData.ip + 'chapter/NewQuestion',
+    //   data: {user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,  imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
+    //   dataType: String,
+    //   method: 'POST',
+    //   timeout: 0,
+    //   success: (result) => {
+    //   },
+    //   fail: (err) => {},
+    //   complete: (res) => {},
+    // })
+
+
+    wx.request({
+      url: getApp().globalData.ip + 'chapter/NewQuestion',
+      data: {name:"123"},
+>>>>>>> develop
       dataType: String,
       method: 'POST',
       timeout: 0,
       success: (result) => {
+<<<<<<< HEAD
         wx.showToast({
           title: '创建成功',
         })
       },
+=======
+        var get = JSON.parse(result.data)
+        if(get.msg == '注册成功'){
+          wx.navigateTo({
+            url: '/pages/Login/Login',
+        })
+      }else{
+        wx.showToast({
+          title: get.msg,
+          duration:2000
+        })
+      }
+    },
+>>>>>>> develop
       fail: (err) => {},
       complete: (res) => {},
     })
 
+<<<<<<< HEAD
+=======
+    //退回到上一界面
+    // wx.navigateTo({
+    //   url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
+    // })
+  },
+  radioChangeDifficulty(e) {
+    const value = e.detail.value;
+    const year = new Date().getFullYear();
+    const subject = '科目';
+  
+    const tags = [...this.data.tags]; // 创建 tags 数组的副本
+  
+    // 删除前三个标签
+    if (tags.length >= 3) {
+      tags.splice(0, 3);
+    }
+  
+    // 在数组开头添加新的标签
+    tags.unshift(value, year, subject);
+  
+    // 更新 difficulty 和 tags
+    this.setData({
+      difficulty: value,
+      tags: tags
+    });
+  
+    // 打印选择的难度和标签
+    console.log('选择的难度:', value);
+    console.log('标签:', this.data.tags);
+>>>>>>> develop
   }
 });

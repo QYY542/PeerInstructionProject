@@ -7,7 +7,7 @@ Page({
     remainingTime: 60, // 剩余答题时间（秒）
 
 
-    correctAnswer: 'A', // 正确答案选项
+    correctAnswer: ['A','B'], // 正确答案选项
     openTime: 0, // 默认题目开放时间
     timeLeft: 0, // 实际剩余时间
     buttonText: '开放题目', // 按钮文本
@@ -19,43 +19,62 @@ Page({
     canRevealAnswer: false, // 是否可以开放答案
 
     options: [
-      { 
-        option: 'A', 
-        text: '25米', 
-        selected: false, 
-        firstPercentage: 25, 
+      {
+        option: 'A',
+        text: '25米',
+        selected: false,
+        firstPercentage: 25,
         firstVotes: 50,
         secondPercentage: 30,
-        secondVotes: 60 
+        secondVotes: 60,
+        correct:false,
       },
-      { 
-        option: 'B', 
-        text: '30米', 
-        selected: false, 
-        firstPercentage: 50, 
+      {
+        option: 'B',
+        text: '30米',
+        selected: false,
+        firstPercentage: 50,
         firstVotes: 100,
         secondPercentage: 40,
-        secondVotes: 80 
+        secondVotes: 80,
+        correct:false,
       },
-      { 
-        option: 'C', 
-        text: '40米', 
-        selected: false, 
-        firstPercentage: 15, 
+      {
+        option: 'C',
+        text: '40米',
+        selected: false,
+        firstPercentage: 15,
         firstVotes: 30,
         secondPercentage: 20,
-        secondVotes: 40 
+        secondVotes: 40,
+        correct:false,
       },
-      { 
-        option: 'D', 
-        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案', 
-        selected: false, 
-        firstPercentage: 10, 
+      {
+        option: 'D',
+        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案',
+        selected: false,
+        firstPercentage: 10,
         firstVotes: 20,
         secondPercentage: 10,
-        secondVotes: 20 
+        secondVotes: 20,
+        correct:false,
       }
     ]
+  },
+
+  setCorrectAnswers: function() {
+    const correctAnswers = this.data.correctAnswer; // 正确答案列表
+    const options = this.data.options.map((item) => {
+      if (correctAnswers.includes(item.option)) {
+        item.correct = true;
+      } else {
+        item.correct = false;
+      }
+      return item;
+    });
+    this.setData({
+      options: options
+    });
   },
      // 更新时间设置
      updateTime: function(e) {
@@ -203,6 +222,7 @@ console.log(this.data.canOpenQuestion)
   onLoad() {
     this.markCorrectAnswer();
     this.countDown(); // 开始倒计时
+    this.setCorrectAnswers();
     wx.request({
       url: getApp().globalData.ip + 'chapter/GetQuestion',
       data: {question_id:getApp().globalData.current_question_id},//传递题目id

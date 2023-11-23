@@ -20,11 +20,9 @@
       <view class="item-name">
         <text class="comment-title">文件标题</text>
         <text class="comment-time">2023-10-15</text>
-        <text class="comment-content">1.1MB </text>
+        <text class="comment-content">3个文件 </text>
       </view>
       <!-- 下载和删除按钮 -->
-      <button class="delete-btn" catchtap="downloadItem" data-index="{{index}}">Y</button>
-      <view class="gap_width"></view>
       <button class="delete-btn" catchtap="deleteItem" data-index="{{index}}">X</button>
     </view>
     

@@ -74,9 +74,6 @@ Page({
     });
   },
 
-  downloadItem(){
-
-  },
   deleteItem(){
     
   },

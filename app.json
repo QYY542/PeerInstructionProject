@@ -1,13 +1,25 @@
 {
   "pages": [
+    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
+    "pages/Student/StudentQuestion/StudentQuestion",
+    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
+
     "pages/Login/Login",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
+<<<<<<< HEAD
     "pages/Forum/PostDetil/PostDetil",
 
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
 
+=======
+    
+    "pages/PersonalInfo/PersonalInfo",
+
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+ 
+>>>>>>> develop
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
 
 
@@ -20,6 +32,7 @@
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
 
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
+<<<<<<< HEAD
 
     "pages/PersonalInfo/PersonalInfo",
 
@@ -45,6 +58,10 @@
 
     
 
+=======
+    "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
+
+>>>>>>> develop
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass",
 

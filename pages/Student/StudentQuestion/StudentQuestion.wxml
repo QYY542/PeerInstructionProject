@@ -32,7 +32,7 @@
       <!-- ABCD -->
       <view class="option-prefix">{{item.option}}</view>
       <!-- 按钮 -->
-      <view class="option-btn {{item.option === correctAnswer ? 'correct' : (item.selected && item.option !== correctAnswer ? 'wrong' : '')}}">
+      <view class="option-btn {{item.correct ? 'correct' : (item.selected && item.correct === false ? 'wrong' : '')}}">
         <!-- 按钮文本 -->
         <text class="option-text">{{item.text}}</text>
       </view>
