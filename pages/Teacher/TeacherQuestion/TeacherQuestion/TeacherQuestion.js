@@ -103,12 +103,13 @@ console.log(this.data.canOpenQuestion)
       } else if (this.data.buttonText === '停止作答') {
         //从后端接收反馈
         wx.request({
-          url: getApp().globalData.ip + 'url',
+          url: getApp().globalData.ip + 'lesson/GetResult',
           data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id},
           method: 'GET',
           timeout: 0,
           success: (result) => {
-            res = JSON.parse(result.data)
+            console.log(result.data)
+            var res = result.data.result
             var a_num1 = res[0]
             var b_num1 = res[1]
             var c_num1 = res[2]
@@ -117,24 +118,40 @@ console.log(this.data.canOpenQuestion)
             var b_num2 = res[5]
             var c_num2 = res[6]
             var d_num2 = res[7]
-            this.data.option[0].firstPercentage = a_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
-            this.data.option[1].firstPercentage = b_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
-            this.data.option[2].firstPercentage = c_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
-            this.data.option[3].firstPercentage = d_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
-            this.data.option[0].secondPercentage = a_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
-            this.data.option[1].secondPercentage = b_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
-            this.data.option[2].secondPercentage = c_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
-            this.data.option[3].secondPercentage = d_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
-            this.data.option[0].firstVotes = a_num1
-            this.data.option[1].firstVotes = b_num1
-            this.data.option[2].firstVotes = c_num1
-            this.data.option[3].firstVotes = d_num1
-            this.data.option[0].secondVotes = a_num2
-            this.data.option[1].secondVotes = b_num2
-            this.data.option[2].secondVotes = c_num2
-            this.data.option[3].secondVotes = d_num2
+            if(a_num1 == 0 && b_num1 == 0 && c_num1 == 0 && d_num1 == 0){
+              console.log('全是0')
+              this.data.options[0].firstPercentage = 0
+              this.data.options[1].firstPercentage = 0
+              this.data.options[2].firstPercentage = 0
+              this.data.options[3].firstPercentage = 0
+            }else{
+              this.data.options[0].firstPercentage = a_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[1].firstPercentage = b_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[2].firstPercentage = c_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[3].firstPercentage = d_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            }
+            if(a_num2 == 0 && b_num2 == 0 && c_num2 == 0 && d_num2 == 0){
+              console.log('全是0')
+              this.data.options[0].secondPercentage = 0
+              this.data.options[1].secondPercentage = 0
+              this.data.options[2].secondPercentage = 0
+              this.data.options[3].secondPercentage = 0
+            }else{
+              this.data.options[0].secondPercentage = a_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[1].secondPercentage = b_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[2].secondPercentage = c_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[3].secondPercentage = d_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            }
+            this.data.options[0].firstVotes = a_num1
+            this.data.options[1].firstVotes = b_num1
+            this.data.options[2].firstVotes = c_num1
+            this.data.options[3].firstVotes = d_num1
+            this.data.options[0].secondVotes = a_num2
+            this.data.options[1].secondVotes = b_num2
+            this.data.options[2].secondVotes = c_num2
+            this.data.options[3].secondVotes = d_num2
             this.setData({
-              options:options
+              options:this.data.options
             })
           },
           fail: (err) => {},
