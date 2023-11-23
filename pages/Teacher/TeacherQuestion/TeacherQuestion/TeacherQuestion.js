@@ -1,12 +1,9 @@
 // pages/question/question.js
 Page({
   data: {
-    questionText: '一辆质量为1.5吨的汽车以10米/秒的速度行驶在水平路面上。当司机看到前方有障碍物时，立即踩下刹车。如果刹车后汽车以2米/秒²的加速度均匀减速，假设路面光滑且没有摩擦力，请计算汽车完全停下来前行驶的距离。',
-    imageSrc: 'http://tmp/PGoUDrBHjgar43b1e0596076b7889cb264753a2fe141.jpg', // 若有相关示意图，可放置图片URL
-
+    questionText: '',
+    imageSrc: '', // 若有相关示意图，可放置图片URL
     remainingTime: 60, // 剩余答题时间（秒）
-
-
     correctAnswer: ['A','B'], // 正确答案选项
     openTime: 0, // 默认题目开放时间
     timeLeft: 0, // 实际剩余时间
@@ -21,7 +18,7 @@ Page({
     options: [
       {
         option: 'A',
-        text: '25米',
+        text: '',
         selected: false,
         firstPercentage: 25,
         firstVotes: 50,
@@ -31,7 +28,7 @@ Page({
       },
       {
         option: 'B',
-        text: '30米',
+        text: '',
         selected: false,
         firstPercentage: 50,
         firstVotes: 100,
@@ -41,7 +38,7 @@ Page({
       },
       {
         option: 'C',
-        text: '40米',
+        text: '',
         selected: false,
         firstPercentage: 15,
         firstVotes: 30,
@@ -51,7 +48,7 @@ Page({
       },
       {
         option: 'D',
-        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案',
+        text: '',
         selected: false,
         firstPercentage: 10,
         firstVotes: 20,
@@ -92,12 +89,13 @@ console.log(this.data.canOpenQuestion)
       if (this.data.buttonText === '开放题目' || this.data.buttonText === '再次开放') {
         this.openQuestion();
         wx.request({
-          url: getApp().globalData.ip + 'url',
+          url: getApp().globalData.ip + 'class/OpenQuestion',
           data: {course_id:getApp().globalData.current_course_id,question_id:getApp().globalData.current_question_id,
-          time_limit:this.data.openTime},//向后端传递当前课程id与题目id与开放时间todo:可能的回调函数
+          time_limit:this.data.openTime,chapter_id:getApp().globalData.current_chapter_id},//向后端传递当前课程id与题目id章节id与开放时间
           method: 'POST',
           timeout: 0,
           success: (result) => {
+            console.log(result)
           },
           fail: (err) => {},
           complete: (res) => {},
@@ -248,7 +246,6 @@ console.log(this.data.canOpenQuestion)
               console.log('options_list:' + options_list['A'])
               console.log('round_count:' + round_count)
               //设置题目文本
-              this.data.currentAttempt = round_count
               var option = []
               var input = {
                 option: 'A',
@@ -293,7 +290,8 @@ console.log(this.data.canOpenQuestion)
               console.log(option)
               this.setData({
                 questionText:question_text,
-                options:option
+                options:option,
+                currentAttempt:round_count
               })
               this.data.correctAnswer = answer
               this.setCorrectAnswers();
