@@ -1,10 +1,14 @@
 Page({
   data: {
+    chapterName: '', // 保存章节名称
     items: [],
     courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
   },
   //载入该学生该课程该章节的题目列表
-  onLoad: function() {
+  onLoad: function(option) {
+    this.setData({
+      chapterName:option.chapterName
+    })
     //拉取该章节题目列表
     wx.request({
       url: getApp().globalData.ip + 'chapter/ChapterMenu',
@@ -93,8 +97,7 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    //下拉刷新题目列表,与onload一致
-
+    this.onLoad()
   },
   goToFileMain: function(e) {
     wx.navigateTo({
@@ -104,8 +107,9 @@ Page({
 
   goToForumMain: function() {
     wx.navigateTo({
-      url: '/pages/Student/StudentForum/StudentForumMain/StudentForumMain'
+      url: '/pages/Student/StudentForum/StudentForumMain/StudentForumMain?chaptername='+ this.data.chapterName
     });
+    console.log('StudenChapterMain的传参：'+ this.data.chapterName)
   },
   
   goToQuestionMain: function(e) {

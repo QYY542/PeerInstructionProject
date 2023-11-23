@@ -119,7 +119,6 @@ console.log(this.data.canOpenQuestion)
             var c_num2 = res[6]
             var d_num2 = res[7]
             if(a_num1 == 0 && b_num1 == 0 && c_num1 == 0 && d_num1 == 0){
-              console.log('全是0')
               this.data.options[0].firstPercentage = 0
               this.data.options[1].firstPercentage = 0
               this.data.options[2].firstPercentage = 0
@@ -131,7 +130,6 @@ console.log(this.data.canOpenQuestion)
               this.data.options[3].firstPercentage = d_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
             }
             if(a_num2 == 0 && b_num2 == 0 && c_num2 == 0 && d_num2 == 0){
-              console.log('全是0')
               this.data.options[0].secondPercentage = 0
               this.data.options[1].secondPercentage = 0
               this.data.options[2].secondPercentage = 0

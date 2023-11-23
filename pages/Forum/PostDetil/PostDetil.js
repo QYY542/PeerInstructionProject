@@ -1,9 +1,9 @@
 Page({
   data: {
     post: {
-      title: '微信小程序开发入门指南',
-      content: '微信小程序是一种新的开放能力，开发者可以快速开发一个微信小程序。微信小程序为微信用户提供了更多便利，开发者可以为微信用户提供更多的服务。这篇指南将介绍如何开始微信小程序开发，包括环境准备、基础知识、项目实战等内容。',
-      time: '2023-10-25 08:30'
+      title: '',
+      content: '',
+      time: ''
     },
     comments: [
       {
@@ -57,44 +57,42 @@ Page({
       });
     }
   },
-
-  onShow: function () {
+  onLoad: function (option) {
+    this.data.post.title = option.title
+    this.data.post.time = option.time
+    this.data.post.content = option.text
+    this.setData({
+      post:this.data.post
+    })
     wx.request({
-      url: getApp().globalData.ip + '',
-      data: {user_id:getApp().globalData.user_id,forum_id:getApp().globalData.current_forum_id,reply_content:this.data.replyContent,reply_to:this.data.replyTo},//传递用户id，帖子id,回复消息，回复对象
+      url: getApp().globalData.ip + 'lesson/GetComments',
+      data: {post_id:getApp().globalData.current_forum_id},
       method: 'GET',
       timeout: 0,
       success: (result) => {
-        console.log(result)
         var res = JSON.stringify(result.data)
-        console.log(res)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),password:(\d+),popularity:(\d+)/g;
+        var regex = /#chapter_id:(\d+),comments:(\d+),course_id:(\d+),level:(\d+),likes:(\d+),post_content:(.*?),post_id:(\d+),post_time:(.*?),post_user_id:(.*?),question_id:(.*?),quoted_post_id:(.*?),root_post_id:(.*?),type_:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
-          console.log(match[6])
-          var courseName = match[6];
-          console.log(courseName)
-          var courseId = parseInt(match[2]);
-          console.log(courseId)     
-          var pw = parseInt(match[8]) 
+          console.log(match)
+          var forum_id = parseInt(match[7])
+          var content = match[6]
+          var time = match[8]
+          var name = match[9]
           // 构造字典对象并添加到结果列表
           var courseObject = {
-            'name': courseName,
-            'course_id': courseId,
-            'course_pw': pw
+            author:name,
+            content:content,
+            time: time, 
           };
           resultList.push(courseObject);
         }
-        // 打印结果列表
-        console.log(resultList);
         this.setData({
-          items: resultList,
-          courseCount: resultList.length  // 更新课程数量
-        });
-        getApp().globalData.forum_list = resultList
-        console.log("全局变量")
-        console.log(getApp().globalData.course_list)
+          comments:resultList,
+        })
+        console.log(resultList)
+        getApp().globalData.forum_comment_list = resultList
       },
       fail: (err) => {},
       complete: (res) => {},
@@ -108,18 +106,26 @@ Page({
   },
   submitComment: function () {
     //处理发帖文本，成功后更新界面
-    wx.request({
-      url: getApp().globalData.ip + 'url',
-      data: data,
-      method: 'GET',
-      timeout: 0,
-      success: (result) => {
-
-      },
-      fail: (err) => {},
-      complete: (res) => {},
-    })
-    
+    if(this.data.replyContent != ''){
+      wx.request({
+        url: getApp().globalData.ip + 'lesson/MakeComment',
+        data: {user_id:getApp().globalData.user_id, post_id:getApp().globalData.current_forum_id, content:this.data.replyContent},
+        method: 'POST',
+        timeout: 0,
+        success: (result) => {
+          this.setData({
+            replyContent:''
+          })
+          this.onLoad({
+            title:this.data.post.title,
+            text:this.data.post.content,
+            time:this.data.post.time
+          })
+        },
+        fail: (err) => {},
+        complete: (res) => {},
+      })
+    }
   }
 
 });

@@ -79,7 +79,6 @@ Page({
               items: resultList,
               courseCount: resultList.length  // 更新课程数量
             });
-            this.data.items = resultList
             getApp().globalData.chapter_list = resultList
             console.log(getApp().globalData.chapter_list)
             console.log(this.data.items)
@@ -95,8 +94,9 @@ Page({
     //保存至全局变量方便后续页面调用
     getApp().globalData.current_chapter_id = this.data.items[index].chapter_id
     wx.navigateTo({
-      url: '/pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain'
+      url: '/pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain?chapterName=' + this.data.items[index].name
     });
+    console.log('StudentList的传参：' + this.data.items[index].name )
   }
 
 });
