@@ -81,6 +81,40 @@ Page({
     });
   
     // ... 其他初始化逻辑
+    wx.request({
+      url: getApp().globalData.ip + 'question/SharedQuestions',
+      data: {},//传递题目id
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {
+        console.log(result)
+        var res = JSON.stringify(result.data)
+        var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+        var match;
+              var resultList = [];
+              while ((match = regex.exec(res)) !== null) {
+                var question_text = match[6];
+                var questionId = parseInt(match[5]);
+                var answer = match[1]
+                var tags = match[9]
+
+                // 构造字典对象并添加到结果列表
+                var courseObject = {
+                  'name': question_text,
+                  'tags': tags
+                };
+                resultList.push(courseObject);
+              }
+              this.setData({
+                items: resultList,
+                itemsShow:resultList,
+                courseCount: resultList.length  // 更新题目列表
+              });
+      },
+      fail: (err) => {},
+      complete: (res) => {},
+    })
+    
   },
 
   updateItemsShow: function () {
