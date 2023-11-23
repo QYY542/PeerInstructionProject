@@ -25,20 +25,23 @@ Page({
                 var courseObject = {
                   'question_text': question_text,
                   'question_id': questionId,
-
+                  'round':''
                 };
                 resultList.push(courseObject);
               }
               var show_list = []
               var i = 0
               while(resultList[i] != null){
-
-
+                if(resultList[i].round != 0){
+                  show_list.push(resultList[i])
+                }
+                i++
               }
               this.setData({
-                items: resultList,
-                courseCount: resultList.length  // 更新题目列表
+                items: show_list,
+                courseCount: show_list.length  // 更新题目列表
               });
+              getApp().globalData.question_list = show_list//赋给全局变量
       },
       fail: (err) => {},
       complete: (res) => {},

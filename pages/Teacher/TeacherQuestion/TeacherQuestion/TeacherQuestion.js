@@ -237,7 +237,8 @@ console.log(this.data.canOpenQuestion)
               console.log(match)
               var question_text = match[6]
               var answer = match[1]
-              answer = answer.slice(1, -1)
+              answer = answer.replace(/'/g, '"')
+              answer = JSON.parse(answer)
               var options = match[4]
               options = options.replace(/'/g, '"')
               options = options.slice(1, -1)
