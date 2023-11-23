@@ -144,7 +144,6 @@ checkboxChange(e) {
 
   submit: function() {
     console.log('题目数据：', this.data);
-<<<<<<< HEAD
     // 这里可以编写提交数据到服务器的代码,两个
     wx.uploadFile({
       filePath: this.data.imageSrc,
@@ -154,55 +153,18 @@ checkboxChange(e) {
     wx.request({
       url: getApp().globalData.ip + 'chapter/NewQuestion',
       data: {user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,  imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
-=======
-    console.log({user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,   options:this.data.options, answer:this.data.answer, shared:this.data.shared});
-    // 这里可以编写提交数据到服务器的代码
-    // wx.request({
-    //   url: getApp().globalData.ip + 'chapter/NewQuestion',
-    //   data: {user_id:getApp().globalData.user_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, tags:this.data.tags, question:this.data.question,  imageSrc:this.data.imageSrc, options:this.data.options, answer:this.data.answer, shared:this.data.shared},
-    //   dataType: String,
-    //   method: 'POST',
-    //   timeout: 0,
-    //   success: (result) => {
-    //   },
-    //   fail: (err) => {},
-    //   complete: (res) => {},
-    // })
-
-
-    wx.request({
-      url: getApp().globalData.ip + 'chapter/NewQuestion',
-      data: {name:"123"},
->>>>>>> develop
       dataType: String,
       method: 'POST',
       timeout: 0,
       success: (result) => {
-<<<<<<< HEAD
         wx.showToast({
           title: '创建成功',
         })
       },
-=======
-        var get = JSON.parse(result.data)
-        if(get.msg == '注册成功'){
-          wx.navigateTo({
-            url: '/pages/Login/Login',
-        })
-      }else{
-        wx.showToast({
-          title: get.msg,
-          duration:2000
-        })
-      }
-    },
->>>>>>> develop
       fail: (err) => {},
       complete: (res) => {},
     })
 
-<<<<<<< HEAD
-=======
     //退回到上一界面
     // wx.navigateTo({
     //   url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
@@ -232,6 +194,5 @@ checkboxChange(e) {
     // 打印选择的难度和标签
     console.log('选择的难度:', value);
     console.log('标签:', this.data.tags);
->>>>>>> develop
   }
 });

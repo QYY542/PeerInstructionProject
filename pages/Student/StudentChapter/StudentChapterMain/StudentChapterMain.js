@@ -24,9 +24,16 @@ Page({
                 // 构造字典对象并添加到结果列表,todo:是否扩展
                 var courseObject = {
                   'question_text': question_text,
-                  'question_id': questionId
+                  'question_id': questionId,
+
                 };
                 resultList.push(courseObject);
+              }
+              var show_list = []
+              var i = 0
+              while(resultList[i] != null){
+
+
               }
               this.setData({
                 items: resultList,
