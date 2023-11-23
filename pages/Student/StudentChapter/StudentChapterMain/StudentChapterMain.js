@@ -12,20 +12,19 @@ Page({
       method: 'GET',
       success: (result) => {
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_id:(\d+),difficulty:(\d+),question_id:(\d+),question_text:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
-                var question_text = match[5];
+                var question_text = match[9];
                 console.log(courseName)
-                var questionId = parseInt(match[4]);
-                var answer = JSON.parse(match[1])
+                var questionId = parseInt(match[7]);
                 console.log(courseId)
-                // 构造字典对象并添加到结果列表,todo:是否扩展
+                var round_count = parseInt(match[10])
                 var courseObject = {
                   'question_text': question_text,
                   'question_id': questionId,
-                  'round':''
+                  'round_count': round_count
                 };
                 resultList.push(courseObject);
               }
@@ -53,31 +52,40 @@ Page({
   onShow: function() {
     //拉取该章节题目列表
     wx.request({
-      url: getApp().globalData.ip + '',//todo:确定地址
+      url: getApp().globalData.ip + 'chapter/ChapterMenu',
       data: {course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},//发送对应课程章节id索引题目列表
       method: 'GET',
       success: (result) => {
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_id:(\d+),difficulty:(\d+),question_id:(\d+),question_text:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
-                var question_text = match[5];
+                var question_text = match[9];
                 console.log(courseName)
-                var questionId = parseInt(match[4]);
-                var answer = JSON.parse(match[1])
+                var questionId = parseInt(match[7]);
                 console.log(courseId)
-                // 构造字典对象并添加到结果列表,todo:是否扩展
+                var round_count = parseInt(match[10])
                 var courseObject = {
                   'question_text': question_text,
-                  'question_id': questionId
+                  'question_id': questionId,
+                  'round_count': round_count
                 };
                 resultList.push(courseObject);
               }
+              var show_list = []
+              var i = 0
+              while(resultList[i] != null){
+                if(resultList[i].round != 0){
+                  show_list.push(resultList[i])
+                }
+                i++
+              }
               this.setData({
-                items: resultList,
-                courseCount: resultList.length  // 更新题目列表
+                items: show_list,
+                courseCount: show_list.length  // 更新题目列表
               });
+              getApp().globalData.question_list = show_list//赋给全局变量
       },
       fail: (err) => {},
       complete: (res) => {},

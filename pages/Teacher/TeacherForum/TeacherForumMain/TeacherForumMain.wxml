@@ -6,7 +6,7 @@
 </view>
 
 <view class="greeting">
-    章节名称：XXX
+    章节名称：{{chaptername}}
 </view>
 
 <button class="darkBtn" bindtap="addNewPost">发布新帖</button>

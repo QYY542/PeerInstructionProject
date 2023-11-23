@@ -91,8 +91,8 @@ Page({
     this.countDown(); // 开始倒计时
     this.setCorrectAnswers();
     wx.request({
-      url: getApp().globalData.ip + 'chapter/GetQuestion',
-      data: {question_id:getApp().globalData.current_question_id},//传递题目id
+      url: getApp().globalData.ip + 'question/GetQuestion',
+      data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},//传递题目id
       method: 'GET',
       timeout: 0,
       success: (result) => {

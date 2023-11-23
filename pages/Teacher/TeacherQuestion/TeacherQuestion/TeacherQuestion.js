@@ -224,38 +224,62 @@ console.log(this.data.canOpenQuestion)
     this.countDown(); // 开始倒计时
     this.setCorrectAnswers();
     wx.request({
-      url: getApp().globalData.ip + 'chapter/GetQuestion',
+      url: getApp().globalData.ip + 'question/GetQuestion',
       data: {question_id:getApp().globalData.current_question_id},//传递题目id
       method: 'GET',
       timeout: 0,
       success: (result) => {
         console.log(result)
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time:(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
               var match;
               match = regex.exec(res)
               console.log(match)
-              var question_text = match[6]
+              var question_text = match[9]
               var answer = match[1]
               answer = answer.replace(/'/g, '"')
               answer = JSON.parse(answer)
-              var options = match[4]
+              var options = match[6]
               options = options.replace(/'/g, '"')
               options = options.slice(1, -1)
               var option_list = JSON.parse('{' + options + '}')
               var options_list = Object.keys(option_list).map(function(key) {
-                return { key: key, value: obj[key] };
+                return { key: key, value: option_list[key] };
             });
-              console.log(question_text)
-              console.log(answer)
-              console.log(options_list)
+            var round_count = parseInt(match[10])
+              console.log('question_text:' + question_text)
+              console.log('answer:' + answer)
+              console.log('options_list:' + options_list)
+              console.log('round_count:' + round_count)
               //设置题目文本
-              this.data.questionText = question_text
-              this.data.correctAnswer = answer
+
+              this.data.currentAttempt = round_count
               this.data.options[0].text = options_list['A']
               this.data.options[1].text = options_list['B']
               this.data.options[2].text = options_list['C']
               this.data.options[3].text = options_list['D']
+              var option = []
+              var list = {1:'A', 2:'B', 3:'C', 4:'D'}
+              var j = 0
+              while(this.data.options[3] != null){
+                var k = {
+                  option: list[j],
+                  text: options_list['A'],
+                  firstPercentage: 0,
+                  firstVotes: 0,
+                  secondPercentage: 0,
+                  secondVotes: 0,
+                  correct:false,
+                }
+                j++
+                option.push(k)
+              }
+              this.setData({
+                questionText:question_text,
+                options:option
+              })
+              this.data.correctAnswer = answer
+              this.setCorrectAnswers();
       },
       fail: (err) => {},
       complete: (res) => {},

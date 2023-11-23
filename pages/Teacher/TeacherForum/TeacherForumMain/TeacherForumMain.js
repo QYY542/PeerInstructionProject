@@ -1,5 +1,6 @@
 Page({
   data: {
+    chaptername:'',
     items: [
       { 
         title: '作业疑问', 
@@ -83,7 +84,10 @@ Page({
       items: items,
     });
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    this.setData({
+      chaptername:options.chaptername
+    })
     //向后端拉取帖子列表
     wx.request({
       url: getApp().globalData.ip + 'url',//todo:确定地址
