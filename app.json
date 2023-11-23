@@ -1,9 +1,5 @@
 {
   "pages": [
-    "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
-    "pages/Student/StudentQuestion/StudentQuestion",
-    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
-
     "pages/Login/Login",
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
