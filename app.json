@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank",
     "pages/Login/Login",
     "pages/Student/StudentQuestion/StudentQuestion",
@@ -9,7 +10,7 @@
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Forum/PostDetil/PostDetil",
 
-    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
+
 
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
 
