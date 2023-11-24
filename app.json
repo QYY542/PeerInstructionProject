@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Login/Login",
+    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
+
     "pages/Student/StudentQuestion/StudentQuestion",
     "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
     "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
@@ -9,14 +10,6 @@
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Forum/PostDetil/PostDetil",
-<<<<<<< HEAD
-    "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
-
-
-=======
->>>>>>> origin/develop
-
-    "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
     "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",

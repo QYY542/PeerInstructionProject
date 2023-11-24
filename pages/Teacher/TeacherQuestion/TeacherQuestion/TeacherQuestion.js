@@ -364,8 +364,6 @@ console.log(this.data.canOpenQuestion)
       time--;
       if (time <= 0) {
         clearInterval(timer);
-        // 倒计时结束的处理逻辑
-        this.onSubmit(); // 可以直接提交答案，或者提醒用户时间已到
       }
       this.setData({ remainingTime: time });
     }, 1000);
