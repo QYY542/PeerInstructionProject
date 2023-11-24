@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/Login/Login",
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank",
-    "pages/Login/Login",
+    
     "pages/Student/StudentQuestion/StudentQuestion",
    
 

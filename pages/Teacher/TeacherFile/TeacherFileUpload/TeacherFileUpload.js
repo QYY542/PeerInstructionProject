@@ -206,30 +206,9 @@ Page({
     const that = this;
     wx.chooseFile
   },
-  uploadFileToFTP(filePath, fileName) {
 
-    const ftpHost = "121.36.71.193";
-    const ftpPort = 21;
-    const ftpUsername = "FTPServer";
-    const ftpPassword = "NFAXLeArG2EJcEa7";
-    const remoteDirPath = "/app-2/";
-    wx.uploadFile({
-      url: "https://" + ftpHost + ":" + ftpPort + remoteDirPath + fileName,
-      filePath: filePath,
-      name: "file",
-      header: {
-        Authorization: "Basic " + Base64.encode(ftpUsername + ":" + ftpPassword),
-      },
-      success(res) {
-        console.log("文件上传成功:", res);
-      },
-      fail(err) {
-        console.error("上传文件失败:", err);
-      },
-    });
-  },
-  
   addNewFileMessage() {
+    const that = this; // 保存当前页面的this对象，以便在回调函数中使用
     wx.chooseMessageFile({
       count: 1,
       type: "file",
@@ -243,7 +222,7 @@ Page({
             fileId: Math.random().toString(36).substring(2),
             // 其他你想要保存的文件信息...
           };
-          const items = this.data.items.concat(newItem);
+          const items = that.data.items.concat(newItem); // 将新文件
           that.setData({
             items,
           });
@@ -256,6 +235,7 @@ Page({
       },
     });
   },
+
   saveOperation(){
 
   }
