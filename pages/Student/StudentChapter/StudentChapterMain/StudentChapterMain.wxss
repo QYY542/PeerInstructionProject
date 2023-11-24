@@ -66,3 +66,11 @@
   min-width: 190rpx;
   max-width: 190rpx;
 }
+
+.firstOpen-btn{
+  word-wrap: break-word; /* 允许在单词内换行 */
+  white-space: normal; /* 允许文本自动换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  display: -webkit-box; /* 基于 WebKit 的浏览器 */
+  -webkit-line-clamp: 1; /* 设置最大行数为200行 */
+}
