@@ -1,12 +1,9 @@
 // pages/question/question.js
 Page({
   data: {
-    questionText: '一辆质量为1.5吨的汽车以10米/秒的速度行驶在水平路面上。当司机看到前方有障碍物时，立即踩下刹车。如果刹车后汽车以2米/秒²的加速度均匀减速，假设路面光滑且没有摩擦力，请计算汽车完全停下来前行驶的距离。',
-    imageSrc: 'http://tmp/PGoUDrBHjgar43b1e0596076b7889cb264753a2fe141.jpg', // 若有相关示意图，可放置图片URL
-
+    questionText: '',
+    imageSrc: '', // 若有相关示意图，可放置图片URL
     remainingTime: 60, // 剩余答题时间（秒）
-
-
     correctAnswer: ['A','B'], // 正确答案选项
     openTime: 0, // 默认题目开放时间
     timeLeft: 0, // 实际剩余时间
@@ -21,7 +18,7 @@ Page({
     options: [
       {
         option: 'A',
-        text: '25米',
+        text: '',
         selected: false,
         firstPercentage: 25,
         firstVotes: 50,
@@ -31,7 +28,7 @@ Page({
       },
       {
         option: 'B',
-        text: '30米',
+        text: '',
         selected: false,
         firstPercentage: 50,
         firstVotes: 100,
@@ -41,7 +38,7 @@ Page({
       },
       {
         option: 'C',
-        text: '40米',
+        text: '',
         selected: false,
         firstPercentage: 15,
         firstVotes: 30,
@@ -51,7 +48,7 @@ Page({
       },
       {
         option: 'D',
-        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案',
+        text: '',
         selected: false,
         firstPercentage: 10,
         firstVotes: 20,
@@ -92,12 +89,13 @@ console.log(this.data.canOpenQuestion)
       if (this.data.buttonText === '开放题目' || this.data.buttonText === '再次开放') {
         this.openQuestion();
         wx.request({
-          url: getApp().globalData.ip + 'url',
+          url: getApp().globalData.ip + 'lesson/OpenQuestion',
           data: {course_id:getApp().globalData.current_course_id,question_id:getApp().globalData.current_question_id,
-          time_limit:this.data.openTime},//向后端传递当前课程id与题目id与开放时间todo:可能的回调函数
+          time_limit:this.data.openTime,chapter_id:getApp().globalData.current_chapter_id},//向后端传递当前课程id与题目id章节id与开放时间
           method: 'POST',
           timeout: 0,
           success: (result) => {
+            console.log(result)
           },
           fail: (err) => {},
           complete: (res) => {},
@@ -105,12 +103,54 @@ console.log(this.data.canOpenQuestion)
       } else if (this.data.buttonText === '停止作答') {
         //从后端接收反馈
         wx.request({
-          url: getApp().globalData.ip + 'url',//todo
-          data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id},
+          url: getApp().globalData.ip + 'lesson/GetResult',
+          data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id,chapter_id:getApp().globalData.current_chapter_id},
           method: 'GET',
           timeout: 0,
           success: (result) => {
-            
+            console.log(result.data)
+            var res = result.data.result
+            var a_num1 = res[0]
+            var b_num1 = res[1]
+            var c_num1 = res[2]
+            var d_num1 = res[3]
+            var a_num2 = res[4]
+            var b_num2 = res[5]
+            var c_num2 = res[6]
+            var d_num2 = res[7]
+            if(a_num1 == 0 && b_num1 == 0 && c_num1 == 0 && d_num1 == 0){
+              this.data.options[0].firstPercentage = 0
+              this.data.options[1].firstPercentage = 0
+              this.data.options[2].firstPercentage = 0
+              this.data.options[3].firstPercentage = 0
+            }else{
+              this.data.options[0].firstPercentage = a_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[1].firstPercentage = b_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[2].firstPercentage = c_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+              this.data.options[3].firstPercentage = d_num1/(a_num1 + b_num1 + c_num1 + d_num1)*100
+            }
+            if(a_num2 == 0 && b_num2 == 0 && c_num2 == 0 && d_num2 == 0){
+              this.data.options[0].secondPercentage = 0
+              this.data.options[1].secondPercentage = 0
+              this.data.options[2].secondPercentage = 0
+              this.data.options[3].secondPercentage = 0
+            }else{
+              this.data.options[0].secondPercentage = a_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[1].secondPercentage = b_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[2].secondPercentage = c_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+              this.data.options[3].secondPercentage = d_num2/(a_num2 + b_num2 + c_num2 + d_num2)*100
+            }
+            this.data.options[0].firstVotes = a_num1
+            this.data.options[1].firstVotes = b_num1
+            this.data.options[2].firstVotes = c_num1
+            this.data.options[3].firstVotes = d_num1
+            this.data.options[0].secondVotes = a_num2
+            this.data.options[1].secondVotes = b_num2
+            this.data.options[2].secondVotes = c_num2
+            this.data.options[3].secondVotes = d_num2
+            this.setData({
+              options:this.data.options
+            })
           },
           fail: (err) => {},
           complete: (res) => {},
@@ -201,10 +241,10 @@ console.log(this.data.canOpenQuestion)
       title: '开放答案',
       icon: 'none'
     });
-    //向后端传递该题的id，课程id,将改题目开放
+    //向后端传递该题的id，课程id,将改题目答案开放
     wx.request({
-      url: getApp().globalData.ip + 'url',
-      data: {question_id:getApp().globalData.current_question_id, course_id:getApp().globalData.current_course_id},
+      url: getApp().globalData.ip + 'lesson/PostAnswer',
+      data: {question_id:getApp().globalData.current_question_id, course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},
       method: 'POST',
       timeout: 0,
       success: (result) => {},
@@ -224,37 +264,84 @@ console.log(this.data.canOpenQuestion)
     this.countDown(); // 开始倒计时
     this.setCorrectAnswers();
     wx.request({
-      url: getApp().globalData.ip + 'chapter/GetQuestion',
-      data: {question_id:getApp().globalData.current_question_id},//传递题目id
+      url: getApp().globalData.ip + 'question/TeacherGetQuestion',
+      data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},
       method: 'GET',
       timeout: 0,
       success: (result) => {
         console.log(result)
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time:(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),time_limit:(\d+),type_:(\d+),update_time:(.*?)/g;
               var match;
               match = regex.exec(res)
               console.log(match)
-              var question_text = match[6]
+              var question_text = match[9]
               var answer = match[1]
-              answer = answer.slice(1, -1)
-              var options = match[4]
+              answer = answer.replace(/'/g, '"')
+              answer = JSON.parse(answer)
+              var options = match[6]
               options = options.replace(/'/g, '"')
-              options = options.slice(1, -1)
-              var option_list = JSON.parse('{' + options + '}')
-              var options_list = Object.keys(option_list).map(function(key) {
-                return { key: key, value: obj[key] };
-            });
-              console.log(question_text)
-              console.log(answer)
-              console.log(options_list)
+              var options_list = JSON.parse(options)
+              var round_count = parseInt(match[10])
+              var limit = parseInt(match[14])
+              var open_time = new Date(match[5]) 
+              var current_time = new Date()
+              var rest = limit - Math.floor((current_time - open_time)/1000)
+              console.log('question_text:' + question_text)
+              console.log('answer:' + answer)
+              console.log('options_list:' + options_list['A'])
+              console.log('round_count:' + round_count)
               //设置题目文本
-              this.data.questionText = question_text
+              var option = []
+              var input = {
+                option: 'A',
+                text: options_list['A'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'B',
+                text: options_list['B'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'C',
+                text: options_list['C'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'D',
+                text: options_list['D'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              console.log(option)
+              this.setData({
+                questionText:question_text,
+                options:option,
+                currentAttempt:round_count,
+                //timeLeft:rest
+              })
               this.data.correctAnswer = answer
-              this.data.options[0].text = options_list['A']
-              this.data.options[1].text = options_list['B']
-              this.data.options[2].text = options_list['C']
-              this.data.options[3].text = options_list['D']
+              this.setCorrectAnswers();
       },
       fail: (err) => {},
       complete: (res) => {},

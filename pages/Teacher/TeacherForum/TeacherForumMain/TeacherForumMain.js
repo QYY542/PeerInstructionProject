@@ -1,5 +1,6 @@
 Page({
   data: {
+    chaptername:'',
     items: [
       { 
         title: '作业疑问', 
@@ -38,29 +39,37 @@ Page({
   onShow: function () {
     //向后端拉取帖子列表
     wx.request({
-      url: getApp().globalData.ip + 'url',//todo:确定地址
-      data: {chapter_id:getApp().globalData.current_chapter_id},//传递章节id
+      url: getApp().globalData.ip + 'lesson/GetPosts',
+      data: {chapter_id:getApp().globalData.current_chapter_id,course_id:getApp().globalData.current_course_id},
       method: 'GET',
       timeout: 0,
       success: (result) => {
         var res = JSON.stringify(result.data)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;//todo:确定传递格式与列表格式
+        var regex = /#chapter_id:(\d+),comments:(\d+),course_id:(\d+),level:(\d+),likes:(\d+),post_content:(.*?),post_id:(\d+),post_time:(.*?),post_user_id:(.*?),question_id:(.*?),quoted_post_id:(.*?),root_post_id:(.*?),type_:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
-          var courseName = match[6];
-          console.log(courseName)
-          var courseId = parseInt(match[2]);
-          console.log(courseId)
-          var pw = parseInt(match[8])
+          var forum_id = parseInt(match[7])
+          var list = match[6].split('$')
+          var title = list[0]
+          var text = list[1]
+          var time = match[8]
+          var name = match[9]
           // 构造字典对象并添加到结果列表
           var courseObject = {
-            'name': courseName,
-            'course_id': courseId,
-            'course_pw': pw
+            title: title, 
+            time: time, 
+            content:text,
+            forum_id:forum_id,
+            name:name
           };
           resultList.push(courseObject);
         }
+        this.setData({
+          items:resultList,
+          courseCount:resultList.length
+        })
+        getApp().globalData.forum_list = resultList
       },
       fail: (err) => {},
       complete: (res) => {},
@@ -83,32 +92,46 @@ Page({
       items: items,
     });
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    this.setData({
+      chaptername:options.chaptername
+    })
     //向后端拉取帖子列表
     wx.request({
-      url: getApp().globalData.ip + 'url',//todo:确定地址
-      data: {chapter_id:getApp().globalData.current_chapter_id},//传递章节id
+      url: getApp().globalData.ip + 'lesson/GetPosts',
+      data: {chapter_id:getApp().globalData.current_chapter_id,course_id:getApp().globalData.current_course_id},
       method: 'GET',
       timeout: 0,
       success: (result) => {
+        console.log(result)
         var res = JSON.stringify(result.data)
-        var regex = /#admin_user_id:(\d+),course_id:(\d+),creation_time:(.*?),description:(.*?),enrollment_count:(\d+),name:(.*?),on_air:(.*?),passwprd:(\d+),popularity:(\d+)/g;//todo:确定传递格式与列表格式
+        var regex = /#chapter_id:(\d+),comments:(\d+),course_id:(\d+),level:(\d+),likes:(\d+),post_content:(.*?),post_id:(\d+),post_time:(.*?),post_user_id:(.*?),question_id:(.*?),quoted_post_id:(.*?),root_post_id:(.*?),type_:(\d+)/g;
         var match;
         var resultList = [];
         while ((match = regex.exec(res)) !== null) {
-          var courseName = match[6];
-          console.log(courseName)
-          var courseId = parseInt(match[2]);
-          console.log(courseId)
-          var pw = parseInt(match[8])
+          console.log(match)
+          var forum_id = parseInt(match[7])
+          var list = match[6].split('$')
+          var title = list[0]
+          var text = list[1]
+          var time = match[8]
+          var name = match[9]
           // 构造字典对象并添加到结果列表
           var courseObject = {
-            'name': courseName,
-            'course_id': courseId,
-            'course_pw': pw
+            title: title, 
+            time: time, 
+            content:text,
+            forum_id:forum_id,
+            name:name
           };
           resultList.push(courseObject);
         }
+        console.log(resultList)
+        this.setData({
+          items:resultList,
+          courseCount:resultList.length
+        })
+        getApp().globalData.forum_list = resultList
       },
       fail: (err) => {},
       complete: (res) => {},
@@ -138,9 +161,11 @@ Page({
     });
   },
 
-  goToPostDetail: function() {
+  goToPostDetail: function(e) {
+    var index = e.currentTarget.dataset.index
+    getApp().globalData.current_forum_id = this.data.items[index].forum_id
     wx.navigateTo({
-      url: '/pages/Forum/PostDetil/PostDetil'
+      url: '/pages/Forum/PostDetil/PostDetil?title=' + this.data.items[index].title + '&text=' + this.data.items[index].content + '&time=' + this.data.items[index].time
     });
   },
 

@@ -22,7 +22,7 @@
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
-    "pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain",
+
 
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
 
@@ -35,9 +35,6 @@
 
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
-
-
-
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
 
@@ -46,9 +43,6 @@
 
 
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
-
-
-    
 
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass"

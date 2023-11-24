@@ -30,19 +30,19 @@ Page({
    */
   post: function() {
     //将内容传递给后端
+    var content = this.data.forum_title + '$' + this.data.forum_text
     wx.request({
-      url: getApp().globalData.ip + 'url',//todo:确定地址
-      data: {chapter_id:getApp().globalData.current_chapter_id, forum_title:this.data.forum_title, forum_text:this.data.forum_text},
+      url: getApp().globalData.ip + 'lesson/CreatePost',
+      data: {chapter_id:getApp().globalData.current_chapter_id, course_id:getApp().globalData.current_course_id, user_id:getApp().globalData.user_id, content:content},
       method: 'POST',
       timeout: 0,
       success: (result) => {
         if(result.statusCode == 200){
-          //如果创建成功，返回上一界面,会触发上一界面的onshow
-          wx.navigateTo({
-            url: 'pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain',
+          wx.showToast({
+            title: '发帖成功',
           })
         }else{
-          //可以显示错误原因
+
         }
       },
       fail: (err) => {},

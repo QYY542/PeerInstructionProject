@@ -4,9 +4,6 @@
     发布帖子（教师版）
 </view>
 
-<view class="greeting">
-    帖子ID：XXX
-</view>
 
 <!-- 标题输入框 -->
 <input class="input-field" type="text" placeholder="输入帖子标题" bindinput="inputTitle" />

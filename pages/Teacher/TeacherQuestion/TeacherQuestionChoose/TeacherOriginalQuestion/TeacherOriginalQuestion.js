@@ -143,7 +143,6 @@ checkboxChange(e) {
 },
 
   submit: function() {
-
     const difficulty = this.data.difficulty;
     const year = new Date().getFullYear();
     const subject = '科目';
@@ -188,15 +187,12 @@ checkboxChange(e) {
       fail: (err) => {},
       complete: (res) => {},
     })
-
-    //退回到上一界面
-    // wx.navigateTo({
-    //   url: 'pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain',
-    // })
   },
   radioChangeDifficulty(e) {
     const value = e.detail.value;
 
+  
+  
     // 更新 difficulty 和 tags
     this.setData({
       difficulty: value,
