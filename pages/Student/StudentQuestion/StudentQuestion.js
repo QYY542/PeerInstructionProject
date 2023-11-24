@@ -21,7 +21,7 @@ Page({
       { 
         option: 'C', 
         text: '', 
-        selected: true,
+        selected: false,
         correct:false,
         },
       { 
@@ -56,10 +56,22 @@ Page({
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
       const options = this.data.options.map((item, idx) => {
-        item.selected = idx === index;
+        if(!item.selected){
+          item.selected = idx === index;
+        }else{
+          item.selected = !(idx === index);
+        }
         return item;
       });
-      this.setData({ options });
+      const selectedOptions = options.filter(item => item.selected);
+      const selectedAnswer = selectedOptions.map(item => item.option);
+    
+      this.setData({
+        options,
+        selectedAnswer
+      });
+
+      console.log(selectedAnswer)
   },
 
   onSubmit() {

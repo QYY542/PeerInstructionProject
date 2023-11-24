@@ -1,54 +1,32 @@
 {
   "pages": [
     "pages/Login/Login",
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+    "pages/Student/StudentQuestion/StudentQuestion",
+
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank",
     
-    "pages/Student/StudentQuestion/StudentQuestion",
-   
-
-    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherOriginalQuestion/TeacherOriginalQuestion",
     "pages/Forum/PostDetil/PostDetil",
 
-
-
     "pages/Teacher/TeacherFile/TeacherFileMain/TeacherFileMain",
-
-
     "pages/Forum/ReplyToPost/ReplyToPost",
     "pages/Student/StudentFile/StudentFileDetil/StudentFileDetil",
-
     "pages/Student/StudentFile/StudentFileMain/StudentFileMain",
     "pages/Student/StudentForum/StudentForumMain/StudentForumMain",
     "pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain",
-
-
     "pages/Teacher/TeacherForum/TeacherNewPost/TeacherNewPost",
-
     "pages/PersonalInfo/PersonalInfo",
-
-
     "pages/Teacher/TeacherMain/TeacherClass/TeacherClass",
-
-
-
     "pages/Student/StudentChapter/StudentChapterMain/StudentChapterMain",
     "pages/Student/StudentChapter/StudentChapterList/StudentChapterList",
     "pages/Register/Register",
     "pages/RetrievePassword/RetrievePassword",
-
-
     "pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList",
-
-
     "pages/Teacher/TeacherMain/TeacherNewClass/TeacherNewClass",
-
     "pages/Student/StudentMain/StudentClass/StudentClass",
     "pages/Student/StudentMain/StudentNewClass/StudentNewClass"
-
-
-
   ],
   "window": {
     "backgroundTextStyle": "light",
