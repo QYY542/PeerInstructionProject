@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/Login/Login",
-    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
     "pages/Student/StudentQuestion/StudentQuestion",
+
+    "pages/Teacher/TeacherQuestion/TeacherQuestion/TeacherQuestion",
+
 
     "pages/Teacher/TeacherFile/TeacherFileUpload/TeacherFileUpload",
     "pages/Teacher/TeacherQuestion/TeacherQuestionChoose/TeacherQuestionBank/TeacherQuestionBank",
