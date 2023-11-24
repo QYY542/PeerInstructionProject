@@ -31,18 +31,21 @@ Page({
       success: (result) => {
         console.log(result)
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),time_limit:(\d+),type_:(\d+),update_time:(.*?)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
-                var question_text = match[6];
-                var questionId = parseInt(match[5]);
+                var question_text = match[9];
+                var questionId = parseInt(match[7]);
                 var answer = match[1]
+                var round_count = parseInt(match[10])
                 // 构造字典对象并添加到结果列表
                 var courseObject = {
                   'question_text': question_text,
                   'question_id': questionId,
-                  'answer':answer
+                  'answer':answer,
+                  'round_count':round_count,
+                  'choosed':false
                 };
                 resultList.push(courseObject);
               }
@@ -60,7 +63,11 @@ Page({
       show:false
     })
   },
-  onLoad: function() {
+  onLoad: function(options) {
+    this.setData({
+      placeholder_value:options.chaptername,
+      chapterName:options.chaptername
+    })
     //拉取该章节题目列表
     wx.request({
       url: getApp().globalData.ip + 'chapter/ChapterMenu',
@@ -69,18 +76,20 @@ Page({
       success: (result) => {
         console.log(result)
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),tags:(.*?),time_limit:(\d+),type_:(\d+),update_time:(.*?)/g;
               var match;
               var resultList = [];
               while ((match = regex.exec(res)) !== null) {
-                var question_text = match[6];
-                var questionId = parseInt(match[5]);
+                var question_text = match[9];
+                var questionId = parseInt(match[7]);
                 var answer = match[1]
+                var round_count = parseInt(match[10])
                 // 构造字典对象并添加到结果列表
                 var courseObject = {
                   'question_text': question_text,
                   'question_id': questionId,
-                  'answer':answer
+                  'answer':answer,
+                  'round_count':round_count
                 };
                 resultList.push(courseObject);
               }
@@ -117,7 +126,7 @@ Page({
       show:false
     })
     wx.navigateTo({
-      url: '/pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain'
+      url: '/pages/Teacher/TeacherForum/TeacherForumMain/TeacherForumMain?chaptername=' + this.data.chapterName
     });
   },
 

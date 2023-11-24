@@ -133,7 +133,7 @@ wx.request({
         getApp().globalData.current_chapter_id = res.chapter_id
         //添加成功，直接跳转到相应的章节界面
         wx.navigateTo({
-          url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain'
+          url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain?chaptername=新章节'
         });
       },
       fail: (err) => {},
@@ -146,7 +146,7 @@ wx.request({
     console.log(index)
     getApp().globalData.current_chapter_id = this.data.items[index].chapter_id
     wx.navigateTo({
-      url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain'
+      url: '/pages/Teacher/TeacherChapter/TeacherChapterMain/TeacherChapterMain?chaptername=' + this.data.items[index].name
     });
   },
 

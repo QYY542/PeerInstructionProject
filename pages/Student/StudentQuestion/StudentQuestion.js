@@ -1,30 +1,32 @@
 // pages/question/question.js
 Page({
   data: {
-    questionText: '一辆质量为1.5吨的汽车以10米/秒的速度行驶在水平路面上。当司机看到前方有障碍物时，立即踩下刹车。如果刹车后汽车以2米/秒²的加速度均匀减速，假设路面光滑且没有摩擦力，请计算汽车完全停下来前行驶的距离。',
-    imageSrc: 'http://tmp/PGoUDrBHjgar43b1e0596076b7889cb264753a2fe141.jpg', // 若有相关示意图，可放置图片URL
+    timeup:false,
+    choosed:false,
+    questionText: '',
+    imageSrc: '', // 若有相关示意图，可放置图片URL
     options: [
       { 
         option: 'A', 
-        text: '25米', 
+        text: '', 
         selected: false,
         correct:false,
        },
       { 
         option: 'B', 
-        text: '30米', 
+        text: '', 
         selected: false,
         correct:false,
         },
       { 
         option: 'C', 
-        text: '40米', 
+        text: '', 
         selected: true,
         correct:false,
         },
       { 
         option: 'D', 
-        text: '50米假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案假设这是长答案', 
+        text: '', 
         selected: false,
         correct:false,  
       },
@@ -48,6 +50,7 @@ Page({
       options: options
     });
   },
+  //todo:改为多选
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
       const options = this.data.options.map((item, idx) => {
@@ -62,10 +65,14 @@ Page({
     const selectedOptions = this.data.options.filter(option => option.selected);
     console.log('提交的答案是：', selectedOptions);
     wx.request({
-      url: getApp().globalData.ip + 'url',//todo:确定地址
-      data: {question_id:this.data.question_id, uer_id:getApp().globalData.user_id, question_choice:this.data.selectedAnswer},
+      url: getApp().globalData.ip + 'lesson/SubmitQuestion',
+      data: {question_id:getApp().globalData.current_question_id, user_id:getApp().globalData.user_id, question_choice:selectedOptions,course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id},
       timeout: 0,
+      method:'POST',
       success: (result) => {
+        this.setData({
+          choosed:true
+        })
 
       },
       fail: (err) => {},
@@ -80,52 +87,122 @@ Page({
       time--;
       if (time <= 0) {
         clearInterval(timer);
-        // 倒计时结束的处理逻辑
+        this.setData({
+          timeup:true
+        })
         this.onSubmit(); // 可以直接提交答案，或者提醒用户时间已到
+        wx.showToast({
+          title: '时间到',
+        })
+      }else{
+        this.setData({
+          timeup:false
+        })
       }
       this.setData({ remainingTime: time });
     }, 1000);
   },
 
   onLoad() {
-    this.countDown(); // 开始倒计时
     this.setCorrectAnswers();
     wx.request({
-      url: getApp().globalData.ip + 'chapter/GetQuestion',
-      data: {question_id:getApp().globalData.current_question_id},//传递题目id
+      url: getApp().globalData.ip + 'question/StudentGetQuestion',
+      data: {question_id:getApp().globalData.current_question_id,course_id:getApp().globalData.current_course_id, chapter_id:getApp().globalData.current_chapter_id, user_id:getApp().globalData.user_id},
       method: 'GET',
       timeout: 0,
       success: (result) => {
         console.log(result)
         var res = JSON.stringify(result.data)
-              var regex = /#answer:(.*?),creator_user_id:(\d+),difficulty:(\d+),options:(.*?),question_id:(\d+),question_text:(.*?),shared:(.*?),statistics:(.*?),tags:(.*?),type_:(\d+),update_time:(.*?)/g;
+              var regex = /#answer:(.*?),answer_visibility:(.*?),creator_user_id:(\d+),difficulty:(\d+),open_time:(.*?),options:(.*?),question_id:(\d+),question_status:(\d+),question_text:(.*?),round_count:(\d+),shared:(.*?),statistics:(.*?),submitted:(.*?),tags:(.*?),time_limit:(\d+),type_:(\d+),update_time:(.*?)/g;
               var match;
               match = regex.exec(res)
               console.log(match)
-              var question_text = match[6]
+              var question_text = match[9]
               var answer = match[1]
-              answer = answer.slice(1, -1)
-              var options = match[4]
+              answer = answer.replace(/'/g, '"')
+              answer = JSON.parse(answer)
+              var options = match[6]
               options = options.replace(/'/g, '"')
-              options = options.slice(1, -1)
-              var option_list = JSON.parse('{' + options + '}')
-              var options_list = Object.keys(option_list).map(function(key) {
-                return { key: key, value: obj[key] };
-            });
-              console.log(question_text)
-              console.log(answer)
-              console.log(options_list)
+              var options_list = JSON.parse(options)
+              var round_count = parseInt(match[10])
+              var visibility = match[2]
+              var limit = parseInt(match[15])
+              var open_time = match[5]
+              var start_time = new Date(open_time)
+              var current_time = new Date()
+              var rest_time = limit - Math.floor((current_time - start_time)/1000)
+              if(match[13] == 'True'){
+                var choosed = true
+              }else{
+                var choosed = false
+              }
+              console.log('question_text:' + question_text)
+              console.log('answer:' + answer)
+              console.log('options_list:' + options_list['A'])
+              console.log('round_count:' + round_count)
+              console.log('visibility:' + visibility)
+              console.log('submmited:' + match[13])
               //设置题目文本
-              this.data.questionText = question_text
+              var option = []
+              var input = {
+                option: 'A',
+                text: options_list['A'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'B',
+                text: options_list['B'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'C',
+                text: options_list['C'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              var input = {
+                option: 'D',
+                text: options_list['D'],
+                firstPercentage: 0,
+                firstVotes: 0,
+                secondPercentage: 0,
+                secondVotes: 0,
+                correct:false,
+              }
+              option.push(input)
+              console.log(option)
+              this.setData({
+                questionText:question_text,
+                options:option,
+                currentAttempt:round_count,
+                isAnswerPublished:visibility,
+                remainingTime:rest_time,
+                choosed:choosed
+              })
               this.data.correctAnswer = answer
-              this.data.options[0].text = options_list['A']
-              this.data.options[1].text = options_list['B']
-              this.data.options[2].text = options_list['C']
-              this.data.options[3].text = options_list['D']
+              this.setCorrectAnswers();
       },
       fail: (err) => {},
       complete: (res) => {},
     })
+    this.countDown(); 
+  },
+  onPullDownRefresh: function () {
+    onload()
   },
   previewImage(){
     wx.previewMedia({

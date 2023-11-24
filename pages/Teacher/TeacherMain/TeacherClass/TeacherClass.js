@@ -3,8 +3,7 @@ Page({
     items: [
       { },
     ],
-    courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
-    username: "王佳慧",
+    courseCount: 0 ,  
     course_pw:'',
     course_id:''
   },

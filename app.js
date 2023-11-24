@@ -27,6 +27,6 @@ App({
     question_list:[],//维护的题目列表
     forum_comment_list:[],//章节内帖子列表
     forum_list:[],//维护的帖子列表
-    ip:"http://10.62.61.18:5080/"
+    ip:"http://10.63.239.47:5080/"
   }
 })

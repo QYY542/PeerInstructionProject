@@ -6,14 +6,15 @@
 </view>
 
 <view class="greeting">
-    章节名称：XXX
+    章节名称：{{chaptername}}
 </view>
 
 <!-- 列表容器 -->
 <view class="list-container-forum">
 <!-- 列表部分 -->
 <view class="list" wx:for="{{items}}" wx:key="index">
-  <view class="list-item-forum" bindtap="goToPostDetail">
+  <view class="list-item-forum" bindtap="goToPostDetail"
+  data-index="{{index}}">
     <view class="title">
       <text class="comment-title">{{item.title}}</text>
       <button class="top" wx:if="{{item.isTop}}">置顶</button>

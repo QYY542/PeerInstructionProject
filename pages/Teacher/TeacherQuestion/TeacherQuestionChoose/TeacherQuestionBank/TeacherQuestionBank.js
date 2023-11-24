@@ -74,13 +74,21 @@ Page({
     for (let i = currentYear; i >= 1990; i--) {
       yearRange.push(i.toString());
     }
-  
     this.setData({
       yearRange: yearRange,
       itemsShow:items,
     });
-  
     // ... 其他初始化逻辑
+    //todo:向后端拉取所有共享题目表
+    wx.request({
+      url: getApp().globalData.ip + '',
+      data: data,
+      method: 'GET',
+      timeout: 0,
+      success: (result) => {},
+      fail: (err) => {},
+      complete: (res) => {},
+    })
   },
 
   updateItemsShow: function () {
