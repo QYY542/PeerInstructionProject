@@ -11,7 +11,7 @@
   <!-- 选项容器 -->
   <view class="options-container" wx:if="{{isAnswerPublished != 'True'}}">
     <block wx:for="{{options}}" wx:key="option">
-      <view class="option" data-index="{{index}}" bindtap="onOptionTap">
+      <view class="option" data-index="{{index}}" bindtap="{{!isAnswerPaused ? 'onOptionTap' : ''}}">
         <!-- ABCD -->
         <view class="option-prefix">{{item.option}}</view>
         <!-- 按钮 -->
@@ -43,6 +43,9 @@
   <!-- 倒计时 -->
   <text class="timer" user-select="true" wx:if="{{isAnswerPublished != 'True' && !timeup && !choosed}}">剩余时间：{{remainingTime}}秒</text>
   <text class="timer" user-select="true" wx:if="{{isAnswerPublished == 'True'}}">已经公布答案</text>
+
+  <text class="timer" user-select="true" wx:if="{{currentAttempt===1}}">第一次发布</text>
+  <text class="timer" user-select="true" wx:if="{{currentAttempt===2}}">第二次发布</text>
 
   <!-- 提交按钮 -->
   <button class="submit-btn" bindtap="onSubmit" disabled="{{isAnswerPublished == 'True'|| timeup || choosed}}">提交答案</button>

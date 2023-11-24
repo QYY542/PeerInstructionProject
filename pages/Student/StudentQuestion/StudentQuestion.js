@@ -34,7 +34,9 @@ Page({
     remainingTime: 60, // 剩余答题时间（秒）
     correctAnswer: ['A','C'], // 正确答案选项
     selectedAnswer: ['B'],
-    isAnswerPublished:true
+    isAnswerPublished:false,
+    isAnswerPaused:false,
+    currentAttempt:1
   },
   setCorrectAnswers: function() {
     const correctAnswers = this.data.correctAnswer; // 正确答案列表

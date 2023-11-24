@@ -101,3 +101,13 @@
   min-width: 100rpx;
   max-width: 100rpx;
 }
+
+.chapter-input::placeholder {
+  /* 设置占位符字体样式 */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  /* 其他样式属性 */
+  /* font-weight: bold; */
+  /* text-align: center; */
+}
