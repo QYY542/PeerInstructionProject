@@ -53,3 +53,16 @@
   color: #333;  /* 设置字体颜色 */
   line-height: 1.5;  /* 设置行高 */
 }
+
+.question-btn {
+  display: flex;         /* 使用flex布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  flex: none;             /* 修改此行 */
+  background-color: #626262;
+  color: #fff;
+  border-radius: 30rpx;
+  height: 80rpx;
+  min-width: 190rpx;
+  max-width: 190rpx;
+}

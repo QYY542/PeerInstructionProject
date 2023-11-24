@@ -18,9 +18,9 @@
 <view class="list" wx:for="{{items}}" wx:key="index">
     <view class="list-item-question">
       <!-- catchtap防止冒泡，即子元素上的事件会传递到父元素 -->
-      <button class="question-btn" catchtap="goToQuestionMain" data-index="{{index}}">题目</button>
+      <button class="question-btn" catchtap="goToQuestionMain" data-index="{{index}}">题目{{index+1}}</button>
       <view class="question-info">
-        <text class="question-info-text">题目信息</text>
+        <text class="firstOpen-btn">{{item.question_text}}</text>
       </view>
     </view>
 </view>

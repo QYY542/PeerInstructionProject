@@ -63,18 +63,7 @@
   max-width: 190rpx;
 }
 
-.firstOpen-btn {
-  display: flex;         /* 使用flex布局 */
-  justify-content: left; /* 水平居中 */
-  align-items: center;     /* 垂直居中 */
-  flex: none;             /* 修改此行 */
-  color: rgb(0, 0, 0);
-  border-radius: 30rpx;
-  height: 130rpx;
-  padding-left: 20rpx;
-  min-width: 400rpx;
-  max-width: 100rpx;
-}
+
 
 .sencondOpen-btn {
   display: flex;         /* 使用flex布局 */
@@ -110,4 +99,13 @@
   /* 其他样式属性 */
   /* font-weight: bold; */
   /* text-align: center; */
+}
+
+.question-info {
+  background-color: #94ffac;  /* 设置背景颜色 */
+  border: 1rpx solid #ddd;  /* 设置边框 */
+  border-radius: 10rpx;  /* 设置边框圆角 */
+  padding: 20rpx;  /* 设置内间距 */
+  margin: 10rpx 0;  /* 设置外间距 */
+  width: 340rpx;
 }
