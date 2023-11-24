@@ -36,12 +36,19 @@
 
   <!-- 列表容器 -->
   <view class="list-container">
+    
     <view class="list" wx:for="{{itemsShow}}" wx:key="index">
       <!-- 每个题目 -->
-      <view class="list-item-bank" bindtap="goToOriginalQuestion">
-        <text class="item-name">{{item.name}}</text>
+      <checkbox-group bindchange="onCheckboxGroupChange" data-index="{{index}}">
+      <view class="list-item-bank" data-index="{{index}}">
+        <checkbox class="item-checkbox" value="{{item.selected}}" data-index="{{index}}" checked="{{item.selected}}"></checkbox>
+        <text class="item-name" data-index="{{index}}">{{item.name}}</text>
         <image class="item-image" src="" mode="aspectFit"/>
-      </view>
     </view>
+  </checkbox-group>
   </view>
+ 
+</view>
+
+<button class="darkBtn" bindtap="addItem">确认添加</button>
 </view>

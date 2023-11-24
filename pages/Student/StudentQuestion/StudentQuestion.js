@@ -21,7 +21,7 @@ Page({
       { 
         option: 'C', 
         text: '', 
-        selected: true,
+        selected: false,
         correct:false,
         },
       { 
@@ -34,7 +34,9 @@ Page({
     remainingTime: 60, // 剩余答题时间（秒）
     correctAnswer: ['A','C'], // 正确答案选项
     selectedAnswer: ['B'],
-    isAnswerPublished:true
+    isAnswerPublished:true,
+    isAnswerPaused:false,
+    currentAttempt:1
   },
   setCorrectAnswers: function() {
     const correctAnswers = this.data.correctAnswer; // 正确答案列表
@@ -54,10 +56,22 @@ Page({
   onOptionTap(e) {
       const index = e.currentTarget.dataset.index;
       const options = this.data.options.map((item, idx) => {
-        item.selected = idx === index;
+        if(!item.selected){
+          item.selected = idx === index;
+        }else{
+          item.selected = !(idx === index);
+        }
         return item;
       });
-      this.setData({ options });
+      const selectedOptions = options.filter(item => item.selected);
+      const selectedAnswer = selectedOptions.map(item => item.option);
+    
+      this.setData({
+        options,
+        selectedAnswer
+      });
+
+      console.log(selectedAnswer)
   },
 
   onSubmit() {
