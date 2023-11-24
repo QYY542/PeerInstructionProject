@@ -1,10 +1,7 @@
 Page({
   data: {
-    items: [
-      { name: '章节1' ,chapter_id:""},
-      { name: '章节2' ,chapter_id:""}
-    ],
-    courseCount: 2 ,  // 初始值设置为2，因为目前有两个课程
+    items: [],
+    courseCount: 0 ,  // 初始值设置为2，因为目前有两个课程
     isClassStarted: false, // 初始课堂状态为未开始
     classBtnStyle:'greenBtn',
     classBtnText:'开始上课',
@@ -61,7 +58,11 @@ Page({
     })
       },
 
-  onLoad: function(){
+  onLoad: function(option){
+    this.setData({
+      course_id:getApp().globalData.current_course_id,
+      course_pw:getApp().globalData.current_course_pw
+    })
 //页面加载时向后端请求该教师目前课程章节进行页面初始化
 wx.request({
   url: getApp().globalData.ip + 'course/CourseMenu',

@@ -21,6 +21,7 @@ App({
     current_question_id:"",//当前题目id
     current_file_id:"",//当前文件id
     current_forum_id:"",//当前帖子id
+    current_course_pw:"",//当前课程密码
     course_list:[],//维护的课程列表，学生老师形式一致
     chapter_list:[],//维护的章节列表
     file_list:[],//维护的文件列表

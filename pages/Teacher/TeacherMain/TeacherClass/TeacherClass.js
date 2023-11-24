@@ -156,9 +156,10 @@ Page({
 
   goToChapterList: function(e) {
     let index = e.currentTarget.dataset.index;
-    let itemName = this.data.items[index].name;
     //进入某一课程，将该课程的course_id赋给current_course_id
     getApp().globalData.current_course_id = this.data.items[index].course_id
+    getApp().globalData.current_course_pw = this.data.items[index].course_pw
+    console.log('传递的密码：' + getApp().globalData.current_course_pw)
     wx.navigateTo({
       url: '/pages/Teacher/TeacherChapter/TeacherChapterList/TeacherChapterList'
     });
