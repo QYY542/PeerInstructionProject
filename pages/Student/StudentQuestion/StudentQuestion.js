@@ -33,7 +33,7 @@ Page({
     ],
     remainingTime: 60, // 剩余答题时间（秒）
     correctAnswer: ['A','C'], // 正确答案选项
-    selectedAnswer: ['B'],
+    selectedAnswer: [],
     isAnswerPublished:true,
     isAnswerPaused:false,
     currentAttempt:1
@@ -70,13 +70,12 @@ Page({
         options,
         selectedAnswer
       });
-
       console.log(selectedAnswer)
   },
 
   onSubmit() {
     // 提交答案的处理
-    const selectedOptions = this.data.options.filter(option => option.selected);
+    const selectedOptions = this.data.selectedAnswer;
     console.log('提交的答案是：', selectedOptions);
     wx.request({
       url: getApp().globalData.ip + 'lesson/SubmitQuestion',
@@ -99,12 +98,14 @@ Page({
     let timer = setInterval(() => {
       let time = this.data.remainingTime;
       time--;
-      if (time <= 0) {
+      if (time <= 0 ) {
         clearInterval(timer);
         this.setData({
           timeup:true
         })
-        this.onSubmit(); // 可以直接提交答案，或者提醒用户时间已到
+        if(this.data.choosed == false){
+          this.onSubmit(); // 可以直接提交答案，或者提醒用户时间已到
+        }
         wx.showToast({
           title: '时间到',
         })
