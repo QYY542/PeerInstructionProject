@@ -9,7 +9,7 @@ Page({
     timeLeft: 0, // 实际剩余时间
     buttonText: '开放题目', // 按钮文本
     countdownInterval: null, // 存储倒计时的interval
-    currentAttempt: 2, // 当前尝试次数
+    currentAttempt: 0, // 当前尝试次数
     maxAttempts: 2, // 最大开放次数
     canOpenQuestion: true, // 是否可以开放题目
     canSetTime: true, // 是否可以设置时间
@@ -357,6 +357,20 @@ console.log(this.data.canOpenQuestion)
               })
               this.data.correctAnswer = answer
               this.setCorrectAnswers();
+              if(this.data.currentAttempt === 0){
+                this.setData({
+                  buttonText:'开放题目'
+                })
+              }else if(this.data.currentAttempt === 1){
+                this.setData({
+                  buttonText:'再次开放'
+                })
+              }else{
+                this.setData({
+                  buttonText:'停止作答'
+                })
+                this.stopCountdown();
+              }
       },
       fail: (err) => {},
       complete: (res) => {},
