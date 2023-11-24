@@ -63,8 +63,8 @@
   color: #fff;
   border-radius: 30rpx;
   height: 80rpx;
-  min-width: 190rpx;
-  max-width: 190rpx;
+  min-width: 200rpx;
+  max-width: 200rpx;
 }
 
 .firstOpen-btn{
